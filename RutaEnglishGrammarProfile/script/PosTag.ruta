@@ -1,0 +1,46 @@
+/*
+Maven POM
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+  <groupId>RutaEnglishGrammarProfile</groupId>
+  <artifactId>RutaEnglishGrammarProfile</artifactId>
+  <version>0.0.1-SNAPSHOT</version>
+  <parent>
+    <groupId>org.apache.uima</groupId>
+    <artifactId>ruta-parent</artifactId>
+     <version>2.1.0</version>
+  </parent>
+  <dependencies>
+     <dependency>
+       <groupId>de.tudarmstadt.ukp.dkpro.core</groupId>
+       <artifactId>de.tudarmstadt.ukp.dkpro.core.treetagger-asl</artifactId>
+       <version>1.5.0</version>
+     </dependency>
+     <dependency>
+       <groupId>de.tudarmstadt.ukp.dkpro.core</groupId>
+       <artifactId>de.tudarmstadt.ukp.dkpro.core.stanfordnlp-gpl</artifactId>
+       <version>1.5.0</version>
+     </dependency>
+  </dependencies>
+  <repositories>
+    <repository>
+      <id>ukp-oss-model-releases</id>
+      <url>http://zoidberg.ukp.informatik.tu-darmstadt.de/artifactory/public-model-releases-local</url>
+      <snapshots>
+         <enabled>false</enabled>
+      </snapshots>
+    </repository>
+  </repositories>
+</project>
+*/
+
+
+//IMPORT PACKAGE de.tudarmstadt.ukp.dkpro.core.api.leximorph.type.pos FROM ProjectTypeSystem AS pos;
+//IMPORT PACKAGE de.tudarmstadt.ukp.dkpro.core.api.segmentation.type.Lemma FROM ProjectTypeSystem;
+//UIMAFIT de.tudarmstadt.ukp.dkpro.core.stanfordnlp.StanfordSegmenter;
+//UIMAFIT de.tudarmstadt.ukp.dkpro.core.treetagger.TreeTaggerPosLemmaTT4J;
+
+//Document{-> SETFEATURE("language", "de")};
+
+//Document{-> EXEC(StanfordSegmenter)};
+//Document{-> EXEC(TreeTaggerPosLemmaTT4J,{pos.POS,Lemma})};

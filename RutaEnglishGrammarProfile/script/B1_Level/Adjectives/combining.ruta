@@ -1,0 +1,21 @@
+PACKAGE B1_Level.Adjectives;
+
+TYPESYSTEM ProjectTypeSystem;
+
+
+
+
+//EXAMPLE 1: BeforeTheNoun
+((POS{FEATURE("PosValue", "JJ") COMMA (POS{FEATURE("PosValue", "JJ")) {-> CREATE(GrammarProfile, "name"="BeforeTheNoun", "level"="B2")} (POS{FEATURE("PosValue", "NN"); 
+    
+    //EXAMPLE 2: CombiningComparativeAdjectivesWithAnd 
+    ((POS{FEATURE("PosValue", "JJR")} W{REGEXP("and")}) (POS{FEATURE("PosValue", "JJR")}) {-> CREATE(GrammarProfile,1,2, "name"="CombiningComparativeAdjectivesWithAnd", "level"="B2")}; 
+
+//EXAMPLE 3: CombiningMoreThanTwoAdjectives
+(W{REGEXP("be")}) ((POS{FEATURE("PosValue", "JJ") COMMA)+ {-> CREATE(GrammarProfile,2,3, "name"="CombiningMoreThanTwoAdjectives", "level"="B2")} (POS{FEATURE("PosValue", "JJ");
+    
+    //EXAMPLE 4: CombiningTheSameComparativeAdjectiveWithAnd
+    (W{OR(REGEXP("become"),REGEXP("get"))}) ((POS{FEATURE("PosValue", "JJR")} W{REGEXP("and")}) (POS{FEATURE("PosValue", "JJR")}) {-> CREATE(GrammarProfile,1,2, "name"="CombiningTheSameComparativeAdjectiveWithAnd", "level"="B2")}; 
+
+//EXAMPLE 5: CompoundAdjectives
+W{REGEXP("(?i)(good-looking|well-known)") -> CREATE(GrammarProfile, "name"="CompoundAdjectives", "level"="B2")};

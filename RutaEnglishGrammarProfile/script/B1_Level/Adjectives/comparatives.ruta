@@ -1,0 +1,19 @@
+PACKAGE B1_Level.Adjectives;
+
+
+//EXAMPLE 1: Infinitive
+(W{REGEXP("to")}) (POS{FEATURE("PosValue", "VB")})  {-> CREATE(GrammarProfile,1,2, "name"="Infinitive", "level"="A0")}; 
+
+
+//EXAMPLE 2: Amplifier words
+W{REGEXP("(?i)(absolutely|altogether|completely|enormously|entirely|extremely|fully|greatly|highly|intensely|perfectly|strongly|thoroughly|totally|utterly|very)") -> CREATE(GrammarProfile, "name"="Amplifier", "level"="A0")};
+
+
+//EXAMPLE 1: WithSoMuch
+(W{REGEXP("be")}) OR(REGEXP("so"),REGEXP("so much")) POS{FEATURE("PosValue", "JJR")} {-> CREATE(GrammarProfile, "name"="Infinitive", "level"="A0")}; 
+
+//EXAMPLE 2: WithALittleBit
+
+//EXAMPLE 3: WithAnd
+
+//EXAMPLE 4: WithEven
