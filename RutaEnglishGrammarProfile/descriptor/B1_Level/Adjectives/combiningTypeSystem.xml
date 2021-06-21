@@ -10,5 +10,59 @@
         <import location="../../ProjectTypeSystem.xml"/>
             
     </imports>
+        
+    <types>
+                
+        <typeDescription>
+                        
+            <name>B1_Level.Adjectives.combining.BeforeTheNoun</name>
+                        
+            <description>Type defined in B1_Level.Adjectives.combining</description>
+                        
+            <supertypeName>uima.tcas.Annotation</supertypeName>
+                    
+        </typeDescription>
+                
+        <typeDescription>
+                        
+            <name>B1_Level.Adjectives.combining.CombiningComparativeAdjectivesWithAnd</name>
+                        
+            <description>Type defined in B1_Level.Adjectives.combining</description>
+                        
+            <supertypeName>uima.tcas.Annotation</supertypeName>
+                    
+        </typeDescription>
+                
+        <typeDescription>
+                        
+            <name>B1_Level.Adjectives.combining.CombiningMoreThanTwoAdjectives</name>
+                        
+            <description>Type defined in B1_Level.Adjectives.combining</description>
+                        
+            <supertypeName>uima.tcas.Annotation</supertypeName>
+                    
+        </typeDescription>
+                
+        <typeDescription>
+                        
+            <name>B1_Level.Adjectives.combining.CombiningTheSameComparativeAdjectiveWithAnd</name>
+                        
+            <description>Type defined in B1_Level.Adjectives.combining</description>
+                        
+            <supertypeName>uima.tcas.Annotation</supertypeName>
+                    
+        </typeDescription>
+                
+        <typeDescription>
+                        
+            <name>B1_Level.Adjectives.combining.CompoundAdjectives</name>
+                        
+            <description>Type defined in B1_Level.Adjectives.combining</description>
+                        
+            <supertypeName>uima.tcas.Annotation</supertypeName>
+                    
+        </typeDescription>
+            
+    </types>
     
 </typeSystemDescription>

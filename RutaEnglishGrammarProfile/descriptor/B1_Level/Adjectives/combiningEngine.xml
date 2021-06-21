@@ -705,7 +705,7 @@
                                         
                     <array>
                                                 
-                        <string>E:/2.IT/AI/Sprachtechnologie/Bachelorarbeit/RutaEnglishGrammarProfile/script</string>
+                        <string>E:/2.IT/Tools/Java/Eclipse/eclipse-workspace/RutaEnglishGrammarProfile/script</string>
                                             
                     </array>
                                     
@@ -721,7 +721,7 @@
                                         
                     <array>
                                                 
-                        <string>E:/2.IT/AI/Sprachtechnologie/Bachelorarbeit/RutaEnglishGrammarProfile/descriptor</string>
+                        <string>E:/2.IT/Tools/Java/Eclipse/eclipse-workspace/RutaEnglishGrammarProfile/descriptor</string>
                                             
                     </array>
                                     
@@ -737,7 +737,7 @@
                                         
                     <array>
                                                 
-                        <string>E:/2.IT/AI/Sprachtechnologie/Bachelorarbeit/RutaEnglishGrammarProfile/resources</string>
+                        <string>E:/2.IT/Tools/Java/Eclipse/eclipse-workspace/RutaEnglishGrammarProfile/resources</string>
                                             
                     </array>
                                     
@@ -846,6 +846,40 @@
                 <inputs/>
                                 
                 <outputs/>
+                                
+                <languagesSupported/>
+                            
+            </capability>
+                        
+            <capability>
+                                
+                <inputs>
+                                        
+                    <type>B1_Level.Adjectives.combining.BeforeTheNoun</type>
+                                        
+                    <type>B1_Level.Adjectives.combining.CombiningComparativeAdjectivesWithAnd</type>
+                                        
+                    <type>B1_Level.Adjectives.combining.CombiningMoreThanTwoAdjectives</type>
+                                        
+                    <type>B1_Level.Adjectives.combining.CombiningTheSameComparativeAdjectiveWithAnd</type>
+                                        
+                    <type>B1_Level.Adjectives.combining.CompoundAdjectives</type>
+                                    
+                </inputs>
+                                
+                <outputs>
+                                        
+                    <type>B1_Level.Adjectives.combining.BeforeTheNoun</type>
+                                        
+                    <type>B1_Level.Adjectives.combining.CombiningComparativeAdjectivesWithAnd</type>
+                                        
+                    <type>B1_Level.Adjectives.combining.CombiningMoreThanTwoAdjectives</type>
+                                        
+                    <type>B1_Level.Adjectives.combining.CombiningTheSameComparativeAdjectiveWithAnd</type>
+                                        
+                    <type>B1_Level.Adjectives.combining.CompoundAdjectives</type>
+                                    
+                </outputs>
                                 
                 <languagesSupported/>
                             

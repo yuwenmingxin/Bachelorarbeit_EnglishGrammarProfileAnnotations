@@ -6,16 +6,25 @@ TYPESYSTEM ProjectTypeSystem;
 
 
 //EXAMPLE 1: BeforeTheNoun
-((POS{FEATURE("PosValue", "JJ") COMMA (POS{FEATURE("PosValue", "JJ")) {-> CREATE(GrammarProfile, "name"="BeforeTheNoun", "level"="B2")} (POS{FEATURE("PosValue", "NN"); 
+((W{REGEXP("huge")}) COMMA (W{REGEXP("black")})) (W{REGEXP("screen")}) {-> CREATE(GrammarProfile,1, "name"="BeforeTheNoun", "level"="B1")} ; 
     
-    //EXAMPLE 2: CombiningComparativeAdjectivesWithAnd 
-    ((POS{FEATURE("PosValue", "JJR")} W{REGEXP("and")}) (POS{FEATURE("PosValue", "JJR")}) {-> CREATE(GrammarProfile,1,2, "name"="CombiningComparativeAdjectivesWithAnd", "level"="B2")}; 
+//EXAMPLE 2: CombiningComparativeAdjectivesWithAnd 
+((W{REGEXP("stronger")}) (W{REGEXP("and")}) (W{REGEXP("fitter")})) {-> CREATE(GrammarProfile,1,2,3, "name"="CombiningComparativeAdjectivesWithAnd", "level"="B1")}; 
 
 //EXAMPLE 3: CombiningMoreThanTwoAdjectives
-(W{REGEXP("be")}) ((POS{FEATURE("PosValue", "JJ") COMMA)+ {-> CREATE(GrammarProfile,2,3, "name"="CombiningMoreThanTwoAdjectives", "level"="B2")} (POS{FEATURE("PosValue", "JJ");
+//(W{REGEXP("be")}) ((W{REGEXP("intelligent")}) COMMA)+ ((W{REGEXP("stronger")}) (W{REGEXP("and")}) (W{REGEXP("fitter")})) {-> CREATE(GrammarProfile,2,3, "name"="CombiningMoreThanTwoAdjectives", "level"="B1")};
     
-    //EXAMPLE 4: CombiningTheSameComparativeAdjectiveWithAnd
-    (W{OR(REGEXP("become"),REGEXP("get"))}) ((POS{FEATURE("PosValue", "JJR")} W{REGEXP("and")}) (POS{FEATURE("PosValue", "JJR")}) {-> CREATE(GrammarProfile,1,2, "name"="CombiningTheSameComparativeAdjectiveWithAnd", "level"="B2")}; 
+//EXAMPLE 4: CombiningTheSameComparativeAdjectiveWithAnd
+(W{REGEXP("(?i)(became|is getting)")}) ((W{REGEXP("hotter")}) (W{REGEXP("and")}) (W{REGEXP("hotter")})) {-> CREATE(GrammarProfile,2, "name"="CombiningTheSameComparativeAdjectiveWithAnd", "level"="B1")}; 
 
-//EXAMPLE 5: CompoundAdjectives
-W{REGEXP("(?i)(good-looking|well-known)") -> CREATE(GrammarProfile, "name"="CompoundAdjectives", "level"="B2")};
+//EXAMPLE 5: CompoundAdjectives 
+(W{REGEXP("well")} SPECIAL{REGEXP("-")} W{REGEXP("known")})  {-> CREATE(GrammarProfile,1,2,3, "name"="CompoundAdjectives", "level"="B1")};
+
+
+DECLARE BeforeTheNoun, CombiningComparativeAdjectivesWithAnd ,CombiningMoreThanTwoAdjectives, CombiningTheSameComparativeAdjectiveWithAnd, CompoundAdjectives;
+
+GrammarProfile{GrammarProfile.level=="B1",GrammarProfile.name=="BeforeTheNoun" -> MARK(BeforeTheNoun)};
+GrammarProfile{GrammarProfile.level=="B1",GrammarProfile.name=="CombiningComparativeAdjectivesWithAnd" -> MARK(CombiningComparativeAdjectivesWithAnd)};
+GrammarProfile{GrammarProfile.level=="B1",GrammarProfile.name=="CombiningMoreThanTwoAdjectives" -> MARK(CombiningMoreThanTwoAdjectives)};
+GrammarProfile{GrammarProfile.level=="B1",GrammarProfile.name=="CombiningTheSameComparativeAdjectiveWithAnd" -> MARK(CombiningTheSameComparativeAdjectiveWithAnd)};
+GrammarProfile{GrammarProfile.level=="B1",GrammarProfile.name=="CompoundAdjectives" -> MARK(CompoundAdjectives)};

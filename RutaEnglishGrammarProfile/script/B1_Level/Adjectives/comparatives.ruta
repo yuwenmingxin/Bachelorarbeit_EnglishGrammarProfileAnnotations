@@ -1,19 +1,27 @@
 PACKAGE B1_Level.Adjectives;
 
+TYPESYSTEM ProjectTypeSystem;
 
-//EXAMPLE 1: Infinitive
-(W{REGEXP("to")}) (POS{FEATURE("PosValue", "VB")})  {-> CREATE(GrammarProfile,1,2, "name"="Infinitive", "level"="A0")}; 
-
-
-//EXAMPLE 2: Amplifier words
-W{REGEXP("(?i)(absolutely|altogether|completely|enormously|entirely|extremely|fully|greatly|highly|intensely|perfectly|strongly|thoroughly|totally|utterly|very)") -> CREATE(GrammarProfile, "name"="Amplifier", "level"="A0")};
-
+DECLARE Much, SoMuch, ABit, ALittleBit;
+(W{REGEXP("(?i)much")}) {-> MARK(Much)};
+(W{REGEXP("(?i)so")} Much) {-> CREATE(SoMuch)};
+(W{REGEXP("(?i)a")} W{REGEXP("(?i)bit")}) {-> MARK(ABit)};
+(W{REGEXP("(?i)a")} W{REGEXP("(?i)little")} W{REGEXP("(?i)bit")}) {-> MARK(ALittleBit)};
 
 //EXAMPLE 1: WithSoMuch
-(W{REGEXP("be")}) OR(REGEXP("so"),REGEXP("so much")) POS{FEATURE("PosValue", "JJR")} {-> CREATE(GrammarProfile, "name"="Infinitive", "level"="A0")}; 
+(W{REGEXP("is")}) (Much|SoMuch) (W{REGEXP("better")}) {-> CREATE(GrammarProfile,2,3, "name"="WithSoMuch", "level"="B1")}; 
 
-//EXAMPLE 2: WithALittleBit
+//EXAMPLE 2: WithALittleBit (Problem!!!)
+(W{REGEXP("was")}) (ABit|ALittleBit) (W{REGEXP("shorter")}) {-> CREATE(GrammarProfile,2,3, "name"="WithALittleBit", "level"="B1")}; 
 
 //EXAMPLE 3: WithAnd
 
 //EXAMPLE 4: WithEven
+(W{REGEXP("was|got")}) (W{REGEXP("(?i)(even)")}) (W{REGEXP("better")}) {-> CREATE(GrammarProfile,2,3, "name"="WithEven", "level"="B1")}; 
+
+DECLARE WithSoMuch, WithALittleBit, WithAnd, WithEven;
+
+GrammarProfile{GrammarProfile.level=="B1",GrammarProfile.name=="WithSoMuch" -> MARK(WithSoMuch)};
+GrammarProfile{GrammarProfile.level=="B1",GrammarProfile.name=="WithALittleBit" -> MARK(WithALittleBit)};
+GrammarProfile{GrammarProfile.level=="B1",GrammarProfile.name=="WithAnd" -> MARK(WithAnd)};
+GrammarProfile{GrammarProfile.level=="B1",GrammarProfile.name=="WithEven" -> MARK(WithEven)};
