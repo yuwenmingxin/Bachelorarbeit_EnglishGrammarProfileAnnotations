@@ -1,0 +1,31 @@
+/*
+PACKAGE B1_Level.Adjectives;
+
+TYPESYSTEM ProjectTypeSystem;
+
+DECLARE TheBest, OneOfThe;
+(W{REGEXP("(?i)the")} W{REGEXP((?i)"best")} ) {-> MARK(TheBest)};
+(W{REGEXP("(?i)one")} W{REGEXP((?i)"of")} W{REGEXP((?i)"the")}) {-> MARK(OneOfThe)};
+//1.ComplexNounPhrases
+//superlative + n + prepositional phrase
+
+//2.TheBestWithNounAndPresentPerfect
+//(TheBest) + n + present perfect
+
+//3.OneOfThe
+//(OneOfThe) + superlative + plural noun
+
+//4.TheBestWithNounAndToInfinitive
+//(TheBest) + n + to-infinitive
+
+//5.WithDeterminers
+//determiner + superlative + n 
+
+DECLARE ComplexNounPhrases, TheBestWithNounAndPresentPerfect, OneOfThe, TheBestWithNounAndToInfinitive, WithDeterminers;
+
+GrammarProfile{GrammarProfile.level=="B1",GrammarProfile.name=="ComplexNounPhrases" -> MARK(ComplexNounPhrases)};
+GrammarProfile{GrammarProfile.level=="B1",GrammarProfile.name=="TheBestWithNounAndPresentPerfect" -> MARK(TheBestWithNounAndPresentPerfect)};
+GrammarProfile{GrammarProfile.level=="B1",GrammarProfile.name=="OneOfThe" -> MARK(OneOfThe)};
+GrammarProfile{GrammarProfile.level=="B1",GrammarProfile.name=="TheBestWithNounAndToInfinitive" -> MARK(TheBestWithNounAndToInfinitive)};
+GrammarProfile{GrammarProfile.level=="B1",GrammarProfile.name=="WithDeterminers" -> MARK(WithDeterminers)};
+*/

@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<typeSystemDescription xmlns="http://uima.apache.org/resourceSpecifier">
+        
+    <name>B1_Level.Adjectives.modifyingTypeSystem</name>
+        
+    <imports>
+                
+        <import location="../../BasicTypeSystem.xml"/>
+                
+        <import location="../../ProjectTypeSystem.xml"/>
+            
+    </imports>
+        
+    <types>
+                
+        <typeDescription>
+                        
+            <name>B1_Level.Adjectives.modifying.WithQuiteA</name>
+                        
+            <description>Type defined in B1_Level.Adjectives.modifying</description>
+                        
+            <supertypeName>uima.tcas.Annotation</supertypeName>
+                    
+        </typeDescription>
+                
+        <typeDescription>
+                        
+            <name>B1_Level.Adjectives.modifying.WithEnough</name>
+                        
+            <description>Type defined in B1_Level.Adjectives.modifying</description>
+                        
+            <supertypeName>uima.tcas.Annotation</supertypeName>
+                    
+        </typeDescription>
+                
+        <typeDescription>
+                        
+            <name>B1_Level.Adjectives.modifying.QuiteA</name>
+                        
+            <description>Type defined in B1_Level.Adjectives.modifying</description>
+                        
+            <supertypeName>uima.tcas.Annotation</supertypeName>
+                    
+        </typeDescription>
+                
+        <typeDescription>
+                        
+            <name>B1_Level.Adjectives.modifying.AdjectivePhraseNoun</name>
+                        
+            <description>Type defined in B1_Level.Adjectives.modifying</description>
+                        
+            <supertypeName>uima.tcas.Annotation</supertypeName>
+                    
+        </typeDescription>
+                
+        <typeDescription>
+                        
+            <name>B1_Level.Adjectives.modifying.WithTooToInfinitive</name>
+                        
+            <description>Type defined in B1_Level.Adjectives.modifying</description>
+                        
+            <supertypeName>uima.tcas.Annotation</supertypeName>
+                    
+        </typeDescription>
+            
+    </types>
+    
+</typeSystemDescription>

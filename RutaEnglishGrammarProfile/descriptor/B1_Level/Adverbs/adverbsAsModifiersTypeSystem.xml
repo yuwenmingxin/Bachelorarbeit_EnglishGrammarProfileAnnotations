@@ -1,0 +1,138 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<typeSystemDescription xmlns="http://uima.apache.org/resourceSpecifier">
+        
+    <name>B1_Level.Adverbs.adverbsAsModifiersTypeSystem</name>
+        
+    <imports>
+                
+        <import location="../../BasicTypeSystem.xml"/>
+                
+        <import location="../../ProjectTypeSystem.xml"/>
+            
+    </imports>
+        
+    <types>
+                
+        <typeDescription>
+                        
+            <name>B1_Level.Adverbs.adverbsAsModifiers.Focus</name>
+                        
+            <description>Type defined in B1_Level.Adverbs.adverbsAsModifiers</description>
+                        
+            <supertypeName>uima.tcas.Annotation</supertypeName>
+                    
+        </typeDescription>
+                
+        <typeDescription>
+                        
+            <name>B1_Level.Adverbs.adverbsAsModifiers.DegreeReallyReally</name>
+                        
+            <description>Type defined in B1_Level.Adverbs.adverbsAsModifiers</description>
+                        
+            <supertypeName>uima.tcas.Annotation</supertypeName>
+                    
+        </typeDescription>
+                
+        <typeDescription>
+                        
+            <name>B1_Level.Adverbs.adverbsAsModifiers.Certainty</name>
+                        
+            <description>Type defined in B1_Level.Adverbs.adverbsAsModifiers</description>
+                        
+            <supertypeName>uima.tcas.Annotation</supertypeName>
+                    
+        </typeDescription>
+                
+        <typeDescription>
+                        
+            <name>B1_Level.Adverbs.adverbsAsModifiers.TimeAdv</name>
+                        
+            <description>Type defined in B1_Level.Adverbs.adverbsAsModifiers</description>
+                        
+            <supertypeName>uima.tcas.Annotation</supertypeName>
+                    
+        </typeDescription>
+                
+        <typeDescription>
+                        
+            <name>B1_Level.Adverbs.adverbsAsModifiers.Degree</name>
+                        
+            <description>Type defined in B1_Level.Adverbs.adverbsAsModifiers</description>
+                        
+            <supertypeName>uima.tcas.Annotation</supertypeName>
+                    
+        </typeDescription>
+                
+        <typeDescription>
+                        
+            <name>B1_Level.Adverbs.adverbsAsModifiers.DegreeWithVerbs</name>
+                        
+            <description>Type defined in B1_Level.Adverbs.adverbsAsModifiers</description>
+                        
+            <supertypeName>uima.tcas.Annotation</supertypeName>
+                    
+        </typeDescription>
+                
+        <typeDescription>
+                        
+            <name>B1_Level.Adverbs.adverbsAsModifiers.Place</name>
+                        
+            <description>Type defined in B1_Level.Adverbs.adverbsAsModifiers</description>
+                        
+            <supertypeName>uima.tcas.Annotation</supertypeName>
+                    
+        </typeDescription>
+                
+        <typeDescription>
+                        
+            <name>B1_Level.Adverbs.adverbsAsModifiers.Manner</name>
+                        
+            <description>Type defined in B1_Level.Adverbs.adverbsAsModifiers</description>
+                        
+            <supertypeName>uima.tcas.Annotation</supertypeName>
+                    
+        </typeDescription>
+                
+        <typeDescription>
+                        
+            <name>B1_Level.Adverbs.adverbsAsModifiers.Linking</name>
+                        
+            <description>Type defined in B1_Level.Adverbs.adverbsAsModifiers</description>
+                        
+            <supertypeName>uima.tcas.Annotation</supertypeName>
+                    
+        </typeDescription>
+                
+        <typeDescription>
+                        
+            <name>B1_Level.Adverbs.adverbsAsModifiers.Organising</name>
+                        
+            <description>Type defined in B1_Level.Adverbs.adverbsAsModifiers</description>
+                        
+            <supertypeName>uima.tcas.Annotation</supertypeName>
+                    
+        </typeDescription>
+                
+        <typeDescription>
+                        
+            <name>B1_Level.Adverbs.adverbsAsModifiers.Stance</name>
+                        
+            <description>Type defined in B1_Level.Adverbs.adverbsAsModifiers</description>
+                        
+            <supertypeName>uima.tcas.Annotation</supertypeName>
+                    
+        </typeDescription>
+                
+        <typeDescription>
+                        
+            <name>B1_Level.Adverbs.adverbsAsModifiers.ReallyReally</name>
+                        
+            <description>Type defined in B1_Level.Adverbs.adverbsAsModifiers</description>
+                        
+            <supertypeName>uima.tcas.Annotation</supertypeName>
+                    
+        </typeDescription>
+            
+    </types>
+    
+</typeSystemDescription>
