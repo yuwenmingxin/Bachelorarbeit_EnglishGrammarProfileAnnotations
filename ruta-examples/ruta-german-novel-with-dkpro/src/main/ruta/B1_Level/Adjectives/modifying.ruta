@@ -1,0 +1,26 @@
+PACKAGE B1_Level.Adjectives;
+
+TYPESYSTEM ProjectTypeSystem;
+
+DECLARE QuiteA;
+(W{REGEXP("(?i)quite")} W{REGEXP("(?i)a")}) {-> MARK(QuiteA)};
+
+//1.AdjectivePhraseNoun
+(W{REGEXP("important")}) (W{REGEXP("meeting")}) {-> CREATE(GrammarProfile,1, "name"="AdjectivePhraseNoun", "level"="B1")}; 
+
+//2.WithEnough
+(W{REGEXP("big")}) (W{REGEXP("(?i)enough")}) {-> CREATE(GrammarProfile,1,2, "name"="WithEnough", "level"="B1")}; 
+
+//3.WithQuiteA
+(QuiteA) (W{REGEXP("long")}) {-> CREATE(GrammarProfile,1,2, "name"="WithQuiteA", "level"="B1")}; 
+
+//4.WithTooToInfinitive
+(W{REGEXP("(?i)too")}) (W{REGEXP("busy")}) (W{REGEXP("to write")}) {-> CREATE(GrammarProfile,1,2, "name"="WithQuiteA", "level"="B1")}; 
+
+
+DECLARE AdjectivePhraseNoun, WithEnough, WithQuiteA, WithTooToInfinitive;
+
+GrammarProfile{GrammarProfile.level=="B1",GrammarProfile.name=="AdjectivePhraseNoun" -> MARK(AdjectivePhraseNoun)};
+GrammarProfile{GrammarProfile.level=="B1",GrammarProfile.name=="WithEnough" -> MARK(WithEnough)};
+GrammarProfile{GrammarProfile.level=="B1",GrammarProfile.name=="WithQuiteA" -> MARK(WithQuiteA)};
+GrammarProfile{GrammarProfile.level=="B1",GrammarProfile.name=="WithTooToInfinitive" -> MARK(WithTooToInfinitive)};

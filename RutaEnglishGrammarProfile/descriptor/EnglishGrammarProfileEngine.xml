@@ -722,6 +722,8 @@
                     <array>
                                                 
                         <string>E:/2.IT/Tools/Java/Eclipse/eclipse-workspace/RutaEnglishGrammarProfile/descriptor</string>
+                                                
+                        <string>E:/2.IT/Tools/Java/Eclipse/eclipse-workspace/RutaEnglishGrammarProfile/target/classes</string>
                                             
                     </array>
                                     
@@ -738,6 +740,8 @@
                     <array>
                                                 
                         <string>E:/2.IT/Tools/Java/Eclipse/eclipse-workspace/RutaEnglishGrammarProfile/resources</string>
+                                                
+                        <string>E:/2.IT/Tools/Java/Eclipse/eclipse-workspace/RutaEnglishGrammarProfile/target/classes</string>
                                             
                     </array>
                                     

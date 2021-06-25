@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<typeSystemDescription xmlns="http://uima.apache.org/resourceSpecifier">
+        
+    <name>B1_Level.Adjectives.B1_AdjectivesTypeSystem</name>
+        
+    <imports>
+                
+        <import location="../../BasicTypeSystem.xml"/>
+                
+        <import location="../../ProjectTypeSystem.xml"/>
+            
+    </imports>
+    
+</typeSystemDescription>

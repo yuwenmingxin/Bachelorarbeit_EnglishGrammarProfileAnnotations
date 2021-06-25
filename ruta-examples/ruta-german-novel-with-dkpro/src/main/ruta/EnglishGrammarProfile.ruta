@@ -1,0 +1,15 @@
+TYPESYSTEM ProjectTypeSystem;
+
+
+//EXAMPLE 1: Infinitive
+(W{REGEXP("to")}) (POS_VERB)  {-> CREATE(GrammarProfile,1,2, "name"="Infinitive", "level"="A0")}; 
+//(W{REGEXP("to")}) (POS{FEATURE("PosValue", "VB")}))  {-> CREATE(GrammarProfile,1,2, "name"="Infinitive", "level"="A0")}; 
+
+//EXAMPLE 2: Amplifier words
+W{REGEXP("(?i)(absolutely|altogether|completely|enormously|entirely|extremely|fully|greatly|highly|intensely|perfectly|strongly|thoroughly|totally|utterly|very)") -> CREATE(GrammarProfile, "name"="Amplifier", "level"="A0")};
+
+
+DECLARE Infinitive, Amplifier;
+
+GrammarProfile{GrammarProfile.level=="A0",GrammarProfile.name=="Infinitive" -> MARK(Infinitive)};
+GrammarProfile{GrammarProfile.level=="A0",GrammarProfile.name=="Amplifier" -> MARK(Amplifier)};

@@ -1,0 +1,32 @@
+TYPESYSTEM ProjectTypeSystem;
+//IMPORT PACKAGE de.tudarmstadt.ukp.dkpro.core.api.lexmorph.type.pos FROM desc.type.POS;
+//IMPORT de.tudarmstadt.ukp.dkpro.core.api.segmentation.type.Lemma FROM desc.type.LexicalUnits;
+
+UIMAFIT org.dkpro.core.opennlp.OpenNlpSegmenter;
+UIMAFIT org.dkpro.core.corenlp.CoreNlpLemmatizer;
+UIMAFIT org.dkpro.core.corenlp.CoreNlpPosTagger;
+UIMAFIT org.dkpro.core.opennlp.OpenNlpChunker;
+UIMAFIT org.dkpro.core.corenlp.CoreNlpParser;
+UIMAFIT org.dkpro.core.corenlp.CoreNlpDependencyParser;
+//UIMAFIT org.dkpro.core.matetools.MateMorphTagger;
+
+
+SCRIPT EnglishGrammarProfile;
+SCRIPT B1_Level.Adjectives.B1_Adjectives;
+
+uima.tcas.DocumentAnnotation{-CONTAINS(POS)}  -> {
+    uima.tcas.DocumentAnnotation{-> SETFEATURE("language", "en")};
+    EXEC(OpenNlpSegmenter);
+    EXEC(CoreNlpPosTagger, {POS});
+};
+
+
+//uima.tcas.DocumentAnnotation{-CONTAINS(MorphologicalFeatures)} -> {
+//    uima.tcas.DocumentAnnotation{-> SETFEATURE("language", "en")};
+//    EXEC(OpenNlpSegmenter);
+//    EXEC(MateMorphTagger, {MorphologicalFeatures});
+//};
+
+CALL(EnglishGrammarProfile);
+CALL(B1_Adjectives);
+
