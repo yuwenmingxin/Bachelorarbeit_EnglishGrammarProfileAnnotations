@@ -705,7 +705,7 @@
                                         
                     <array>
                                                 
-                        <string>E:/2.IT/Tools/Java/Eclipse/eclipse-workspace/RutaEnglishGrammarProfile/script</string>
+                        <string>/Users/quante/eclipse-workspace/RutaEnglishGrammarProfile/script</string>
                                             
                     </array>
                                     
@@ -721,9 +721,7 @@
                                         
                     <array>
                                                 
-                        <string>E:/2.IT/Tools/Java/Eclipse/eclipse-workspace/RutaEnglishGrammarProfile/descriptor</string>
-                                                
-                        <string>E:/2.IT/Tools/Java/Eclipse/eclipse-workspace/RutaEnglishGrammarProfile/target/classes</string>
+                        <string>/Users/quante/eclipse-workspace/RutaEnglishGrammarProfile/descriptor</string>
                                             
                     </array>
                                     
@@ -739,9 +737,7 @@
                                         
                     <array>
                                                 
-                        <string>E:/2.IT/Tools/Java/Eclipse/eclipse-workspace/RutaEnglishGrammarProfile/resources</string>
-                                                
-                        <string>E:/2.IT/Tools/Java/Eclipse/eclipse-workspace/RutaEnglishGrammarProfile/target/classes</string>
+                        <string>/Users/quante/eclipse-workspace/RutaEnglishGrammarProfile/resources</string>
                                             
                     </array>
                                     

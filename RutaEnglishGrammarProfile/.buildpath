@@ -1,24 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
 <buildpath>
-  <buildpathentry path="script" kind="src">
-    <attributes>
-      <attribute name="ruta" value="script"/>
-    </attributes>
-  </buildpathentry>
-  <buildpathentry path="target/generated-sources/ruta/descriptor" kind="src">
-    <attributes>
-      <attribute name="ruta" value="descriptor"/>
-    </attributes>
-  </buildpathentry>
-  <buildpathentry path="/" kind="src">
-    <attributes>
-      <attribute name="ruta" value="resources"/>
-    </attributes>
-  </buildpathentry>
-  <buildpathentry path="org.eclipse.dltk.launching.INTERPRETER_CONTAINER" kind="con"/>
-  <buildpathentry path="RUTA_BUILD_VARS" kind="con">
-    <attributes>
-      <attribute name="typeSystemSuffix" value="RutaTypeSystem"/>
-      <attribute name="analysisEngineSuffix" value="RutaAnnotator"/>
-    </attributes>
-  </buildpathentry>
+	<buildpathentry kind="con" path="org.eclipse.dltk.launching.INTERPRETER_CONTAINER"/>
+	<buildpathentry kind="src" path="script">
+		<attributes>
+			<attribute name="ruta" value="script"/>
+		</attributes>
+	</buildpathentry>
+	<buildpathentry kind="src" path="descriptor">
+		<attributes>
+			<attribute name="ruta" value="descriptor"/>
+		</attributes>
+	</buildpathentry>
+	<buildpathentry kind="src" path="resources">
+		<attributes>
+			<attribute name="ruta" value="resources"/>
+		</attributes>
+	</buildpathentry>
 </buildpath>
