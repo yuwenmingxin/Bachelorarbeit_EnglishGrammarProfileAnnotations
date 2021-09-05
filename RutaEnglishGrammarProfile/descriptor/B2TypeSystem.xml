@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <typeSystemDescription xmlns="http://uima.apache.org/resourceSpecifier">
         
-    <name>MainTypeSystem</name>
+    <name>B2TypeSystem</name>
         
     <imports>
                 
@@ -9,7 +9,7 @@
                 
         <import location="ProjectTypeSystem.xml"/>
                 
-        <import location="EnglishGrammarProfileTypeSystem.xml"/>
+        <import location="GrammarBuilderTypeSystem.xml"/>
             
     </imports>
     

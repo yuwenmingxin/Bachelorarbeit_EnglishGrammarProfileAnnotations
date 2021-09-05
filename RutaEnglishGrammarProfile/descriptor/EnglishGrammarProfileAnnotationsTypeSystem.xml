@@ -1,0 +1,150 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<typeSystemDescription xmlns="http://uima.apache.org/resourceSpecifier">
+        
+    <name>EnglishGrammarProfileAnnotationsTypeSystem</name>
+        
+    <imports>
+                
+        <import location="BasicTypeSystem.xml"/>
+                
+        <import location="ProjectTypeSystem.xml"/>
+                
+        <import location="GrammarBuilderTypeSystem.xml"/>
+            
+    </imports>
+        
+    <types>
+                
+        <typeDescription>
+                        
+            <name>EnglishGrammarProfileAnnotations.ThePerson</name>
+                        
+            <description>Type defined in EnglishGrammarProfileAnnotations</description>
+                        
+            <supertypeName>uima.tcas.Annotation</supertypeName>
+                    
+        </typeDescription>
+                
+        <typeDescription>
+                        
+            <name>EnglishGrammarProfileAnnotations.Though</name>
+                        
+            <description>Type defined in EnglishGrammarProfileAnnotations</description>
+                        
+            <supertypeName>uima.tcas.Annotation</supertypeName>
+                    
+        </typeDescription>
+                
+        <typeDescription>
+                        
+            <name>EnglishGrammarProfileAnnotations.TheOne</name>
+                        
+            <description>Type defined in EnglishGrammarProfileAnnotations</description>
+                        
+            <supertypeName>uima.tcas.Annotation</supertypeName>
+                    
+        </typeDescription>
+                
+        <typeDescription>
+                        
+            <name>EnglishGrammarProfileAnnotations.OneOf</name>
+                        
+            <description>Type defined in EnglishGrammarProfileAnnotations</description>
+                        
+            <supertypeName>uima.tcas.Annotation</supertypeName>
+                    
+        </typeDescription>
+                
+        <typeDescription>
+                        
+            <name>EnglishGrammarProfileAnnotations.InOrderThat</name>
+                        
+            <description>Type defined in EnglishGrammarProfileAnnotations</description>
+                        
+            <supertypeName>uima.tcas.Annotation</supertypeName>
+                    
+        </typeDescription>
+                
+        <typeDescription>
+                        
+            <name>EnglishGrammarProfileAnnotations.Also</name>
+                        
+            <description>Type defined in EnglishGrammarProfileAnnotations</description>
+                        
+            <supertypeName>uima.tcas.Annotation</supertypeName>
+                    
+        </typeDescription>
+                
+        <typeDescription>
+                        
+            <name>EnglishGrammarProfileAnnotations.WhileIf</name>
+                        
+            <description>Type defined in EnglishGrammarProfileAnnotations</description>
+                        
+            <supertypeName>uima.tcas.Annotation</supertypeName>
+                    
+        </typeDescription>
+                
+        <typeDescription>
+                        
+            <name>EnglishGrammarProfileAnnotations.Very</name>
+                        
+            <description>Type defined in EnglishGrammarProfileAnnotations</description>
+                        
+            <supertypeName>uima.tcas.Annotation</supertypeName>
+                    
+        </typeDescription>
+                
+        <typeDescription>
+                        
+            <name>EnglishGrammarProfileAnnotations.TheThing</name>
+                        
+            <description>Type defined in EnglishGrammarProfileAnnotations</description>
+                        
+            <supertypeName>uima.tcas.Annotation</supertypeName>
+                    
+        </typeDescription>
+                
+        <typeDescription>
+                        
+            <name>EnglishGrammarProfileAnnotations.AAdj</name>
+                        
+            <description>Type defined in EnglishGrammarProfileAnnotations</description>
+                        
+            <supertypeName>uima.tcas.Annotation</supertypeName>
+                    
+        </typeDescription>
+                
+        <typeDescription>
+                        
+            <name>EnglishGrammarProfileAnnotations.SoThat</name>
+                        
+            <description>Type defined in EnglishGrammarProfileAnnotations</description>
+                        
+            <supertypeName>uima.tcas.Annotation</supertypeName>
+                    
+        </typeDescription>
+                
+        <typeDescription>
+                        
+            <name>EnglishGrammarProfileAnnotations.EvenThough</name>
+                        
+            <description>Type defined in EnglishGrammarProfileAnnotations</description>
+                        
+            <supertypeName>uima.tcas.Annotation</supertypeName>
+                    
+        </typeDescription>
+                
+        <typeDescription>
+                        
+            <name>EnglishGrammarProfileAnnotations.Although</name>
+                        
+            <description>Type defined in EnglishGrammarProfileAnnotations</description>
+                        
+            <supertypeName>uima.tcas.Annotation</supertypeName>
+                    
+        </typeDescription>
+            
+    </types>
+    
+</typeSystemDescription>

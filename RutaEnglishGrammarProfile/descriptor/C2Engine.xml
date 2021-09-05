@@ -691,7 +691,7 @@
                                 
                 <value>
                                         
-                    <string>Main</string>
+                    <string>C2</string>
                                     
                 </value>
                             
@@ -753,7 +753,7 @@
                                         
                     <array>
                                                 
-                        <string>EnglishGrammarProfile</string>
+                        <string>GrammarBuilder</string>
                                             
                     </array>
                                     
@@ -821,7 +821,7 @@
                         
             <imports>
                                 
-                <import location="MainTypeSystem.xml"/>
+                <import location="C2TypeSystem.xml"/>
                             
             </imports>
                     

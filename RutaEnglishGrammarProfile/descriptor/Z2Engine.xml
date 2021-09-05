@@ -691,7 +691,7 @@
                                 
                 <value>
                                         
-                    <string>Main</string>
+                    <string>Z2</string>
                                     
                 </value>
                             
@@ -751,11 +751,7 @@
                                 
                 <value>
                                         
-                    <array>
-                                                
-                        <string>EnglishGrammarProfile</string>
-                                            
-                    </array>
+                    <array/>
                                     
                 </value>
                             
@@ -821,7 +817,7 @@
                         
             <imports>
                                 
-                <import location="MainTypeSystem.xml"/>
+                <import location="Z2TypeSystem.xml"/>
                             
             </imports>
                     

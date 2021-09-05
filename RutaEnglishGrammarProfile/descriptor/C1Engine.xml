@@ -691,7 +691,7 @@
                                 
                 <value>
                                         
-                    <string>Main</string>
+                    <string>C1</string>
                                     
                 </value>
                             
@@ -753,7 +753,7 @@
                                         
                     <array>
                                                 
-                        <string>EnglishGrammarProfile</string>
+                        <string>GrammarBuilder</string>
                                             
                     </array>
                                     
@@ -821,7 +821,7 @@
                         
             <imports>
                                 
-                <import location="MainTypeSystem.xml"/>
+                <import location="C1TypeSystem.xml"/>
                             
             </imports>
                     
@@ -850,6 +850,24 @@
                 <inputs/>
                                 
                 <outputs/>
+                                
+                <languagesSupported/>
+                            
+            </capability>
+                        
+            <capability>
+                                
+                <inputs>
+                                        
+                    <type>C1.Very</type>
+                                    
+                </inputs>
+                                
+                <outputs>
+                                        
+                    <type>C1.Very</type>
+                                    
+                </outputs>
                                 
                 <languagesSupported/>
                             

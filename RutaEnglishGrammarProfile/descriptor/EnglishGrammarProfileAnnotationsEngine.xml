@@ -691,7 +691,7 @@
                                 
                 <value>
                                         
-                    <string>Main</string>
+                    <string>EnglishGrammarProfileAnnotations</string>
                                     
                 </value>
                             
@@ -753,7 +753,7 @@
                                         
                     <array>
                                                 
-                        <string>EnglishGrammarProfile</string>
+                        <string>GrammarBuilder</string>
                                             
                     </array>
                                     
@@ -821,7 +821,7 @@
                         
             <imports>
                                 
-                <import location="MainTypeSystem.xml"/>
+                <import location="EnglishGrammarProfileAnnotationsTypeSystem.xml"/>
                             
             </imports>
                     
@@ -850,6 +850,72 @@
                 <inputs/>
                                 
                 <outputs/>
+                                
+                <languagesSupported/>
+                            
+            </capability>
+                        
+            <capability>
+                                
+                <inputs>
+                                        
+                    <type>EnglishGrammarProfileAnnotations.AAdj</type>
+                                        
+                    <type>EnglishGrammarProfileAnnotations.ThePerson</type>
+                                        
+                    <type>EnglishGrammarProfileAnnotations.TheThing</type>
+                                        
+                    <type>EnglishGrammarProfileAnnotations.TheOne</type>
+                                        
+                    <type>EnglishGrammarProfileAnnotations.SoThat</type>
+                                        
+                    <type>EnglishGrammarProfileAnnotations.InOrderThat</type>
+                                        
+                    <type>EnglishGrammarProfileAnnotations.EvenThough</type>
+                                        
+                    <type>EnglishGrammarProfileAnnotations.Although</type>
+                                        
+                    <type>EnglishGrammarProfileAnnotations.Though</type>
+                                        
+                    <type>EnglishGrammarProfileAnnotations.WhileIf</type>
+                                        
+                    <type>EnglishGrammarProfileAnnotations.OneOf</type>
+                                        
+                    <type>EnglishGrammarProfileAnnotations.Very</type>
+                                        
+                    <type>EnglishGrammarProfileAnnotations.Also</type>
+                                    
+                </inputs>
+                                
+                <outputs>
+                                        
+                    <type>EnglishGrammarProfileAnnotations.AAdj</type>
+                                        
+                    <type>EnglishGrammarProfileAnnotations.ThePerson</type>
+                                        
+                    <type>EnglishGrammarProfileAnnotations.TheThing</type>
+                                        
+                    <type>EnglishGrammarProfileAnnotations.TheOne</type>
+                                        
+                    <type>EnglishGrammarProfileAnnotations.SoThat</type>
+                                        
+                    <type>EnglishGrammarProfileAnnotations.InOrderThat</type>
+                                        
+                    <type>EnglishGrammarProfileAnnotations.EvenThough</type>
+                                        
+                    <type>EnglishGrammarProfileAnnotations.Although</type>
+                                        
+                    <type>EnglishGrammarProfileAnnotations.Though</type>
+                                        
+                    <type>EnglishGrammarProfileAnnotations.WhileIf</type>
+                                        
+                    <type>EnglishGrammarProfileAnnotations.OneOf</type>
+                                        
+                    <type>EnglishGrammarProfileAnnotations.Very</type>
+                                        
+                    <type>EnglishGrammarProfileAnnotations.Also</type>
+                                    
+                </outputs>
                                 
                 <languagesSupported/>
                             

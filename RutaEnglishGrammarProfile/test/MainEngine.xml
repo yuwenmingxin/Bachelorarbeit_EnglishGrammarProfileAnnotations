@@ -705,7 +705,7 @@
                                         
                     <array>
                                                 
-                        <string>E:/2.IT/Tools/Java/Eclipse/eclipse-workspace/RutaEnglishGrammarProfile/script</string>
+                        <string>E:/2.IT/Tools/Java/Eclipse/eclipse-workspace/de.uni-due.ltl.grammarprofile/src/main/resources/ruta/script</string>
                                             
                     </array>
                                     
@@ -721,7 +721,7 @@
                                         
                     <array>
                                                 
-                        <string>E:/2.IT/Tools/Java/Eclipse/eclipse-workspace/RutaEnglishGrammarProfile/descriptor</string>
+                        <string>E:/2.IT/Tools/Java/Eclipse/eclipse-workspace/de.uni-due.ltl.grammarprofile/src/main/resources/ruta/descriptor</string>
                                             
                     </array>
                                     
@@ -737,7 +737,7 @@
                                         
                     <array>
                                                 
-                        <string>E:/2.IT/Tools/Java/Eclipse/eclipse-workspace/RutaEnglishGrammarProfile/resources</string>
+                        <string>E:/2.IT/Tools/Java/Eclipse/eclipse-workspace/de.uni-due.ltl.grammarprofile/src/main/resources/ruta/resources</string>
                                             
                     </array>
                                     

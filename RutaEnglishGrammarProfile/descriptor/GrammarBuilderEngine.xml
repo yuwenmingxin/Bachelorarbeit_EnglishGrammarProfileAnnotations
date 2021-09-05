@@ -691,7 +691,7 @@
                                 
                 <value>
                                         
-                    <string>Main</string>
+                    <string>GrammarBuilder</string>
                                     
                 </value>
                             
@@ -751,11 +751,7 @@
                                 
                 <value>
                                         
-                    <array>
-                                                
-                        <string>EnglishGrammarProfile</string>
-                                            
-                    </array>
+                    <array/>
                                     
                 </value>
                             
@@ -821,7 +817,7 @@
                         
             <imports>
                                 
-                <import location="MainTypeSystem.xml"/>
+                <import location="GrammarBuilderTypeSystem.xml"/>
                             
             </imports>
                     
@@ -850,6 +846,484 @@
                 <inputs/>
                                 
                 <outputs/>
+                                
+                <languagesSupported/>
+                            
+            </capability>
+                        
+            <capability>
+                                
+                <inputs>
+                                        
+                    <type>GrammarBuilder.Not</type>
+                                        
+                    <type>GrammarBuilder.Dont</type>
+                                        
+                    <type>GrammarBuilder.Doesnt</type>
+                                        
+                    <type>GrammarBuilder.Didnt</type>
+                                        
+                    <type>GrammarBuilder.Havent</type>
+                                        
+                    <type>GrammarBuilder.Hasnt</type>
+                                        
+                    <type>GrammarBuilder.Hadnt</type>
+                                        
+                    <type>GrammarBuilder.Article</type>
+                                        
+                    <type>GrammarBuilder.WHWord</type>
+                                        
+                    <type>GrammarBuilder.RelativePronoun</type>
+                                        
+                    <type>GrammarBuilder.DemonstrativePronoun</type>
+                                        
+                    <type>GrammarBuilder.ReflexivePronoun</type>
+                                        
+                    <type>GrammarBuilder.IndefinitePronoun</type>
+                                        
+                    <type>GrammarBuilder.IrregularPluralNoun</type>
+                                        
+                    <type>GrammarBuilder.UncountableNoun</type>
+                                        
+                    <type>GrammarBuilder.CollectiveNoun</type>
+                                        
+                    <type>GrammarBuilder.AdjectiveNoun</type>
+                                        
+                    <type>GrammarBuilder.AsAdjAs</type>
+                                        
+                    <type>GrammarBuilder.Comparative</type>
+                                        
+                    <type>GrammarBuilder.Superlative</type>
+                                        
+                    <type>GrammarBuilder.ComparativeAdv</type>
+                                        
+                    <type>GrammarBuilder.SuperlativeAdv</type>
+                                        
+                    <type>GrammarBuilder.DegreeAdj</type>
+                                        
+                    <type>GrammarBuilder.TimeAdj</type>
+                                        
+                    <type>GrammarBuilder.IrregularComparatives</type>
+                                        
+                    <type>GrammarBuilder.TimeAdv</type>
+                                        
+                    <type>GrammarBuilder.Place</type>
+                                        
+                    <type>GrammarBuilder.Degree</type>
+                                        
+                    <type>GrammarBuilder.Manner</type>
+                                        
+                    <type>GrammarBuilder.Linking</type>
+                                        
+                    <type>GrammarBuilder.Focus</type>
+                                        
+                    <type>GrammarBuilder.Organising</type>
+                                        
+                    <type>GrammarBuilder.Certainty</type>
+                                        
+                    <type>GrammarBuilder.Stance</type>
+                                        
+                    <type>GrammarBuilder.AdverbModifyingAdverb</type>
+                                        
+                    <type>GrammarBuilder.IndefiniteFrequency</type>
+                                        
+                    <type>GrammarBuilder.Distancing</type>
+                                        
+                    <type>GrammarBuilder.Frequency</type>
+                                        
+                    <type>GrammarBuilder.Sequencing</type>
+                                        
+                    <type>GrammarBuilder.OtherAdverbs</type>
+                                        
+                    <type>GrammarBuilder.Adverb</type>
+                                        
+                    <type>GrammarBuilder.DeterminerWithSingularNouns</type>
+                                        
+                    <type>GrammarBuilder.DeterminerWithPluralNouns</type>
+                                        
+                    <type>GrammarBuilder.DeterminerWithUncountableNouns</type>
+                                        
+                    <type>GrammarBuilder.DeterminersWithCountableNouns</type>
+                                        
+                    <type>GrammarBuilder.DeterminerWithPluralAndUncountableNouns</type>
+                                        
+                    <type>GrammarBuilder.DeterminerOf</type>
+                                        
+                    <type>GrammarBuilder.Determiner</type>
+                                        
+                    <type>GrammarBuilder.AdjectivePhrase</type>
+                                        
+                    <type>GrammarBuilder.AdverbAdjective</type>
+                                        
+                    <type>GrammarBuilder.ComplexPreposition</type>
+                                        
+                    <type>GrammarBuilder.SimplePreposition</type>
+                                        
+                    <type>GrammarBuilder.Preposition</type>
+                                        
+                    <type>GrammarBuilder.SimpleSubordinatingConjunction</type>
+                                        
+                    <type>GrammarBuilder.ComplexSubordinatingConjunction</type>
+                                        
+                    <type>GrammarBuilder.Conjunction</type>
+                                        
+                    <type>GrammarBuilder.PrepositionPhrase</type>
+                                        
+                    <type>GrammarBuilder.TimeAdjunct</type>
+                                        
+                    <type>GrammarBuilder.Contrasting</type>
+                                        
+                    <type>GrammarBuilder.Adding</type>
+                                        
+                    <type>GrammarBuilder.MakingNewKnowledgeInformal</type>
+                                        
+                    <type>GrammarBuilder.Comparing</type>
+                                        
+                    <type>GrammarBuilder.Summarising</type>
+                                        
+                    <type>GrammarBuilder.Reference</type>
+                                        
+                    <type>GrammarBuilder.FrontingExpression</type>
+                                        
+                    <type>GrammarBuilder.Particle</type>
+                                        
+                    <type>GrammarBuilder.Be</type>
+                                        
+                    <type>GrammarBuilder.Is</type>
+                                        
+                    <type>GrammarBuilder.Was</type>
+                                        
+                    <type>GrammarBuilder.Do</type>
+                                        
+                    <type>GrammarBuilder.Does</type>
+                                        
+                    <type>GrammarBuilder.Did</type>
+                                        
+                    <type>GrammarBuilder.Have</type>
+                                        
+                    <type>GrammarBuilder.Has</type>
+                                        
+                    <type>GrammarBuilder.Had</type>
+                                        
+                    <type>GrammarBuilder.Will</type>
+                                        
+                    <type>GrammarBuilder.Would</type>
+                                        
+                    <type>GrammarBuilder.Can</type>
+                                        
+                    <type>GrammarBuilder.Could</type>
+                                        
+                    <type>GrammarBuilder.May</type>
+                                        
+                    <type>GrammarBuilder.Might</type>
+                                        
+                    <type>GrammarBuilder.Must</type>
+                                        
+                    <type>GrammarBuilder.Need</type>
+                                        
+                    <type>GrammarBuilder.Ought</type>
+                                        
+                    <type>GrammarBuilder.Shall</type>
+                                        
+                    <type>GrammarBuilder.Should</type>
+                                        
+                    <type>GrammarBuilder.ModalVerb</type>
+                                        
+                    <type>GrammarBuilder.ToDo</type>
+                                        
+                    <type>GrammarBuilder.Doing</type>
+                                        
+                    <type>GrammarBuilder.Done</type>
+                                        
+                    <type>GrammarBuilder.BeenDone</type>
+                                        
+                    <type>GrammarBuilder.BeingDone</type>
+                                        
+                    <type>GrammarBuilder.ToBeDone</type>
+                                        
+                    <type>GrammarBuilder.Passive</type>
+                                        
+                    <type>GrammarBuilder.Present3rd</type>
+                                        
+                    <type>GrammarBuilder.PresentNon3rd</type>
+                                        
+                    <type>GrammarBuilder.Present</type>
+                                        
+                    <type>GrammarBuilder.Past</type>
+                                        
+                    <type>GrammarBuilder.Used</type>
+                                        
+                    <type>GrammarBuilder.BeenDoing</type>
+                                        
+                    <type>GrammarBuilder.WillShall</type>
+                                        
+                    <type>GrammarBuilder.Going</type>
+                                        
+                    <type>GrammarBuilder.Future</type>
+                                        
+                    <type>GrammarBuilder.Subject</type>
+                                        
+                    <type>GrammarBuilder.Object</type>
+                                        
+                    <type>GrammarBuilder.FiniteClause1</type>
+                                        
+                    <type>GrammarBuilder.FiniteClause2</type>
+                                        
+                    <type>GrammarBuilder.DoingNonFiniteClause</type>
+                                        
+                    <type>GrammarBuilder.ToDoNonFiniteClause</type>
+                                        
+                    <type>GrammarBuilder.DoneNonFiniteClause</type>
+                                        
+                    <type>GrammarBuilder.NonFiniteClause</type>
+                                        
+                    <type>GrammarBuilder.ImperativeClause</type>
+                                        
+                    <type>GrammarBuilder.ReportingVerbs</type>
+                                        
+                    <type>GrammarBuilder.ComparativeClause</type>
+                                        
+                    <type>GrammarBuilder.IfClause</type>
+                                        
+                    <type>GrammarBuilder.WHWordCluase</type>
+                                    
+                </inputs>
+                                
+                <outputs>
+                                        
+                    <type>GrammarBuilder.Not</type>
+                                        
+                    <type>GrammarBuilder.Dont</type>
+                                        
+                    <type>GrammarBuilder.Doesnt</type>
+                                        
+                    <type>GrammarBuilder.Didnt</type>
+                                        
+                    <type>GrammarBuilder.Havent</type>
+                                        
+                    <type>GrammarBuilder.Hasnt</type>
+                                        
+                    <type>GrammarBuilder.Hadnt</type>
+                                        
+                    <type>GrammarBuilder.Article</type>
+                                        
+                    <type>GrammarBuilder.WHWord</type>
+                                        
+                    <type>GrammarBuilder.RelativePronoun</type>
+                                        
+                    <type>GrammarBuilder.DemonstrativePronoun</type>
+                                        
+                    <type>GrammarBuilder.ReflexivePronoun</type>
+                                        
+                    <type>GrammarBuilder.IndefinitePronoun</type>
+                                        
+                    <type>GrammarBuilder.IrregularPluralNoun</type>
+                                        
+                    <type>GrammarBuilder.UncountableNoun</type>
+                                        
+                    <type>GrammarBuilder.CollectiveNoun</type>
+                                        
+                    <type>GrammarBuilder.AdjectiveNoun</type>
+                                        
+                    <type>GrammarBuilder.AsAdjAs</type>
+                                        
+                    <type>GrammarBuilder.Comparative</type>
+                                        
+                    <type>GrammarBuilder.Superlative</type>
+                                        
+                    <type>GrammarBuilder.ComparativeAdv</type>
+                                        
+                    <type>GrammarBuilder.SuperlativeAdv</type>
+                                        
+                    <type>GrammarBuilder.DegreeAdj</type>
+                                        
+                    <type>GrammarBuilder.TimeAdj</type>
+                                        
+                    <type>GrammarBuilder.IrregularComparatives</type>
+                                        
+                    <type>GrammarBuilder.TimeAdv</type>
+                                        
+                    <type>GrammarBuilder.Place</type>
+                                        
+                    <type>GrammarBuilder.Degree</type>
+                                        
+                    <type>GrammarBuilder.Manner</type>
+                                        
+                    <type>GrammarBuilder.Linking</type>
+                                        
+                    <type>GrammarBuilder.Focus</type>
+                                        
+                    <type>GrammarBuilder.Organising</type>
+                                        
+                    <type>GrammarBuilder.Certainty</type>
+                                        
+                    <type>GrammarBuilder.Stance</type>
+                                        
+                    <type>GrammarBuilder.AdverbModifyingAdverb</type>
+                                        
+                    <type>GrammarBuilder.IndefiniteFrequency</type>
+                                        
+                    <type>GrammarBuilder.Distancing</type>
+                                        
+                    <type>GrammarBuilder.Frequency</type>
+                                        
+                    <type>GrammarBuilder.Sequencing</type>
+                                        
+                    <type>GrammarBuilder.OtherAdverbs</type>
+                                        
+                    <type>GrammarBuilder.Adverb</type>
+                                        
+                    <type>GrammarBuilder.DeterminerWithSingularNouns</type>
+                                        
+                    <type>GrammarBuilder.DeterminerWithPluralNouns</type>
+                                        
+                    <type>GrammarBuilder.DeterminerWithUncountableNouns</type>
+                                        
+                    <type>GrammarBuilder.DeterminersWithCountableNouns</type>
+                                        
+                    <type>GrammarBuilder.DeterminerWithPluralAndUncountableNouns</type>
+                                        
+                    <type>GrammarBuilder.DeterminerOf</type>
+                                        
+                    <type>GrammarBuilder.Determiner</type>
+                                        
+                    <type>GrammarBuilder.AdjectivePhrase</type>
+                                        
+                    <type>GrammarBuilder.AdverbAdjective</type>
+                                        
+                    <type>GrammarBuilder.ComplexPreposition</type>
+                                        
+                    <type>GrammarBuilder.SimplePreposition</type>
+                                        
+                    <type>GrammarBuilder.Preposition</type>
+                                        
+                    <type>GrammarBuilder.SimpleSubordinatingConjunction</type>
+                                        
+                    <type>GrammarBuilder.ComplexSubordinatingConjunction</type>
+                                        
+                    <type>GrammarBuilder.Conjunction</type>
+                                        
+                    <type>GrammarBuilder.PrepositionPhrase</type>
+                                        
+                    <type>GrammarBuilder.TimeAdjunct</type>
+                                        
+                    <type>GrammarBuilder.Contrasting</type>
+                                        
+                    <type>GrammarBuilder.Adding</type>
+                                        
+                    <type>GrammarBuilder.MakingNewKnowledgeInformal</type>
+                                        
+                    <type>GrammarBuilder.Comparing</type>
+                                        
+                    <type>GrammarBuilder.Summarising</type>
+                                        
+                    <type>GrammarBuilder.Reference</type>
+                                        
+                    <type>GrammarBuilder.FrontingExpression</type>
+                                        
+                    <type>GrammarBuilder.Particle</type>
+                                        
+                    <type>GrammarBuilder.Be</type>
+                                        
+                    <type>GrammarBuilder.Is</type>
+                                        
+                    <type>GrammarBuilder.Was</type>
+                                        
+                    <type>GrammarBuilder.Do</type>
+                                        
+                    <type>GrammarBuilder.Does</type>
+                                        
+                    <type>GrammarBuilder.Did</type>
+                                        
+                    <type>GrammarBuilder.Have</type>
+                                        
+                    <type>GrammarBuilder.Has</type>
+                                        
+                    <type>GrammarBuilder.Had</type>
+                                        
+                    <type>GrammarBuilder.Will</type>
+                                        
+                    <type>GrammarBuilder.Would</type>
+                                        
+                    <type>GrammarBuilder.Can</type>
+                                        
+                    <type>GrammarBuilder.Could</type>
+                                        
+                    <type>GrammarBuilder.May</type>
+                                        
+                    <type>GrammarBuilder.Might</type>
+                                        
+                    <type>GrammarBuilder.Must</type>
+                                        
+                    <type>GrammarBuilder.Need</type>
+                                        
+                    <type>GrammarBuilder.Ought</type>
+                                        
+                    <type>GrammarBuilder.Shall</type>
+                                        
+                    <type>GrammarBuilder.Should</type>
+                                        
+                    <type>GrammarBuilder.ModalVerb</type>
+                                        
+                    <type>GrammarBuilder.ToDo</type>
+                                        
+                    <type>GrammarBuilder.Doing</type>
+                                        
+                    <type>GrammarBuilder.Done</type>
+                                        
+                    <type>GrammarBuilder.BeenDone</type>
+                                        
+                    <type>GrammarBuilder.BeingDone</type>
+                                        
+                    <type>GrammarBuilder.ToBeDone</type>
+                                        
+                    <type>GrammarBuilder.Passive</type>
+                                        
+                    <type>GrammarBuilder.Present3rd</type>
+                                        
+                    <type>GrammarBuilder.PresentNon3rd</type>
+                                        
+                    <type>GrammarBuilder.Present</type>
+                                        
+                    <type>GrammarBuilder.Past</type>
+                                        
+                    <type>GrammarBuilder.Used</type>
+                                        
+                    <type>GrammarBuilder.BeenDoing</type>
+                                        
+                    <type>GrammarBuilder.WillShall</type>
+                                        
+                    <type>GrammarBuilder.Going</type>
+                                        
+                    <type>GrammarBuilder.Future</type>
+                                        
+                    <type>GrammarBuilder.Subject</type>
+                                        
+                    <type>GrammarBuilder.Object</type>
+                                        
+                    <type>GrammarBuilder.FiniteClause1</type>
+                                        
+                    <type>GrammarBuilder.FiniteClause2</type>
+                                        
+                    <type>GrammarBuilder.DoingNonFiniteClause</type>
+                                        
+                    <type>GrammarBuilder.ToDoNonFiniteClause</type>
+                                        
+                    <type>GrammarBuilder.DoneNonFiniteClause</type>
+                                        
+                    <type>GrammarBuilder.NonFiniteClause</type>
+                                        
+                    <type>GrammarBuilder.ImperativeClause</type>
+                                        
+                    <type>GrammarBuilder.ReportingVerbs</type>
+                                        
+                    <type>GrammarBuilder.ComparativeClause</type>
+                                        
+                    <type>GrammarBuilder.IfClause</type>
+                                        
+                    <type>GrammarBuilder.WHWordCluase</type>
+                                    
+                </outputs>
                                 
                 <languagesSupported/>
                             
