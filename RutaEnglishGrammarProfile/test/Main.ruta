@@ -1,5 +1,0 @@
-TYPESYSTEM ProjectTypeSystem;
-
-SCRIPT EnglishGrammarProfile;
-
-Document{-> CALL(EnglishGrammarProfile)};
