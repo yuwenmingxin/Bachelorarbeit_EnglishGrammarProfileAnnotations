@@ -1,0 +1,7 @@
+up
+off
+out
+on
+away
+over
+in

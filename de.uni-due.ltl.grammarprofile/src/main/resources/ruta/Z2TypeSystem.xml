@@ -1,0 +1,1178 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<typeSystemDescription xmlns="http://uima.apache.org/resourceSpecifier">
+        
+    <name>Z2TypeSystem</name>
+        
+    <imports>
+                
+        <import location="BasicTypeSystem.xml"/>
+                
+        <import location="ProjectTypeSystem.xml"/>
+            
+    </imports>
+        
+    <types>
+                
+        <typeDescription>
+                        
+            <name>Z2.PrepositionPhrase</name>
+                        
+            <description>Type defined in Z2</description>
+                        
+            <supertypeName>uima.tcas.Annotation</supertypeName>
+                    
+        </typeDescription>
+                
+        <typeDescription>
+                        
+            <name>Z2.Comparing</name>
+                        
+            <description>Type defined in Z2</description>
+                        
+            <supertypeName>uima.tcas.Annotation</supertypeName>
+                    
+        </typeDescription>
+                
+        <typeDescription>
+                        
+            <name>Z2.Ought</name>
+                        
+            <description>Type defined in Z2</description>
+                        
+            <supertypeName>uima.tcas.Annotation</supertypeName>
+                    
+        </typeDescription>
+                
+        <typeDescription>
+                        
+            <name>Z2.Doing</name>
+                        
+            <description>Type defined in Z2</description>
+                        
+            <supertypeName>uima.tcas.Annotation</supertypeName>
+                    
+        </typeDescription>
+                
+        <typeDescription>
+                        
+            <name>Z2.Manner</name>
+                        
+            <description>Type defined in Z2</description>
+                        
+            <supertypeName>uima.tcas.Annotation</supertypeName>
+                    
+        </typeDescription>
+                
+        <typeDescription>
+                        
+            <name>Z2.DeterminersWithCountableNouns</name>
+                        
+            <description>Type defined in Z2</description>
+                        
+            <supertypeName>uima.tcas.Annotation</supertypeName>
+                    
+        </typeDescription>
+                
+        <typeDescription>
+                        
+            <name>Z2.Adding</name>
+                        
+            <description>Type defined in Z2</description>
+                        
+            <supertypeName>uima.tcas.Annotation</supertypeName>
+                    
+        </typeDescription>
+                
+        <typeDescription>
+                        
+            <name>Z2.Shall</name>
+                        
+            <description>Type defined in Z2</description>
+                        
+            <supertypeName>uima.tcas.Annotation</supertypeName>
+                    
+        </typeDescription>
+                
+        <typeDescription>
+                        
+            <name>Z2.SimplePreposition</name>
+                        
+            <description>Type defined in Z2</description>
+                        
+            <supertypeName>uima.tcas.Annotation</supertypeName>
+                    
+        </typeDescription>
+                
+        <typeDescription>
+                        
+            <name>Z2.Hadnt</name>
+                        
+            <description>Type defined in Z2</description>
+                        
+            <supertypeName>uima.tcas.Annotation</supertypeName>
+                    
+        </typeDescription>
+                
+        <typeDescription>
+                        
+            <name>Z2.Linking</name>
+                        
+            <description>Type defined in Z2</description>
+                        
+            <supertypeName>uima.tcas.Annotation</supertypeName>
+                    
+        </typeDescription>
+                
+        <typeDescription>
+                        
+            <name>Z2.Didnt</name>
+                        
+            <description>Type defined in Z2</description>
+                        
+            <supertypeName>uima.tcas.Annotation</supertypeName>
+                    
+        </typeDescription>
+                
+        <typeDescription>
+                        
+            <name>Z2.Contrasting</name>
+                        
+            <description>Type defined in Z2</description>
+                        
+            <supertypeName>uima.tcas.Annotation</supertypeName>
+                    
+        </typeDescription>
+                
+        <typeDescription>
+                        
+            <name>Z2.Should</name>
+                        
+            <description>Type defined in Z2</description>
+                        
+            <supertypeName>uima.tcas.Annotation</supertypeName>
+                    
+        </typeDescription>
+                
+        <typeDescription>
+                        
+            <name>Z2.SuperlativeAdv</name>
+                        
+            <description>Type defined in Z2</description>
+                        
+            <supertypeName>uima.tcas.Annotation</supertypeName>
+                    
+        </typeDescription>
+                
+        <typeDescription>
+                        
+            <name>Z2.DeterminerOf</name>
+                        
+            <description>Type defined in Z2</description>
+                        
+            <supertypeName>uima.tcas.Annotation</supertypeName>
+                    
+        </typeDescription>
+                
+        <typeDescription>
+                        
+            <name>Z2.Passive</name>
+                        
+            <description>Type defined in Z2</description>
+                        
+            <supertypeName>uima.tcas.Annotation</supertypeName>
+                    
+        </typeDescription>
+                
+        <typeDescription>
+                        
+            <name>Z2.Determiner</name>
+                        
+            <description>Type defined in Z2</description>
+                        
+            <supertypeName>uima.tcas.Annotation</supertypeName>
+                    
+        </typeDescription>
+                
+        <typeDescription>
+                        
+            <name>Z2.Distancing</name>
+                        
+            <description>Type defined in Z2</description>
+                        
+            <supertypeName>uima.tcas.Annotation</supertypeName>
+                    
+        </typeDescription>
+                
+        <typeDescription>
+                        
+            <name>Z2.Must</name>
+                        
+            <description>Type defined in Z2</description>
+                        
+            <supertypeName>uima.tcas.Annotation</supertypeName>
+                    
+        </typeDescription>
+                
+        <typeDescription>
+                        
+            <name>Z2.Not</name>
+                        
+            <description>Type defined in Z2</description>
+                        
+            <supertypeName>uima.tcas.Annotation</supertypeName>
+                    
+        </typeDescription>
+                
+        <typeDescription>
+                        
+            <name>Z2.Degree</name>
+                        
+            <description>Type defined in Z2</description>
+                        
+            <supertypeName>uima.tcas.Annotation</supertypeName>
+                    
+        </typeDescription>
+                
+        <typeDescription>
+                        
+            <name>Z2.Do</name>
+                        
+            <description>Type defined in Z2</description>
+                        
+            <supertypeName>uima.tcas.Annotation</supertypeName>
+                    
+        </typeDescription>
+                
+        <typeDescription>
+                        
+            <name>Z2.Can</name>
+                        
+            <description>Type defined in Z2</description>
+                        
+            <supertypeName>uima.tcas.Annotation</supertypeName>
+                    
+        </typeDescription>
+                
+        <typeDescription>
+                        
+            <name>Z2.WHWordCluase</name>
+                        
+            <description>Type defined in Z2</description>
+                        
+            <supertypeName>uima.tcas.Annotation</supertypeName>
+                    
+        </typeDescription>
+                
+        <typeDescription>
+                        
+            <name>Z2.Place</name>
+                        
+            <description>Type defined in Z2</description>
+                        
+            <supertypeName>uima.tcas.Annotation</supertypeName>
+                    
+        </typeDescription>
+                
+        <typeDescription>
+                        
+            <name>Z2.Conjunction</name>
+                        
+            <description>Type defined in Z2</description>
+                        
+            <supertypeName>uima.tcas.Annotation</supertypeName>
+                    
+        </typeDescription>
+                
+        <typeDescription>
+                        
+            <name>Z2.ReportingVerbs</name>
+                        
+            <description>Type defined in Z2</description>
+                        
+            <supertypeName>uima.tcas.Annotation</supertypeName>
+                    
+        </typeDescription>
+                
+        <typeDescription>
+                        
+            <name>Z2.AdverbModifyingAdverb</name>
+                        
+            <description>Type defined in Z2</description>
+                        
+            <supertypeName>uima.tcas.Annotation</supertypeName>
+                    
+        </typeDescription>
+                
+        <typeDescription>
+                        
+            <name>Z2.ComplexSubordinatingConjunction</name>
+                        
+            <description>Type defined in Z2</description>
+                        
+            <supertypeName>uima.tcas.Annotation</supertypeName>
+                    
+        </typeDescription>
+                
+        <typeDescription>
+                        
+            <name>Z2.Past</name>
+                        
+            <description>Type defined in Z2</description>
+                        
+            <supertypeName>uima.tcas.Annotation</supertypeName>
+                    
+        </typeDescription>
+                
+        <typeDescription>
+                        
+            <name>Z2.DeterminerWithUncountableNouns</name>
+                        
+            <description>Type defined in Z2</description>
+                        
+            <supertypeName>uima.tcas.Annotation</supertypeName>
+                    
+        </typeDescription>
+                
+        <typeDescription>
+                        
+            <name>Z2.Organising</name>
+                        
+            <description>Type defined in Z2</description>
+                        
+            <supertypeName>uima.tcas.Annotation</supertypeName>
+                    
+        </typeDescription>
+                
+        <typeDescription>
+                        
+            <name>Z2.Object</name>
+                        
+            <description>Type defined in Z2</description>
+                        
+            <supertypeName>uima.tcas.Annotation</supertypeName>
+                    
+        </typeDescription>
+                
+        <typeDescription>
+                        
+            <name>Z2.CollectiveNoun</name>
+                        
+            <description>Type defined in Z2</description>
+                        
+            <supertypeName>uima.tcas.Annotation</supertypeName>
+                    
+        </typeDescription>
+                
+        <typeDescription>
+                        
+            <name>Z2.NonFiniteClause</name>
+                        
+            <description>Type defined in Z2</description>
+                        
+            <supertypeName>uima.tcas.Annotation</supertypeName>
+                    
+        </typeDescription>
+                
+        <typeDescription>
+                        
+            <name>Z2.UncountableNoun</name>
+                        
+            <description>Type defined in Z2</description>
+                        
+            <supertypeName>uima.tcas.Annotation</supertypeName>
+                    
+        </typeDescription>
+                
+        <typeDescription>
+                        
+            <name>Z2.TimeAdv</name>
+                        
+            <description>Type defined in Z2</description>
+                        
+            <supertypeName>uima.tcas.Annotation</supertypeName>
+                    
+        </typeDescription>
+                
+        <typeDescription>
+                        
+            <name>Z2.TimeAdjunct</name>
+                        
+            <description>Type defined in Z2</description>
+                        
+            <supertypeName>uima.tcas.Annotation</supertypeName>
+                    
+        </typeDescription>
+                
+        <typeDescription>
+                        
+            <name>Z2.Sequencing</name>
+                        
+            <description>Type defined in Z2</description>
+                        
+            <supertypeName>uima.tcas.Annotation</supertypeName>
+                    
+        </typeDescription>
+                
+        <typeDescription>
+                        
+            <name>Z2.Did</name>
+                        
+            <description>Type defined in Z2</description>
+                        
+            <supertypeName>uima.tcas.Annotation</supertypeName>
+                    
+        </typeDescription>
+                
+        <typeDescription>
+                        
+            <name>Z2.Hasnt</name>
+                        
+            <description>Type defined in Z2</description>
+                        
+            <supertypeName>uima.tcas.Annotation</supertypeName>
+                    
+        </typeDescription>
+                
+        <typeDescription>
+                        
+            <name>Z2.TimeAdj</name>
+                        
+            <description>Type defined in Z2</description>
+                        
+            <supertypeName>uima.tcas.Annotation</supertypeName>
+                    
+        </typeDescription>
+                
+        <typeDescription>
+                        
+            <name>Z2.Preposition</name>
+                        
+            <description>Type defined in Z2</description>
+                        
+            <supertypeName>uima.tcas.Annotation</supertypeName>
+                    
+        </typeDescription>
+                
+        <typeDescription>
+                        
+            <name>Z2.Might</name>
+                        
+            <description>Type defined in Z2</description>
+                        
+            <supertypeName>uima.tcas.Annotation</supertypeName>
+                    
+        </typeDescription>
+                
+        <typeDescription>
+                        
+            <name>Z2.Summarising</name>
+                        
+            <description>Type defined in Z2</description>
+                        
+            <supertypeName>uima.tcas.Annotation</supertypeName>
+                    
+        </typeDescription>
+                
+        <typeDescription>
+                        
+            <name>Z2.BeingDone</name>
+                        
+            <description>Type defined in Z2</description>
+                        
+            <supertypeName>uima.tcas.Annotation</supertypeName>
+                    
+        </typeDescription>
+                
+        <typeDescription>
+                        
+            <name>Z2.Present3rd</name>
+                        
+            <description>Type defined in Z2</description>
+                        
+            <supertypeName>uima.tcas.Annotation</supertypeName>
+                    
+        </typeDescription>
+                
+        <typeDescription>
+                        
+            <name>Z2.SimpleSubordinatingConjunction</name>
+                        
+            <description>Type defined in Z2</description>
+                        
+            <supertypeName>uima.tcas.Annotation</supertypeName>
+                    
+        </typeDescription>
+                
+        <typeDescription>
+                        
+            <name>Z2.IndefiniteFrequency</name>
+                        
+            <description>Type defined in Z2</description>
+                        
+            <supertypeName>uima.tcas.Annotation</supertypeName>
+                    
+        </typeDescription>
+                
+        <typeDescription>
+                        
+            <name>Z2.Would</name>
+                        
+            <description>Type defined in Z2</description>
+                        
+            <supertypeName>uima.tcas.Annotation</supertypeName>
+                    
+        </typeDescription>
+                
+        <typeDescription>
+                        
+            <name>Z2.Used</name>
+                        
+            <description>Type defined in Z2</description>
+                        
+            <supertypeName>uima.tcas.Annotation</supertypeName>
+                    
+        </typeDescription>
+                
+        <typeDescription>
+                        
+            <name>Z2.ComplexPreposition</name>
+                        
+            <description>Type defined in Z2</description>
+                        
+            <supertypeName>uima.tcas.Annotation</supertypeName>
+                    
+        </typeDescription>
+                
+        <typeDescription>
+                        
+            <name>Z2.Has</name>
+                        
+            <description>Type defined in Z2</description>
+                        
+            <supertypeName>uima.tcas.Annotation</supertypeName>
+                    
+        </typeDescription>
+                
+        <typeDescription>
+                        
+            <name>Z2.Focus</name>
+                        
+            <description>Type defined in Z2</description>
+                        
+            <supertypeName>uima.tcas.Annotation</supertypeName>
+                    
+        </typeDescription>
+                
+        <typeDescription>
+                        
+            <name>Z2.WHWord</name>
+                        
+            <description>Type defined in Z2</description>
+                        
+            <supertypeName>uima.tcas.Annotation</supertypeName>
+                    
+        </typeDescription>
+                
+        <typeDescription>
+                        
+            <name>Z2.Will</name>
+                        
+            <description>Type defined in Z2</description>
+                        
+            <supertypeName>uima.tcas.Annotation</supertypeName>
+                    
+        </typeDescription>
+                
+        <typeDescription>
+                        
+            <name>Z2.Future</name>
+                        
+            <description>Type defined in Z2</description>
+                        
+            <supertypeName>uima.tcas.Annotation</supertypeName>
+                    
+        </typeDescription>
+                
+        <typeDescription>
+                        
+            <name>Z2.Had</name>
+                        
+            <description>Type defined in Z2</description>
+                        
+            <supertypeName>uima.tcas.Annotation</supertypeName>
+                    
+        </typeDescription>
+                
+        <typeDescription>
+                        
+            <name>Z2.Be</name>
+                        
+            <description>Type defined in Z2</description>
+                        
+            <supertypeName>uima.tcas.Annotation</supertypeName>
+                    
+        </typeDescription>
+                
+        <typeDescription>
+                        
+            <name>Z2.DegreeAdj</name>
+                        
+            <description>Type defined in Z2</description>
+                        
+            <supertypeName>uima.tcas.Annotation</supertypeName>
+                    
+        </typeDescription>
+                
+        <typeDescription>
+                        
+            <name>Z2.ComparativeClause</name>
+                        
+            <description>Type defined in Z2</description>
+                        
+            <supertypeName>uima.tcas.Annotation</supertypeName>
+                    
+        </typeDescription>
+                
+        <typeDescription>
+                        
+            <name>Z2.DeterminerWithPluralAndUncountableNouns</name>
+                        
+            <description>Type defined in Z2</description>
+                        
+            <supertypeName>uima.tcas.Annotation</supertypeName>
+                    
+        </typeDescription>
+                
+        <typeDescription>
+                        
+            <name>Z2.ToBeDone</name>
+                        
+            <description>Type defined in Z2</description>
+                        
+            <supertypeName>uima.tcas.Annotation</supertypeName>
+                    
+        </typeDescription>
+                
+        <typeDescription>
+                        
+            <name>Z2.Present</name>
+                        
+            <description>Type defined in Z2</description>
+                        
+            <supertypeName>uima.tcas.Annotation</supertypeName>
+                    
+        </typeDescription>
+                
+        <typeDescription>
+                        
+            <name>Z2.Dont</name>
+                        
+            <description>Type defined in Z2</description>
+                        
+            <supertypeName>uima.tcas.Annotation</supertypeName>
+                    
+        </typeDescription>
+                
+        <typeDescription>
+                        
+            <name>Z2.ModalVerb</name>
+                        
+            <description>Type defined in Z2</description>
+                        
+            <supertypeName>uima.tcas.Annotation</supertypeName>
+                    
+        </typeDescription>
+                
+        <typeDescription>
+                        
+            <name>Z2.IrregularPluralNoun</name>
+                        
+            <description>Type defined in Z2</description>
+                        
+            <supertypeName>uima.tcas.Annotation</supertypeName>
+                    
+        </typeDescription>
+                
+        <typeDescription>
+                        
+            <name>Z2.Is</name>
+                        
+            <description>Type defined in Z2</description>
+                        
+            <supertypeName>uima.tcas.Annotation</supertypeName>
+                    
+        </typeDescription>
+                
+        <typeDescription>
+                        
+            <name>Z2.RelativePronoun</name>
+                        
+            <description>Type defined in Z2</description>
+                        
+            <supertypeName>uima.tcas.Annotation</supertypeName>
+                    
+        </typeDescription>
+                
+        <typeDescription>
+                        
+            <name>Z2.Done</name>
+                        
+            <description>Type defined in Z2</description>
+                        
+            <supertypeName>uima.tcas.Annotation</supertypeName>
+                    
+        </typeDescription>
+                
+        <typeDescription>
+                        
+            <name>Z2.MakingNewKnowledgeInformal</name>
+                        
+            <description>Type defined in Z2</description>
+                        
+            <supertypeName>uima.tcas.Annotation</supertypeName>
+                    
+        </typeDescription>
+                
+        <typeDescription>
+                        
+            <name>Z2.ComparativeAdv</name>
+                        
+            <description>Type defined in Z2</description>
+                        
+            <supertypeName>uima.tcas.Annotation</supertypeName>
+                    
+        </typeDescription>
+                
+        <typeDescription>
+                        
+            <name>Z2.WillShall</name>
+                        
+            <description>Type defined in Z2</description>
+                        
+            <supertypeName>uima.tcas.Annotation</supertypeName>
+                    
+        </typeDescription>
+                
+        <typeDescription>
+                        
+            <name>Z2.DemonstrativePronoun</name>
+                        
+            <description>Type defined in Z2</description>
+                        
+            <supertypeName>uima.tcas.Annotation</supertypeName>
+                    
+        </typeDescription>
+                
+        <typeDescription>
+                        
+            <name>Z2.May</name>
+                        
+            <description>Type defined in Z2</description>
+                        
+            <supertypeName>uima.tcas.Annotation</supertypeName>
+                    
+        </typeDescription>
+                
+        <typeDescription>
+                        
+            <name>Z2.Article</name>
+                        
+            <description>Type defined in Z2</description>
+                        
+            <supertypeName>uima.tcas.Annotation</supertypeName>
+                    
+        </typeDescription>
+                
+        <typeDescription>
+                        
+            <name>Z2.ToDoNonFiniteClause</name>
+                        
+            <description>Type defined in Z2</description>
+                        
+            <supertypeName>uima.tcas.Annotation</supertypeName>
+                    
+        </typeDescription>
+                
+        <typeDescription>
+                        
+            <name>Z2.DeterminerWithSingularNouns</name>
+                        
+            <description>Type defined in Z2</description>
+                        
+            <supertypeName>uima.tcas.Annotation</supertypeName>
+                    
+        </typeDescription>
+                
+        <typeDescription>
+                        
+            <name>Z2.Could</name>
+                        
+            <description>Type defined in Z2</description>
+                        
+            <supertypeName>uima.tcas.Annotation</supertypeName>
+                    
+        </typeDescription>
+                
+        <typeDescription>
+                        
+            <name>Z2.AdjectivePhrase</name>
+                        
+            <description>Type defined in Z2</description>
+                        
+            <supertypeName>uima.tcas.Annotation</supertypeName>
+                    
+        </typeDescription>
+                
+        <typeDescription>
+                        
+            <name>Z2.AsAdjAs</name>
+                        
+            <description>Type defined in Z2</description>
+                        
+            <supertypeName>uima.tcas.Annotation</supertypeName>
+                    
+        </typeDescription>
+                
+        <typeDescription>
+                        
+            <name>Z2.Havent</name>
+                        
+            <description>Type defined in Z2</description>
+                        
+            <supertypeName>uima.tcas.Annotation</supertypeName>
+                    
+        </typeDescription>
+                
+        <typeDescription>
+                        
+            <name>Z2.FrontingExpression</name>
+                        
+            <description>Type defined in Z2</description>
+                        
+            <supertypeName>uima.tcas.Annotation</supertypeName>
+                    
+        </typeDescription>
+                
+        <typeDescription>
+                        
+            <name>Z2.DoingNonFiniteClause</name>
+                        
+            <description>Type defined in Z2</description>
+                        
+            <supertypeName>uima.tcas.Annotation</supertypeName>
+                    
+        </typeDescription>
+                
+        <typeDescription>
+                        
+            <name>Z2.Need</name>
+                        
+            <description>Type defined in Z2</description>
+                        
+            <supertypeName>uima.tcas.Annotation</supertypeName>
+                    
+        </typeDescription>
+                
+        <typeDescription>
+                        
+            <name>Z2.DoneNonFiniteClause</name>
+                        
+            <description>Type defined in Z2</description>
+                        
+            <supertypeName>uima.tcas.Annotation</supertypeName>
+                    
+        </typeDescription>
+                
+        <typeDescription>
+                        
+            <name>Z2.Certainty</name>
+                        
+            <description>Type defined in Z2</description>
+                        
+            <supertypeName>uima.tcas.Annotation</supertypeName>
+                    
+        </typeDescription>
+                
+        <typeDescription>
+                        
+            <name>Z2.Subject</name>
+                        
+            <description>Type defined in Z2</description>
+                        
+            <supertypeName>uima.tcas.Annotation</supertypeName>
+                    
+        </typeDescription>
+                
+        <typeDescription>
+                        
+            <name>Z2.Going</name>
+                        
+            <description>Type defined in Z2</description>
+                        
+            <supertypeName>uima.tcas.Annotation</supertypeName>
+                    
+        </typeDescription>
+                
+        <typeDescription>
+                        
+            <name>Z2.DeterminerWithPluralNouns</name>
+                        
+            <description>Type defined in Z2</description>
+                        
+            <supertypeName>uima.tcas.Annotation</supertypeName>
+                    
+        </typeDescription>
+                
+        <typeDescription>
+                        
+            <name>Z2.OtherAdverbs</name>
+                        
+            <description>Type defined in Z2</description>
+                        
+            <supertypeName>uima.tcas.Annotation</supertypeName>
+                    
+        </typeDescription>
+                
+        <typeDescription>
+                        
+            <name>Z2.Comparative</name>
+                        
+            <description>Type defined in Z2</description>
+                        
+            <supertypeName>uima.tcas.Annotation</supertypeName>
+                    
+        </typeDescription>
+                
+        <typeDescription>
+                        
+            <name>Z2.ToDo</name>
+                        
+            <description>Type defined in Z2</description>
+                        
+            <supertypeName>uima.tcas.Annotation</supertypeName>
+                    
+        </typeDescription>
+                
+        <typeDescription>
+                        
+            <name>Z2.IndefinitePronoun</name>
+                        
+            <description>Type defined in Z2</description>
+                        
+            <supertypeName>uima.tcas.Annotation</supertypeName>
+                    
+        </typeDescription>
+                
+        <typeDescription>
+                        
+            <name>Z2.AdverbAdjective</name>
+                        
+            <description>Type defined in Z2</description>
+                        
+            <supertypeName>uima.tcas.Annotation</supertypeName>
+                    
+        </typeDescription>
+                
+        <typeDescription>
+                        
+            <name>Z2.IrregularComparatives</name>
+                        
+            <description>Type defined in Z2</description>
+                        
+            <supertypeName>uima.tcas.Annotation</supertypeName>
+                    
+        </typeDescription>
+                
+        <typeDescription>
+                        
+            <name>Z2.IfClause</name>
+                        
+            <description>Type defined in Z2</description>
+                        
+            <supertypeName>uima.tcas.Annotation</supertypeName>
+                    
+        </typeDescription>
+                
+        <typeDescription>
+                        
+            <name>Z2.Was</name>
+                        
+            <description>Type defined in Z2</description>
+                        
+            <supertypeName>uima.tcas.Annotation</supertypeName>
+                    
+        </typeDescription>
+                
+        <typeDescription>
+                        
+            <name>Z2.PresentNon3rd</name>
+                        
+            <description>Type defined in Z2</description>
+                        
+            <supertypeName>uima.tcas.Annotation</supertypeName>
+                    
+        </typeDescription>
+                
+        <typeDescription>
+                        
+            <name>Z2.ReflexivePronoun</name>
+                        
+            <description>Type defined in Z2</description>
+                        
+            <supertypeName>uima.tcas.Annotation</supertypeName>
+                    
+        </typeDescription>
+                
+        <typeDescription>
+                        
+            <name>Z2.Does</name>
+                        
+            <description>Type defined in Z2</description>
+                        
+            <supertypeName>uima.tcas.Annotation</supertypeName>
+                    
+        </typeDescription>
+                
+        <typeDescription>
+                        
+            <name>Z2.Superlative</name>
+                        
+            <description>Type defined in Z2</description>
+                        
+            <supertypeName>uima.tcas.Annotation</supertypeName>
+                    
+        </typeDescription>
+                
+        <typeDescription>
+                        
+            <name>Z2.Reference</name>
+                        
+            <description>Type defined in Z2</description>
+                        
+            <supertypeName>uima.tcas.Annotation</supertypeName>
+                    
+        </typeDescription>
+                
+        <typeDescription>
+                        
+            <name>Z2.Doesnt</name>
+                        
+            <description>Type defined in Z2</description>
+                        
+            <supertypeName>uima.tcas.Annotation</supertypeName>
+                    
+        </typeDescription>
+                
+        <typeDescription>
+                        
+            <name>Z2.Have</name>
+                        
+            <description>Type defined in Z2</description>
+                        
+            <supertypeName>uima.tcas.Annotation</supertypeName>
+                    
+        </typeDescription>
+                
+        <typeDescription>
+                        
+            <name>Z2.Frequency</name>
+                        
+            <description>Type defined in Z2</description>
+                        
+            <supertypeName>uima.tcas.Annotation</supertypeName>
+                    
+        </typeDescription>
+                
+        <typeDescription>
+                        
+            <name>Z2.BeenDone</name>
+                        
+            <description>Type defined in Z2</description>
+                        
+            <supertypeName>uima.tcas.Annotation</supertypeName>
+                    
+        </typeDescription>
+                
+        <typeDescription>
+                        
+            <name>Z2.ImperativeClause</name>
+                        
+            <description>Type defined in Z2</description>
+                        
+            <supertypeName>uima.tcas.Annotation</supertypeName>
+                    
+        </typeDescription>
+                
+        <typeDescription>
+                        
+            <name>Z2.Particle</name>
+                        
+            <description>Type defined in Z2</description>
+                        
+            <supertypeName>uima.tcas.Annotation</supertypeName>
+                    
+        </typeDescription>
+                
+        <typeDescription>
+                        
+            <name>Z2.BeenDoing</name>
+                        
+            <description>Type defined in Z2</description>
+                        
+            <supertypeName>uima.tcas.Annotation</supertypeName>
+                    
+        </typeDescription>
+                
+        <typeDescription>
+                        
+            <name>Z2.Adverb</name>
+                        
+            <description>Type defined in Z2</description>
+                        
+            <supertypeName>uima.tcas.Annotation</supertypeName>
+                    
+        </typeDescription>
+                
+        <typeDescription>
+                        
+            <name>Z2.FiniteClause2</name>
+                        
+            <description>Type defined in Z2</description>
+                        
+            <supertypeName>uima.tcas.Annotation</supertypeName>
+                    
+        </typeDescription>
+                
+        <typeDescription>
+                        
+            <name>Z2.AdjectiveNoun</name>
+                        
+            <description>Type defined in Z2</description>
+                        
+            <supertypeName>uima.tcas.Annotation</supertypeName>
+                    
+        </typeDescription>
+                
+        <typeDescription>
+                        
+            <name>Z2.FiniteClause1</name>
+                        
+            <description>Type defined in Z2</description>
+                        
+            <supertypeName>uima.tcas.Annotation</supertypeName>
+                    
+        </typeDescription>
+                
+        <typeDescription>
+                        
+            <name>Z2.Stance</name>
+                        
+            <description>Type defined in Z2</description>
+                        
+            <supertypeName>uima.tcas.Annotation</supertypeName>
+                    
+        </typeDescription>
+            
+    </types>
+    
+</typeSystemDescription>

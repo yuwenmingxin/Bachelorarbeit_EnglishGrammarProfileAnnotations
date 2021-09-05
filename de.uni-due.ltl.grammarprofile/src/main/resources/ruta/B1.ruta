@@ -1,0 +1,1317 @@
+TYPESYSTEM ProjectTypeSystem;
+
+SCRIPT GrammarBuilder;
+Document{-> CALL(GrammarBuilder)};
+
+
+//B1****************************
+//SCRIPT B1_Level.B1_Nouns;
+
+//1.NounPhrases
+//EXAMPLE 1.ComplexNounPhrasesWithAdjectives
+(AdjectivePhrase POS_NOUN) {-> CREATE(GrammarProfile, "subCategory"="NounPhrases", "superCategory"="Noun", "name"="ComplexNounPhrasesWithAdjectives", "level"="B1")};
+
+//EXAMPLE 2.ComplexNounPhrasesWithAdverbsAdjectives
+(POS_ADV AdjectivePhrase POS_NOUN) {-> CREATE(GrammarProfile, "subCategory"="NounPhrases", "superCategory"="Noun", "name"="ComplexNounPhrasesWithAdverbsAdjectives", "level"="B1")};
+
+//EXAMPLE 3.SuchAAdjectiveNoun
+(W{REGEXP("(?i)such")} W{REGEXP("(?i)a")} POS_ADJ POS_NOUN) {-> CREATE(GrammarProfile, "subCategory"="NounPhrases", "superCategory"="Noun", "name"="SuchAAdjectiveNoun", "level"="B1")};
+(W{REGEXP("(?i)such")} POS_ADJ POS_NOUN) {-> CREATE(GrammarProfile, "subCategory"="NounPhrases", "superCategory"="Noun", "name"="SuchAAdjectiveNoun", "level"="B1")};
+
+//EXAMPLE 4.NounPrepositionalPhrases
+(POS_NOUN  PrepositionPhrase) {-> CREATE(GrammarProfile, "subCategory"="NounPhrases", "superCategory"="Noun", "name"="NounPrepositionalPhrases", "level"="B1")};
+
+//EXAMPLE 5.NounPhrasesWithSuperlatives
+(Superlative POS_NOUN) (POS_PRON Have Done) {-> CREATE(GrammarProfile,1, "subCategory"="NounPhrases", "superCategory"="Noun", "name"="NounPhrasesWithSuperlatives", "level"="B1")}; 
+
+//EXAMPLE 6.PossessiveSWithoutNoun
+(POS_NOUN  POS{FEATURE("PosValue", "POS")}) {-> CREATE(GrammarProfile, "subCategory"="NounPhrases", "superCategory"="Noun", "name"="PossessiveSWithoutNoun", "level"="B1")};
+
+//EXAMPLE 7.NounOfPossessivePronoun
+(POS_NOUN W{REGEXP("(?i)of")} POS{FEATURE("PosValue", "PRP$")}) {-> CREATE(GrammarProfile, "subCategory"="NounPhrases", "superCategory"="Noun", "name"="NounOfPossessivePronoun", "level"="B1")};
+
+//EXAMPLE 8.FriendOfPossessivePronoun
+(W{REGEXP("(?i)a")} W{REGEXP("(?i)friend")} W{REGEXP("(?i)of")} POS{FEATURE("PosValue", "PRP$")} POS_NOUN ) {-> CREATE(GrammarProfile, "subCategory"="NounPhrases", "superCategory"="Noun", "name"="FriendOfPossessivePronoun", "level"="B1")};
+(W{REGEXP("(?i)friends")} W{REGEXP("(?i)of")} POS{FEATURE("PosValue", "PRP$")} POS_NOUN ) {-> CREATE(GrammarProfile, "subCategory"="NounPhrases", "superCategory"="Noun", "name"="FriendOfPossessivePronoun", "level"="B1")};
+
+//EXAMPLE 9.ComplexNounPhraseWithPossessiveSNoun
+(POS_NOUN W{REGEXP("(?i)of")} POS{FEATURE("PosValue", "PRP$")} POS_NOUN POS{FEATURE("PosValue", "POS")} POS_NOUN) {-> CREATE(GrammarProfile, "subCategory"="NounPhrases", "superCategory"="Noun", "name"="ComplexNounPhraseWithPossessiveSNoun", "level"="B1")};
+
+//EXAMPLE 10.NounPhraseNounPhrase
+(NC COMMA NC) {-> CREATE(GrammarProfile, "subCategory"="NounPhrases", "superCategory"="Noun", "name"="NounPhraseNounPhrase", "level"="B1")};
+
+//EXAMPLE 11.IndefinitePronounsNounPhrase
+(IndefinitePronoun POS_ADJ) {-> CREATE(GrammarProfile, "subCategory"="NounPhrases", "superCategory"="Noun", "name"="IndefinitePronounsNounPhrase", "level"="B1")};
+(IndefinitePronoun NonFiniteClause) {-> CREATE(GrammarProfile, "subCategory"="NounPhrases", "superCategory"="Noun", "name"="IndefinitePronounsNounPhrase", "level"="B1")};
+
+//EXAMPLE 12.TheThingNounPhrase
+(W{REGEXP("(?i)the")} W{REGEXP("(?i)thing")}) {-> CREATE(GrammarProfile, "subCategory"="NounPhrases", "superCategory"="Noun", "name"="TheThingNounPhrase", "level"="B1")};
+
+//2.TypesNoun
+//EXAMPLE 1.CommenNounsTypes
+(POS_NOUN) {-> CREATE(GrammarProfile, "subCategory"="TypesNoun", "superCategory"="Noun", "name"="CommenNounsTypes", "level"="B1")};
+
+//3.PluralNoun
+//EXAMPLE 1.CollectiveNounsPlural
+(CollectiveNoun) {-> CREATE(GrammarProfile, "subCategory"="PluralNoun", "superCategory"="Noun", "name"="CollectiveNounsPlural", "level"="B1")};
+
+//4.UncountableNoun
+//EXAMPLE 1.UncountableNounsPlural
+(UncountableNoun) {-> CREATE(GrammarProfile, "subCategory"="UncountableNoun", "superCategory"="Noun", "name"="UncountableNounsPlural", "level"="B1")};
+
+//EXAMPLE 2.WithDeterminersQualityUncountable
+(DeterminerWithUncountableNouns UncountableNoun) {-> CREATE(GrammarProfile, "subCategory"="Uncountable", "superCategory"="Noun", "name"="WithDeterminersQualityUncountable", "level"="B1")};
+
+
+//SCRIPT B1_Level.B1_Pronouns;
+
+//1.PossessivePronoun
+//EXAMPLE 1.OfYoursPossessive
+(POS_NOUN W{REGEXP("(?i)of")} W{REGEXP("(?i)yours")}) {-> CREATE(GrammarProfile, "subCategory"="PossessivePronoun", "superCategory"="Pronoun", "name"="OfYoursPossessive", "level"="B1")};
+
+//EXAMPLE 2.ComparativeClausesWithMineYours
+(AsAdjAs W{REGEXP("(?i)mine|yours")}) {-> CREATE(GrammarProfile, "subCategory"="PossessivePronoun", "superCategory"="Pronoun", "name"="ComparativeClausesWithMineYours", "level"="B1")};
+
+//EXAMPLE 3.YoursAsSubject
+(W{REGEXP("(?i)yours")} POS_VERB) {-> CREATE(GrammarProfile, "subCategory"="PossessivePronoun", "superCategory"="Pronoun", "name"="YoursAsSubject", "level"="B1")};
+
+//2.ReflexivePronoun
+//EXAMPLE 1.BySingularReflexive
+(W{REGEXP("(?i)by")} W{REGEXP("(?i)myself|yourself|himself|herself")}) {-> CREATE(GrammarProfile, "subCategory"="ReflexivePronoun", "superCategory"="Pronoun", "name"="BySingularReflexive", "level"="B1")};
+
+//EXAMPLE 2.SameSubjectAndObjectSingularReflexive
+(POS_VERB W{REGEXP("(?i)myself|yourself|himself|herself")}) {-> CREATE(GrammarProfile, "subCategory"="ReflexivePronoun", "superCategory"="Pronoun", "name"="SameSubjectAndObjectSingularReflexive", "level"="B1")};
+
+//EXAMPLE 3.AfterPrepositionsSingularReflexive
+(POS_ADP W{REGEXP("(?i)myself|yourself|himself|herself")}) {-> CREATE(GrammarProfile, "subCategory"="ReflexivePronoun", "superCategory"="Pronoun", "name"="AfterPrepositionsSingularReflexive", "level"="B1")};
+
+//EXAMPLE 4.ForEmphasisSingularReflexive
+(W{REGEXP("(?i)myself|yourself|himself|herself")}) {-> CREATE(GrammarProfile, "subCategory"="ReflexivePronoun", "superCategory"="Pronoun", "name"="ForEmphasisSingularReflexive", "level"="B1")};
+
+//3.SubjectObjectPronoun
+//EXAMPLE 1.SubjectUsingItToIntroduce
+(W{REGEXP("(?i)it")} Be POS_ADJ) {-> CREATE(GrammarProfile, "subCategory"="SubjectObjectPronoun", "superCategory"="Pronoun", "name"="SubjectUsingItToIntroduce", "level"="B1")};
+
+//4.DemonstrativesPronoun
+//EXAMPLE 1.ThisAlreadyMentioned
+(W{REGEXP("(?i)this")}) {-> CREATE(GrammarProfile, "subCategory"="DemonstrativesPronoun", "superCategory"="Pronoun", "name"="ThisAlreadyMentioned", "level"="B1")};
+
+//EXAMPLE 2.TheseDemonstratives
+(W{REGEXP("(?i)these")}) {-> CREATE(GrammarProfile, "subCategory"="DemonstrativesPronoun", "superCategory"="Pronoun", "name"="TheseDemonstratives", "level"="B1")};
+
+//EXAMPLE 3.TheseAlreadyMentioned
+(W{REGEXP("(?i)these")}) {-> CREATE(GrammarProfile, "subCategory"="DemonstrativesPronoun", "superCategory"="Pronoun", "name"="TheseAlreadyMentioned", "level"="B1")};
+
+//EXAMPLE 4.ThoseDemonstratives
+(W{REGEXP("(?i)those")}) {-> CREATE(GrammarProfile, "subCategory"="DemonstrativesPronoun", "superCategory"="Pronoun", "name"="ThoseDemonstratives", "level"="B1")};
+
+//EXAMPLE 5.ModifyingDemonstratives
+(DeterminerOf DemonstrativePronoun) {-> CREATE(GrammarProfile, "subCategory"="DemonstrativesPronoun", "superCategory"="Pronoun", "name"="ModifyingDemonstratives", "level"="B1")};
+
+//EXAMPLE 6.ThisOneThatOneSubstitutionDemonstratives
+(W{REGEXP("(?i)this")} W{REGEXP("(?i)one")}) {-> CREATE(GrammarProfile, "subCategory"="DemonstrativesPronoun", "superCategory"="Pronoun", "name"="ThisOneThatOneSubstitutionDemonstratives", "level"="B1")};
+(W{REGEXP("(?i)that")} W{REGEXP("(?i)one")}) {-> CREATE(GrammarProfile, "subCategory"="DemonstrativesPronoun", "superCategory"="Pronoun", "name"="ThisOneThatOneSubstitutionDemonstratives", "level"="B1")};
+
+//5.QuantityPronoun
+//EXAMPLE 1.SubjectAndObjectPronounsBothAfewAnother
+(W{REGEXP("(?i)both")}) {-> CREATE(GrammarProfile, "subCategory"="QuantityPronoun", "superCategory"="Pronoun", "name"="SubjectAndObjectPronounsBothAfewAnother", "level"="B1")};
+(W{REGEXP("(?i)a")} W{REGEXP("(?i)few")}) {-> CREATE(GrammarProfile, "subCategory"="QuantityPronoun", "superCategory"="Pronoun", "name"="SubjectAndObjectPronounsBothAfewAnother", "level"="B1")};
+(W{REGEXP("(?i)another")}) {-> CREATE(GrammarProfile, "subCategory"="QuantityPronoun", "superCategory"="Pronoun", "name"="SubjectAndObjectPronounsBothAfewAnother", "level"="B1")};
+
+//EXAMPLE 2.WithOfObjectPronoun
+(DeterminerOf POS_PRON) {-> CREATE(GrammarProfile, "subCategory"="QuantityPronoun", "superCategory"="Pronoun", "name"="WithOfObjectPronoun", "level"="B1")};
+
+//6.SubstitutionPronoun, one, ones, none
+//EXAMPLE 1.WhichOneSubstitution
+(W{REGEXP("(?i)which")} W{REGEXP("(?i)one")}) {-> CREATE(GrammarProfile, "subCategory"="SubstitutionPronoun", "superCategory"="Pronoun", "name"="WhichOneSubstitution", "level"="B1")};
+
+//EXAMPLE 2.ThisOneThatOneSubstitution
+(W{REGEXP("(?i)this")} W{REGEXP("(?i)one")}) {-> CREATE(GrammarProfile, "subCategory"="SubstitutionPronoun", "superCategory"="Pronoun", "name"="ThisOneThatOneSubstitution", "level"="B1")};
+(W{REGEXP("(?i)that")} W{REGEXP("(?i)one")}) {-> CREATE(GrammarProfile, "subCategory"="SubstitutionPronoun", "superCategory"="Pronoun", "name"="ThisOneThatOneSubstitution", "level"="B1")};
+
+//EXAMPLE 3.OnesSubstitution
+(W{REGEXP("(?i)ones")}) {-> CREATE(GrammarProfile, "subCategory"="SubstitutionPronoun", "superCategory"="Pronoun", "name"="OnesSubstitution", "level"="B1")};
+
+//EXAMPLE 4.PremodifyingSubstitution
+(POS_DET POS_ADJ W{REGEXP("(?i)ones")}) {-> CREATE(GrammarProfile, "subCategory"="SubstitutionPronoun", "superCategory"="Pronoun", "name"="PremodifyingSubstitution", "level"="B1")};
+
+//EXAMPLE 5.PostmodifyingSpecifyingSubstitution
+(W{REGEXP("(?i)the")} W{REGEXP("(?i)ones")}) {-> CREATE(GrammarProfile, "subCategory"="SubstitutionPronoun", "superCategory"="Pronoun", "name"="PostmodifyingSpecifyingSubstitution", "level"="B1")};
+
+//EXAMPLE 6.PremodifierOnesGeneralReference
+(POS_ADJ W{REGEXP("(?i)ones")}) {-> CREATE(GrammarProfile, "subCategory"="SubstitutionPronoun", "superCategory"="Pronoun", "name"="PremodifierOnesGeneralReference", "level"="B1")};
+
+//7.IndefinitePronoun - thing, -one, -body etc
+//EXAMPLE 1.SubjectIndefinite
+(IndefinitePronoun VC) {-> CREATE(GrammarProfile, "subCategory"="IndefinitePronoun", "superCategory"="Pronoun", "name"="SubjectIndefinite", "level"="B1")};
+
+//EXAMPLE 2.ObjectOrComplementIndefinite
+(IndefinitePronoun) {-> CREATE(GrammarProfile, "subCategory"="IndefinitePronoun", "superCategory"="Pronoun", "name"="ObjectOrComplementIndefinite", "level"="B1")};
+
+//EXAMPLE 3.PremodifiersIntensifyingIndefinite
+(IndefinitePronoun) {-> CREATE(GrammarProfile, "subCategory"="IndefinitePronoun", "superCategory"="Pronoun", "name"="PremodifiersIntensifyingIndefinite", "level"="B1")};
+
+//8.GenericUsePronoun
+//EXAMPLE 1.OneGeneralFormal
+(W{REGEXP("(?i)one")}) {-> CREATE(GrammarProfile, "subCategory"="GenericUsePronoun", "superCategory"="Pronoun", "name"="OneGeneralFormal", "level"="B1")};
+
+//9.Reciprocal
+//EXAMPLE 1.EachOtherReciprocal
+(W{REGEXP("(?i)each")} W{REGEXP("(?i)other")}) {-> CREATE(GrammarProfile, "subCategory"="GenericUsePronoun", "superCategory"="Pronoun", "name"="EachOtherReciprocal", "level"="B1")};
+
+
+
+//SCRIPT B1_Level.B1_Adjectives;
+
+//1.CombiningAdjective:
+    //EXAMPLE 1: BeforeTheNounCombiningAdjectives
+(POS_ADJ COMMA POS_ADJ POS_NOUN) {-> CREATE(GrammarProfile, "subCategory"="CombiningAdjective", "superCategory"="Adjective", "name"="BeforeTheNounCombiningAdjectives", "level"="B1")} ; 
+    
+//EXAMPLE 2: CombiningComparativeAdjectivesWithAnd 
+(Comparative W{REGEXP("(?i)and")} Comparative) {-> CREATE(GrammarProfile, "subCategory"="CombiningAdjective", "superCategory"="Adjective", "name"="CombiningComparativeAdjectivesWithAnd", "level"="B1")}; 
+
+//EXAMPLE 3: CombiningMoreThanTwoAdjectives
+(Be AdjectivePhrase) {-> CREATE(GrammarProfile, "subCategory"="CombiningAdjective", "superCategory"="Adjective", "name"="CombiningMoreThanTwoAdjectives", "level"="B1")};
+    
+//EXAMPLE 4: CombiningTheSameComparativeAdjectiveWithAnd
+(Lemma{FEATURE("value", "become")} Comparative W{REGEXP("(?i)and")} Comparative) {-> CREATE(GrammarProfile, "subCategory"="CombiningAdjective", "superCategory"="Adjective", "name"="CombiningTheSameComparativeAdjectiveWithAnd", "level"="B1")}; 
+(Lemma{FEATURE("value", "get")} Comparative W{REGEXP("(?i)and")} Comparative) {-> CREATE(GrammarProfile, "subCategory"="CombiningAdjective", "superCategory"="Adjective", "name"="CombiningTheSameComparativeAdjectiveWithAnd", "level"="B1")}; 
+(Comparative W{REGEXP("(?i)and")} Comparative) {-> CREATE(GrammarProfile, "subCategory"="CombiningAdjective", "superCategory"="Adjective", "name"="CombiningTheSameComparativeAdjectiveWithAnd", "level"="B1")}; 
+
+//EXAMPLE 5: CompoundAdjectives 
+(POS_ADJ{CONTAINS(SPECIAL)})  {-> CREATE(GrammarProfile, "subCategory"="CombiningAdjective", "superCategory"="Adjective", "name"="CompoundAdjectives", "level"="B1")};
+
+
+
+//2.ComparativesAdjective:
+    //EXAMPLE 1: WithSoMuchComparatives
+(Be? W{REGEXP("(?i)so")} W{REGEXP("(?i)much")} Comparative) {-> CREATE(GrammarProfile, "subCategory"="ComparativesAdjective", "superCategory"="Adjective", "name"="WithSoMuchComparatives", "level"="B1")}; 
+(Be? W{REGEXP("(?i)much")} Comparative) {-> CREATE(GrammarProfile, "subCategory"="ComparativesAdjective", "superCategory"="Adjective", "name"="WithSoMuchComparatives", "level"="B1")}; 
+
+//EXAMPLE 2: WithALittleBitComparatives
+(Be? W{REGEXP("(?i)a")} W{REGEXP("(?i)bit")} Comparative) {-> CREATE(GrammarProfile, "subCategory"="ComparativesAdjective", "superCategory"="Adjective", "name"="WithALittleBitComparatives", "level"="B1")}; 
+(Be? W{REGEXP("(?i)a")} W{REGEXP("(?i)little")} W{REGEXP("(?i)bit")} Comparative) {-> CREATE(GrammarProfile, "subCategory"="ComparativesAdjective", "superCategory"="Adjective", "name"="WithALittleBitComparatives", "level"="B1")}; 
+
+//EXAMPLE 3: WithAndComparatives
+(Lemma{FEATURE("value", "get")} Comparative W{REGEXP("and")} Comparative) {-> CREATE(GrammarProfile, "subCategory"="ComparativesAdjective", "superCategory"="Adjective", "name"="WithAndComparatives", "level"="B1")}; 
+(Lemma{FEATURE("value", "become")} Comparative W{REGEXP("and")} Comparative) {-> CREATE(GrammarProfile, "subCategory"="ComparativesAdjective", "superCategory"="Adjective", "name"="WithAndComparatives", "level"="B1")}; 
+(Comparative W{REGEXP("and")} Comparative) {-> CREATE(GrammarProfile, "subCategory"="ComparativesAdjective", "superCategory"="Adjective", "name"="WithAndComparatives", "level"="B1")}; 
+
+//EXAMPLE 4: WithEvenComparatives
+(Be W{REGEXP("(?i)even")} Comparative) {-> CREATE(GrammarProfile, "subCategory"="ComparativesAdjective", "superCategory"="Adjective", "name"="WithEvenComparatives", "level"="B1")}; 
+(Lemma{FEATURE("value", "get")} W{REGEXP("(?i)even")} Comparative) {-> CREATE(GrammarProfile, "subCategory"="ComparativesAdjective", "superCategory"="Adjective", "name"="WithEvenComparatives", "level"="B1")}; 
+(W{REGEXP("(?i)even")} Comparative) {-> CREATE(GrammarProfile, "subCategory"="ComparativesAdjective", "superCategory"="Adjective", "name"="WithEvenComparatives", "level"="B1")}; 
+
+
+
+//3.ModifyingAdjective:
+ //EXAMPLE 1.AdjectivePhraseNoun
+(AdverbAdjective POS_NOUN) {-> CREATE(GrammarProfile, "subCategory"="ModifyingAdjective", "superCategory"="Adjective", "name"="AdjectivePhraseNoun", "level"="B1")}; 
+
+//EXAMPLE 2.WithEnoughModifying
+(POS_ADJ W{REGEXP("(?i)enough")}) {-> CREATE(GrammarProfile, "subCategory"="ModifyingAdjective", "superCategory"="Adjective", "name"="WithEnoughModifying", "level"="B1")}; 
+
+//EXAMPLE 3.WithQuiteAModifying
+(W{REGEXP("(?i)quite")} W{REGEXP("(?i)a")} POS_ADJ) {-> CREATE(GrammarProfile, "subCategory"="ModifyingAdjective", "superCategory"="Adjective", "name"="WithQuiteAModifying", "level"="B1")}; 
+
+//EXAMPLE 4.WithTooToInfinitiveModifying
+(W{REGEXP("(?i)too")} POS_ADJ ToDo) {-> CREATE(GrammarProfile, "subCategory"="ModifyingAdjective", "superCategory"="Adjective", "name"="WithTooToInfinitiveModifying", "level"="B1")}; 
+
+
+
+
+//4.PositionAdjective:
+
+//EXAMPLE 1.AdjectivesWithPrefixA 
+(POS_ADJ{REGEXP("\\ba\\S*")}) {-> CREATE(GrammarProfile, "subCategory"="PositionAdjective", "superCategory"="Adjective", "name"="AdjectivesWithPrefixA", "level"="B1")}; 
+
+//EXAMPLE 2.AttributiveWithNouns
+(POS_ADJ POS_NOUN) {-> CREATE(GrammarProfile, "subCategory"="PositionAdjective", "superCategory"="Adjective", "name"="AttributiveWithNouns", "level"="B1")}; 
+
+//EXAMPLE 3.WithMakeAsObjectComplementPosition
+(Lemma{FEATURE("value", "make")} NC POS_ADJ) {-> CREATE(GrammarProfile, "subCategory"="PositionAdjective", "superCategory"="Adjective", "name"="WithMakeAsObjectComplementPosition", "level"="B1")}; 
+
+//EXAMPLE 4.WithPronounPosition
+(IndefinitePronoun POS_ADJ) {-> CREATE(GrammarProfile, "subCategory"="PositionAdjective", "superCategory"="Adjective", "name"="WithPronounPosition", "level"="B1")}; 
+
+
+//5.SuperlativesAdjective:
+
+//EXAMPLE 1.ComplexNounPhrasesSuperlatives
+(Superlative POS_NOUN PrepositionPhrase) {-> CREATE(GrammarProfile, "subCategory"="SuperlativesAdjective", "superCategory"="Adjective", "name"="ComplexNounPhrasesSuperlatives", "level"="B1")}; 
+
+//EXAMPLE 2.TheBestWithNounAndPresentPerfect
+(W{REGEXP("(?i)the")} W{REGEXP("(?i)best")} POS_NOUN W{REGEXP("(?i)present")} POS_PRON Has Done) {-> CREATE(GrammarProfile, "subCategory"="SuperlativesAdjective", "superCategory"="Adjective", "name"="TheBestWithNounAndPresentPerfect", "level"="B1")}; 
+(W{REGEXP("(?i)the")} W{REGEXP("(?i)best")} POS_NOUN POS_PRON Has Done) {-> CREATE(GrammarProfile, "subCategory"="SuperlativesAdjective", "superCategory"="Adjective", "name"="TheBestWithNounAndPresentPerfect", "level"="B1")}; 
+
+//EXAMPLE 3.OneOfSuperlative
+(W{REGEXP("(?i)one")} W{REGEXP("(?i)of")} Superlative) {-> CREATE(GrammarProfile, "subCategory"="SuperlativesAdjective", "superCategory"="Adjective", "name"="OneOfSuperlative", "level"="B1")}; 
+
+//EXAMPLE 4.TheBestWithNounAndToInfinitive
+(W{REGEXP("(?i)the")} W{REGEXP("(?i)best")} POS_NOUN ToDo) {-> CREATE(GrammarProfile, "subCategory"="SuperlativesAdjective", "superCategory"="Adjective", "name"="TheBestWithNounAndToInfinitive", "level"="B1")}; 
+
+//EXAMPLE 5.WithDeterminersSuperlatives
+(POS{FEATURE("PosValue", "PRP$")} POS{FEATURE("PosValue", "JJS")} POS_NOUN) {-> CREATE(GrammarProfile, "subCategory"="SuperlativesAdjective", "superCategory"="Adjective", "name"="WithDeterminersSuperlatives", "level"="B1")}; 
+(POS{FEATURE("PosValue", "PRP$")} W{REGEXP("(?i)most")}  POS_ADJ POS_NOUN) {-> CREATE(GrammarProfile, "subCategory"="SuperlativesAdjective", "superCategory"="Adjective", "name"="WithDeterminersSuperlatives", "level"="B1")}; 
+(POS{FEATURE("PosValue", "PRP$")} W{REGEXP("(?i)least")}  POS_ADJ POS_NOUN) {-> CREATE(GrammarProfile, "subCategory"="SuperlativesAdjective", "superCategory"="Adjective", "name"="WithDeterminersSuperlatives", "level"="B1")}; 
+
+
+
+
+
+//SCRIPT B1_Level.B1_Adverbs;
+
+//1.AdverbAsModifiers:
+    //EXAMPLE 1.TimeAdverbAsModifiers
+(TimeAdv) {-> CREATE(GrammarProfile, "subCategory"="AdverbAsModifiers", "superCategory"="Adverb", "name"="TimeAdverbAsModifiers", "level"="B1")};
+
+//EXAMPLE 2.PlaceAdverbAsModifiers
+(Place) {-> CREATE(GrammarProfile, "subCategory"="AdverbAsModifiers", "superCategory"="Adverb", "name"="PlaceAdverbAsModifiers", "level"="B1")};
+
+//EXAMPLE 3.DegreeWithVerbsAdverbAsModifiers
+(POS_VERB Degree) {-> CREATE(GrammarProfile, "subCategory"="AdverbAsModifiers", "superCategory"="Adverb", "name"="DegreeWithVerbsAdverbAsModifiers", "level"="B1")}; 
+
+//EXAMPLE 4.DegreeReallyReallyAdverbAsModifiers
+(W{REGEXP("(?i)really")} W{REGEXP("(?i)really")} POS_VERB) {-> CREATE(GrammarProfile, "subCategory"="AdverbAsModifiers", "superCategory"="Adverb", "name"="DegreeReallyReallyAdverbAsModifiers", "level"="B1")}; 
+(W{REGEXP("(?i)really")} W{REGEXP("(?i)really")} POS_ADJ) {-> CREATE(GrammarProfile, "subCategory"="AdverbAsModifiers", "superCategory"="Adverb", "name"="DegreeReallyReallyAdverbAsModifiers", "level"="B1")}; 
+
+//EXAMPLE 5.MannerAdverbAsModifiers
+(Manner) {-> CREATE(GrammarProfile, "subCategory"="AdverbAsModifiers", "superCategory"="Adverb", "name"="MannerAdverbAsModifiers", "level"="B1")};
+
+//EXAMPLE 6.LinkingAdverbAsModifiers
+(Linking) {-> CREATE(GrammarProfile, "subCategory"="AdverbAsModifiers", "superCategory"="Adverb", "name"="LinkingAdverbAsModifiers", "level"="B1")};
+
+//EXAMPLE 7.FocusAdverbAsModifiers
+(Focus) {-> CREATE(GrammarProfile, "subCategory"="AdverbAsModifiers", "superCategory"="Adverb", "name"="FocusAdverbAsModifiers", "level"="B1")};
+
+//EXAMPLE 8.OrganisingAdverbAsModifiers
+(Organising) {-> CREATE(GrammarProfile, "subCategory"="AdverbAsModifiers", "superCategory"="Adverb", "name"="OrganisingAdverbAsModifiers", "level"="B1")};
+
+//EXAMPLE 9.CertaintyAdverbAsModifiers
+(Certainty) {-> CREATE(GrammarProfile, "subCategory"="AdverbAsModifiers", "superCategory"="Adverb", "name"="CertaintyAdverbAsModifiers", "level"="B1")};
+
+//EXAMPLE 10.StanceAdverbAsModifiers
+(Stance) {-> CREATE(GrammarProfile, "subCategory"="AdverbAsModifiers", "superCategory"="Adverb", "name"="StanceAdverbAsModifiers", "level"="B1")};
+
+
+
+//2.AdverbsAndAdverbPhrases: types and meanings:
+    //EXAMPLE 1.DegreeModifyingAdverb
+(Degree POS_ADV) {-> CREATE(GrammarProfile, "subCategory"="AdverbsAndAdverbPhrases", "superCategory"="Adverb", "name"="DegreeModifyingAdverb", "level"="B1")}; 
+
+//EXAMPLE 2.MannerModifyingvVerb
+(Manner POS_VERB) {-> CREATE(GrammarProfile, "subCategory"="AdverbsAndAdverbPhrases", "superCategory"="Adverb", "name"="MannerModyfyingvVerb", "level"="B1")}; 
+(POS_VERB  Manner) {-> CREATE(GrammarProfile, "subCategory"="AdverbsAndAdverbPhrases", "superCategory"="Adverb", "name"="MannerModyfyingvVerb", "level"="B1")}; 
+
+//EXAMPLE 3.StanceModifyingClause
+(Stance COMMA) {-> CREATE(GrammarProfile, "subCategory"="AdverbsAndAdverbPhrases", "superCategory"="Adverb", "name"="StanceModifyingClause", "level"="B1")}; 
+
+//EXAMPLE 4.AdverbModifyingAdverbs
+(AdverbModifyingAdverb POS_ADV) {-> CREATE(GrammarProfile, "subCategory"="AdverbsAndAdverbPhrases", "superCategory"="Adverb", "name"="AdverbModifyingAdverbs", "level"="B1")}; 
+
+
+//SCRIPT B1_Level.B1_Determiners;
+
+//1.ArticlesDeterminer
+//EXAMPLE 1.AnotherArticles
+(W{REGEXP("(?i)another")} AdjectiveNoun) {-> CREATE(GrammarProfile, "subCategory"="ArticlesDeterminer", "superCategory"="Determiner", "name"="AnotherArticles", "level"="B1")};
+
+//EXAMPLE 2.PrepositionNoArticle
+(POS_ADP POS_NOUN) {-> CREATE(GrammarProfile, "subCategory"="ArticlesDeterminer", "superCategory"="Determiner", "name"="PrepositionNoArticle", "level"="B1")};
+
+//EXAMPLE 3.NoArticle
+(W{-PARTOF(Article)}) (POS_NOUN) {-> CREATE(GrammarProfile,2, "subCategory"="ArticlesDeterminer", "superCategory"="Determiner", "name"="NoArticle", "level"="B1")};
+
+//EXAMPLE 4.OneMoreWithAnotherArticles
+(W{REGEXP("(?i)another")} POS_NOUN) {-> CREATE(GrammarProfile, "subCategory"="ArticlesDeterminer", "superCategory"="Determiner", "name"="OneMoreWithAnotherArticles", "level"="B1")};
+
+//EXAMPLE 5.DifferentWithAnotherArticles
+(W{REGEXP("(?i)another")} POS_NOUN) {-> CREATE(GrammarProfile, "subCategory"="ArticlesDeterminer", "superCategory"="Determiner", "name"="DifferentWithAnotherArticles", "level"="B1")};
+
+//EXAMPLE 6.TheOtherArticles
+(W{REGEXP("(?i)the")} W{REGEXP("(?i)other")} POS_NOUN) {-> CREATE(GrammarProfile, "subCategory"="ArticlesDeterminer", "superCategory"="Determiner", "name"="TheOtherArticles", "level"="B1")};
+
+
+
+//2.DemonstrativesDeterminer
+//EXAMPLE 1.ThisPast
+(W{REGEXP("(?i)this")} W{REGEXP("(?i)morning")}) {-> CREATE(GrammarProfile, "subCategory"="DemonstrativesDeterminer", "superCategory"="Determiner", "name"="ThisPast", "level"="B1")};
+(W{REGEXP("(?i)this")} W{REGEXP("(?i)summer")}) {-> CREATE(GrammarProfile, "subCategory"="DemonstrativesDeterminer", "superCategory"="Determiner", "name"="ThisPast", "level"="B1")};
+
+//3.PossessivesDeterminer
+//EXAMPLE 1.Their
+(W{REGEXP("(?i)their")} POS_NOUN) {-> CREATE(GrammarProfile, "subCategory"="PossessivesDeterminer", "superCategory"="Determiner", "name"="Their", "level"="B1")};
+
+//EXAMPLE 2.IrregularPluralNounS
+(IrregularPluralNoun POS{FEATURE("PosValue", "POS")})  {-> CREATE(GrammarProfile, "subCategory"="PossessivesDeterminer", "superCategory"="Determiner", "name"="IrregularPluralNounS", "level"="B1")};
+
+//4.QuantityDeterminer
+
+//EXAMPLE 1.WithPluralNounsQuantity
+(DeterminerWithPluralNouns Article AdjectiveNoun) {-> CREATE(GrammarProfile, "subCategory"="QuantityDeterminer", "superCategory"="Determiner", "name"="WithPluralNounsQuantity", "level"="B1")};
+(DeterminerWithPluralNouns AdjectiveNoun) {-> CREATE(GrammarProfile, "subCategory"="QuantityDeterminer", "superCategory"="Determiner", "name"="WithPluralNounsQuantity", "level"="B1")};
+
+//EXAMPLE 2.WithUncountableNounsQuantity
+(DeterminerWithUncountableNouns AdjectiveNoun) {-> CREATE(GrammarProfile, "subCategory"="QuantityDeterminer", "superCategory"="Determiner", "name"="WithUncountableNounsQuantity", "level"="B1")};
+
+//EXAMPLE 3.WithPluralAndUncountableNounsQuantity
+(DeterminerWithPluralAndUncountableNouns AdjectiveNoun) {-> CREATE(GrammarProfile, "subCategory"="QuantityDeterminer", "superCategory"="Determiner", "name"="WithPluralAndUncountableNounsQuantity", "level"="B1")};
+
+//EXAMPLE 4.MuchWithUncountableNounsInterrogative
+(W{REGEXP("(?i)much")} AdjectiveNoun) {-> CREATE(GrammarProfile, "subCategory"="QuantityDeterminer", "superCategory"="Determiner", "name"="MuchWithUncountableNounsInterrogative", "level"="B1")};
+
+//EXAMPLE 5.SoMuchTooMuchWithUncountableNouns
+(W{REGEXP("(?i)so")} W{REGEXP("(?i)much")} AdjectiveNoun ) {-> CREATE(GrammarProfile, "subCategory"="QuantityDeterminer", "superCategory"="Determiner", "name"="SoMuchTooMuchWithUncountableNouns", "level"="B1")};
+(W{REGEXP("(?i)too")} W{REGEXP("(?i)much")} AdjectiveNoun ) {-> CREATE(GrammarProfile, "subCategory"="QuantityDeterminer", "superCategory"="Determiner", "name"="SoMuchTooMuchWithUncountableNouns", "level"="B1")};
+
+//EXAMPLE 6.ManyWithPluralNounsInterrogative
+(W{REGEXP("(?i)many")} AdjectiveNoun) {-> CREATE(GrammarProfile, "subCategory"="QuantityDeterminer", "superCategory"="Determiner", "name"="ManyWithPluralNounsInterrogative", "level"="B1")};
+
+//EXAMPLE 7.DeterminerOfDeterminerQuantity (???)
+(DeterminerOf POS{FEATURE("PosValue", "PRP$")} POS_NOUN) {-> CREATE(GrammarProfile, "subCategory"="QuantityDeterminer", "superCategory"="Determiner", "name"="DeterminerOfDeterminerQuantity", "level"="B1")};
+(DeterminerOf POS_DET POS_NOUN) {-> CREATE(GrammarProfile, "subCategory"="QuantityDeterminer", "superCategory"="Determiner", "name"="DeterminerOfDeterminerQuantity", "level"="B1")};
+
+//EXAMPLE 8.ModifyingQuantity
+(POS_ADV Determiner) {-> CREATE(GrammarProfile, "subCategory"="QuantityDeterminer", "superCategory"="Determiner", "name"="ModifyingQuantity", "level"="B1")};
+(POS_ADV POS_DET) {-> CREATE(GrammarProfile, "subCategory"="QuantityDeterminer", "superCategory"="Determiner", "name"="ModifyingQuantity", "level"="B1")};
+
+
+
+
+
+
+
+//SCRIPT B1_Level.B1_Conjunctions;
+
+//1.CoordinatingConjunction:
+    //EXAMPLE 1.ComplexAddingCoordinating
+(POS_CONJ) {-> CREATE(GrammarProfile, "subCategory"="CoordinatingConjunction", "superCategory"="Conjunction", "name"="ComplexAddingCoordinating", "level"="B1")};
+
+//EXAMPLE 2.PlusWithNounsCoordinating
+(W{REGEXP("(?i)plus")} NC) {-> CREATE(GrammarProfile, "subCategory"="CoordinatingConjunction", "superCategory"="Conjunction", "name"="PlusWithNounsCoordinating", "level"="B1")};
+
+//EXAMPLE 3.PlusWithClausesCoordinating
+(W{REGEXP("(?i)plus")} COMMA) {-> CREATE(GrammarProfile, "subCategory"="CoordinatingConjunction", "superCategory"="Conjunction", "name"="PlusWithClausesCoordinating", "level"="B1")};
+
+//EXAMPLE 4.BothAndWithNounsCoordinating (problem!!!)
+(W{REGEXP("(?i)both")} # W{REGEXP("(?i)and")}) {-> CREATE(GrammarProfile, "subCategory"="CoordinatingConjunction", "superCategory"="Conjunction", "name"="BothAndWithNounsCoordinating", "level"="B1")};
+
+//EXAMPLE 5.EitherOrCoordinating 
+(W{REGEXP("(?i)either")} # W{REGEXP("(?i)or")}) {-> CREATE(GrammarProfile, "subCategory"="CoordinatingConjunction", "superCategory"="Conjunction", "name"="EitherOrCoordinating", "level"="B1")};
+
+
+//2.SubordinatingConjunction:
+    //EXAMPLE 1.SimpleSubordinatingConjunctions
+(SimpleSubordinatingConjunction) {-> CREATE(GrammarProfile, "subCategory"="SubordinatingConjunction", "superCategory"="Conjunction", "name"="SimpleSubordinatingConjunctions", "level"="B1")};
+
+
+//SCRIPT B1_Level.B1_DiscourseMarkers;
+
+//1.DiscourseMarkersInWriting
+//EXAMPLE 1.SequencingDiscourseMarkers    
+(Organising) {-> CREATE(GrammarProfile, "subCategory"="DiscourseMarkersInWriting", "superCategory"="DiscourseMarker", "name"="SequencingDiscourseMarkers", "level"="B1")};
+
+//EXAMPLE 2.OrganisingContrastingDiscourseMarkers    
+(Contrasting) {-> CREATE(GrammarProfile, "subCategory"="DiscourseMarkersInWriting", "superCategory"="DiscourseMarker", "name"="OrganisingContrastingDiscourseMarkers", "level"="B1")};
+
+//EXAMPLE 3.OrganisingMakingNewKnowledgeInformalDiscourseMarkers    
+(MakingNewKnowledgeInformal) {-> CREATE(GrammarProfile, "subCategory"="DiscourseMarkersInWriting", "superCategory"="DiscourseMarker", "name"="OrganisingMakingNewKnowledgeInformalDiscourseMarkers", "level"="B1")};
+
+//EXAMPLE 4.AdverbsStanceDiscourseMarkers    
+(Stance) {-> CREATE(GrammarProfile, "subCategory"="DiscourseMarkersInWriting", "superCategory"="DiscourseMarker", "name"="AdverbsStanceDiscourseMarkers", "level"="B1")};
+
+//EXAMPLE 5.OrganisingAddingDiscourseMarkers    
+(Adding) {-> CREATE(GrammarProfile, "subCategory"="DiscourseMarkersInWriting", "superCategory"="DiscourseMarker", "name"="OrganisingAddingDiscourseMarkers", "level"="B1")};
+
+
+//SCRIPT B1_Level.B1_Focus;
+
+//1.Focus
+//EXAMPLE 1.FrontingAdverbsFocus
+(POS_ADV COMMA NC POS_VERB) {-> CREATE(GrammarProfile, "subCategory"="Focus", "superCategory"="Focus", "name"="FrontingAdverbsFocus", "level"="B1")};
+(POS_ADV NC POS_VERB) {-> CREATE(GrammarProfile, "subCategory"="Focus", "superCategory"="Focus", "name"="FrontingAdverbsFocus", "level"="B1")};
+
+//EXAMPLE 2.ItBeAdjectiveThatFocus
+(W{REGEXP("(?i)it")} Be POS_ADJ W{REGEXP("(?i)that")}) {-> CREATE(GrammarProfile, "subCategory"="Focus", "superCategory"="Focus", "name"="ItBeAdjectiveThatFocus", "level"="B1")};
+
+
+
+//SCRIPT B1_Level.B1_Negation;
+
+//1.Negation
+//EXAMPLE 1.AuxiliaryVerbsBeHavePast
+(W{REGEXP("(?i)was|were|had")} Not) {-> CREATE(GrammarProfile, "subCategory"="Negation", "superCategory"="Negation", "name"="AuxiliaryVerbsBeHavePast", "level"="B1")};
+
+//EXAMPLE 2.MentalProcessVerbClause
+(W{REGEXP("(?i)I")} W{REGEXP("(?i)do")} Not W{REGEXP("(?i)think")}) {-> CREATE(GrammarProfile, "subCategory"="Negation", "superCategory"="Negation", "name"="MentalProcessVerbClause", "level"="B1")};
+(W{REGEXP("(?i)I")} W{REGEXP("(?i)do")} Not W{REGEXP("(?i)believe")}) {-> CREATE(GrammarProfile, "subCategory"="Negation", "superCategory"="Negation", "name"="MentalProcessVerbClause", "level"="B1")};
+
+//EXAMPLE 3.QuestionsNegation
+(POS_VERB Not POS_PRON) {-> CREATE(GrammarProfile, "subCategory"="Negation", "superCategory"="Negation", "name"="QuestionsNegation", "level"="B1")};
+
+//EXAMPLE 4.SeekingAgreementNegation
+(POS_VERB Not POS_PRON) {-> CREATE(GrammarProfile, "subCategory"="Negation", "superCategory"="Negation", "name"="SeekingAgreementNegation", "level"="B1")};
+
+//EXAMPLE 5.PronounsNegation
+(W{REGEXP("(?i)nothing|nobody|none|anything|anyone|anybody")}) {-> CREATE(GrammarProfile, "subCategory"="Negation", "superCategory"="Negation", "name"="PronounsNegation", "level"="B1")};
+
+//EXAMPLE 6.AdverbsNegation
+(W{REGEXP("(?i)ever|never|yet|still")}) {-> CREATE(GrammarProfile, "subCategory"="Negation", "superCategory"="Negation", "name"="AdverbsNegation", "level"="B1")};
+
+//EXAMPLE 7.NotNonFiniteAndElliptedClauses (???????)
+//(Not NonFiniteClause Particle? POS_ADV? PC? POS_PRON? NC PrepositionPhrase?) {-> CREATE(GrammarProfile, "subCategory"="Negation", "superCategory"="Negation", "name"="NotNonFiniteAndElliptedClauses", "level"="B1")};
+
+
+//SCRIPT B1_Level.B1_Questions;
+
+//1.Alternatives
+//EXAMPLE 1.PhrasePhraseAlternatives
+(W{REGEXP("(?i)or")}) {-> CREATE(GrammarProfile, "subCategory"="AlternativesQuestion", "superCategory"="Question", "name"="PhrasePhraseAlternatives", "level"="B1")};
+
+//EXAMPLE 2.OrSomethingElseVague
+(W{REGEXP("(?i)or")} W{REGEXP("(?i)something")} W{REGEXP("(?i)else")} QUESTION) {-> CREATE(GrammarProfile, "subCategory"="AlternativesQuestion", "superCategory"="Question", "name"="OrSomethingElseVague", "level"="B1")};
+
+//EXAMPLE 3.ClauseClauseAlternatives
+(W{REGEXP("(?i)or")}) {-> CREATE(GrammarProfile, "subCategory"="AlternativesQuestion", "superCategory"="Question", "name"="ClauseClauseAlternatives", "level"="B1")};
+
+//EXAMPLE 4.OrNot
+(W{REGEXP("(?i)or")} W{REGEXP("(?i)not")} QUESTION) {-> CREATE(GrammarProfile, "subCategory"="AlternativesQuestion", "superCategory"="Question", "name"="OrNot", "level"="B1")};
+
+//2.tags
+//EXAMPLE 1.NegativeMainClausesAffirmativeQuestionTag
+(Lemma{FEATURE("value", "be")} POS_PRON) {-> CREATE(GrammarProfile, "subCategory"="AlternativesQuestion", "superCategory"="Question", "name"="NegativeMainClausesAffirmativeQuestionTag", "level"="B1")};
+(Lemma{FEATURE("value", "do")} POS_PRON) {-> CREATE(GrammarProfile, "subCategory"="AlternativesQuestion", "superCategory"="Question", "name"="NegativeMainClausesAffirmativeQuestionTag", "level"="B1")};
+(Lemma{FEATURE("value", "have")} POS_PRON) {-> CREATE(GrammarProfile, "subCategory"="AlternativesQuestion", "superCategory"="Question", "name"="NegativeMainClausesAffirmativeQuestionTag", "level"="B1")};
+
+//EXAMPLE 2.AffirmativeMainClausesNegativeQuestionTag
+(Lemma{FEATURE("value", "be")} Not POS_PRON) {-> CREATE(GrammarProfile, "subCategory"="AlternativesQuestion", "superCategory"="Question", "name"="AffirmativeMainClausesNegativeQuestionTag", "level"="B1")};
+(Lemma{FEATURE("value", "do")} Not POS_PRON) {-> CREATE(GrammarProfile, "subCategory"="AlternativesQuestion", "superCategory"="Question", "name"="AffirmativeMainClausesNegativeQuestionTag", "level"="B1")};
+(Lemma{FEATURE("value", "have")} Not POS_PRON) {-> CREATE(GrammarProfile, "subCategory"="AlternativesQuestion", "superCategory"="Question", "name"="AffirmativeMainClausesNegativeQuestionTag", "level"="B1")};
+
+//EXAMPLE 3.AffirmativeMainClausesAffirmativeQuestionTag
+(Lemma{FEATURE("value", "be")} POS_PRON) {-> CREATE(GrammarProfile, "subCategory"="AlternativesQuestion", "superCategory"="Question", "name"="AffirmativeMainClausesAffirmativeQuestionTag", "level"="B1")};
+(Lemma{FEATURE("value", "do")} POS_PRON) {-> CREATE(GrammarProfile, "subCategory"="AlternativesQuestion", "superCategory"="Question", "name"="AffirmativeMainClausesAffirmativeQuestionTag", "level"="B1")};
+(Lemma{FEATURE("value", "have")} POS_PRON) {-> CREATE(GrammarProfile, "subCategory"="AlternativesQuestion", "superCategory"="Question", "name"="AffirmativeMainClausesAffirmativeQuestionTag", "level"="B1")};
+
+//EXAMPLE 4.RightAsInformalTag
+(W{REGEXP("(?i)right")} QUESTION) {-> CREATE(GrammarProfile, "subCategory"="AlternativesQuestion", "superCategory"="Question", "name"="RightAsInformalTag", "level"="B1")};
+
+//3.Wh
+//EXAMPLE 1.NegativeQuestionsWithModalsWH
+(WHWord POS{FEATURE("PosValue", "MD")} Not POS_PRON POS_VERB) {-> CREATE(GrammarProfile, "subCategory"="WhQuestion", "superCategory"="Question", "name"="NegativeQuestionsWithModalsWH", "level"="B1")};
+
+//4.YesNo
+//EXAMPLE 1.NegativeQuestionsWithBeYesno
+(Lemma{FEATURE("value", "be")} Not POS_PRON) {-> CREATE(GrammarProfile, "subCategory"="YesNoQuestion", "superCategory"="Question", "name"="NegativeQuestionsWithBeYesno", "level"="B1")};
+
+//EXAMPLE 2.NegativeQuestionsAuxiliaryVerbsYesno
+(Dont POS_PRON POS_VERB) {-> CREATE(GrammarProfile, "subCategory"="YesNoQuestion", "superCategory"="Question", "name"="NegativeQuestionsAuxiliaryVerbsYesno", "level"="B1")};
+
+//EXAMPLE 3.NegativeQuestionsModalVerbsYesno
+(POS{FEATURE("PosValue", "MD")} Not POS_PRON POS_VERB) {-> CREATE(GrammarProfile, "subCategory"="YesNoQuestion", "superCategory"="Question", "name"="NegativeQuestionsModalVerbsYesno", "level"="B1")};
+
+//EXAMPLE 4.SeekingAgreementYesno
+(Lemma{FEATURE("value", "be")} Not W{REGEXP("(?i)that")}) {-> CREATE(GrammarProfile, "subCategory"="YesNoQuestion", "superCategory"="Question", "name"="AffirmativeMainClausesNegativeQuestionTag", "level"="B1")};
+(Lemma{FEATURE("value", "do")} Not W{REGEXP("(?i)that")}) {-> CREATE(GrammarProfile, "subCategory"="YesNoQuestion", "superCategory"="Question", "name"="AffirmativeMainClausesNegativeQuestionTag", "level"="B1")};
+(POS{FEATURE("PosValue", "MD")} Not W{REGEXP("(?i)that")}) {-> CREATE(GrammarProfile, "subCategory"="YesNoQuestion", "superCategory"="Question", "name"="AffirmativeMainClausesNegativeQuestionTag", "level"="B1")};
+(Lemma{FEATURE("value", "be")} Not NC) {-> CREATE(GrammarProfile, "subCategory"="YesNoQuestion", "superCategory"="Question", "name"="AffirmativeMainClausesNegativeQuestionTag", "level"="B1")};
+(Lemma{FEATURE("value", "do")} Not NC) {-> CREATE(GrammarProfile, "subCategory"="YesNoQuestion", "superCategory"="Question", "name"="AffirmativeMainClausesNegativeQuestionTag", "level"="B1")};
+(POS{FEATURE("PosValue", "MD")} Not NC) {-> CREATE(GrammarProfile, "subCategory"="YesNoQuestion", "superCategory"="Question", "name"="AffirmativeMainClausesNegativeQuestionTag", "level"="B1")};
+
+
+//SCRIPT B1_Level.B1_Verbs;
+
+//1.PhrasalPrepositional
+//EXAMPLE 1.VerbParticlePrepositionObject
+(POS_VERB Particle POS_ADP NC) {-> CREATE(GrammarProfile, "subCategory"="PhrasalPrepositionalVerb", "superCategory"="Verb", "name"="VerbParticlePrepositionObject", "level"="B1")};
+
+//2.Prepositional
+//EXAMPLE 1.VerbPrepositionObject
+(POS_VERB POS_ADP NC) {-> CREATE(GrammarProfile, "subCategory"="PrepositionalVerb", "superCategory"="Verb", "name"="VerbPrepositionObject", "level"="B1")};
+
+//3.PatternsThatClauses
+//EXAMPLE 1.ReportingVerbsDirectObjectThatClause
+(POS_VERB  W{REGEXP("(?i)that")}) {-> CREATE(GrammarProfile, "subCategory"="PatternsThatClauses", "superCategory"="Verb", "name"="ReportingVerbsDirectObjectThatClause", "level"="B1")};
+
+//EXAMPLE 2.VerbsPrepositionalPhraseThatClause
+(POS_VERB PrepositionPhrase W{REGEXP("(?i)that")}) {-> CREATE(GrammarProfile, "subCategory"="PatternsThatClauses", "superCategory"="Verb", "name"="VerbsPrepositionalPhraseThatClause", "level"="B1")};
+
+//4.Phrasal
+//EXAMPLE 1.NoObjectPhrasal
+//(VC Particle? POS_ADV? PC? POS_PRON? ANY{-PARTOF(NC)} PrepositionPhrase?) {-> CREATE(GrammarProfile, "subCategory"="PhrasalVerb", "superCategory"="Verb", "name"="NoObjectPhrasal", "level"="B1")};
+
+//EXAMPLE 2.VerbParticleObjectPhrasal
+(POS_VERB  Particle  NC) {-> CREATE(GrammarProfile, "subCategory"="PhrasalVerb", "superCategory"="Verb", "name"="VerbParticleObjectPhrasal", "level"="B1")};
+
+//EXAMPLE 3.VerbPronounParticlePhrasal
+(POS_VERB POS_PRON  Particle) {-> CREATE(GrammarProfile, "subCategory"="PhrasalVerb", "superCategory"="Verb", "name"="VerbPronounParticlePhrasal", "level"="B1")};
+
+//5.TypesVerb
+//EXAMPLE 1.SemiModalAuxiliaryVerbsUsedToOughtTo
+(Used ToDo ){-> CREATE(GrammarProfile, "subCategory"="TypesVerb", "superCategory"="Verb", "name"="SemiModalAuxiliaryVerbsUsedToOughtTo", "level"="B1")};
+(Ought ToDo ){-> CREATE(GrammarProfile, "subCategory"="TypesVerb", "superCategory"="Verb", "name"="SemiModalAuxiliaryVerbsUsedToOughtTo", "level"="B1")};
+
+//6.PatternsWithToAndIng
+//EXAMPLE 1.VerbToToDo
+(POS_VERB ToDo) {-> CREATE(GrammarProfile, "subCategory"="PatternsWithToAndIng", "superCategory"="Verb", "name"="VerbToToDo", "level"="B1")};
+
+//EXAMPLE 2.WouldPreferToPoliteness
+(Would W{REGEXP("(?i)prefer")} ToDo) {-> CREATE(GrammarProfile, "subCategory"="PatternsWithToAndIng", "superCategory"="Verb", "name"="WouldPreferToPoliteness", "level"="B1")};
+
+//EXAMPLE 3.VerbIngForm
+(POS_VERB Doing) {-> CREATE(GrammarProfile, "subCategory"="PatternsWithToAndIng", "superCategory"="Verb", "name"="VerbIngForm", "level"="B1")};
+
+//EXAMPLE 4.HelpObject
+(Lemma{FEATURE("value", "help")} POS_PRON ToDo) {-> CREATE(GrammarProfile, "subCategory"="PatternsWithToAndIng", "superCategory"="Verb", "name"="HelpObject", "level"="B1")};
+(Lemma{FEATURE("value", "help")} POS_PRON POS_VERB) {-> CREATE(GrammarProfile, "subCategory"="PatternsWithToAndIng", "superCategory"="Verb", "name"="HelpObject", "level"="B1")};
+
+//EXAMPLE 5.VerbDirectObjectToToDo
+(POS_VERB POS_PRON ToDo) {-> CREATE(GrammarProfile, "subCategory"="PatternsWithToAndIng", "superCategory"="Verb", "name"="VerbDirectObjectToToDo", "level"="B1")};
+
+//EXAMPLE 6.MakeLetToDoWithoutTo
+(Lemma{FEATURE("value", "make")} POS_PRON POS_VERB) {-> CREATE(GrammarProfile, "subCategory"="PatternsWithToAndIng", "superCategory"="Verb", "name"="MakeLetToDoWithoutTo", "level"="B1")};
+(Lemma{FEATURE("value", "let")} POS_PRON POS_VERB) {-> CREATE(GrammarProfile, "subCategory"="PatternsWithToAndIng", "superCategory"="Verb", "name"="MakeLetToDoWithoutTo", "level"="B1")};
+
+//7.ThereIsAre
+//EXAMPLE 1.NegativeThereBe
+(W{REGEXP("(?i)there")} Lemma{FEATURE("value", "be")} Lemma{FEATURE("value", "not")}) {-> CREATE(GrammarProfile, "subCategory"="ThereIsAre", "superCategory"="Verb", "name"="NegativeThereBe", "level"="B1")};
+
+//EXAMPLE 2.ThereModalVerbs
+(W{REGEXP("(?i)there")} ModalVerb Be) {-> CREATE(GrammarProfile, "subCategory"="ThereIsAre", "superCategory"="Verb", "name"="ThereModalVerbs", "level"="B1")};
+
+
+
+//SCRIPT B1_Level.B1_Modality;
+
+//1.AdjectivesModality
+//EXAMPLE 1.ItBeImportantClause
+(W{REGEXP("(?i)it")} Be W{REGEXP("(?i)important")} W{REGEXP("(?i)that")}) {-> CREATE(GrammarProfile, "subCategory"="AdjectivesModality", "superCategory"="Modality", "name"="ItBeImportantClause", "level"="B1")};
+
+//EXAMPLE 2.IfClausePossiblePoliteness
+(W{REGEXP("(?i)if")} W{REGEXP("(?i)it")} Be W{REGEXP("(?i)possible")} ) {-> CREATE(GrammarProfile, "subCategory"="AdjectivesModality", "superCategory"="Modality", "name"="IfClausePossiblePoliteness", "level"="B1")};
+(W{REGEXP("(?i)if")} W{REGEXP("(?i)possible")} ) {-> CREATE(GrammarProfile, "subCategory"="AdjectivesModality", "superCategory"="Modality", "name"="IfClausePossiblePoliteness", "level"="B1")};
+
+//EXAMPLE 3.ItBeAdjectiveToDoHedgingEmphasis
+(W{REGEXP("(?i)it")} Be POS_ADJ ToDo) {-> CREATE(GrammarProfile, "subCategory"="AdjectivesModality", "superCategory"="Modality", "name"="ItBeAdjectiveToDoHedgingEmphasis", "level"="B1")};
+
+//EXAMPLE 4.ItBeAdjectiveForObjectToDo
+(W{REGEXP("(?i)it")} Be POS_ADJ W{REGEXP("(?i)for")} POS_PRON ToDo) {-> CREATE(GrammarProfile, "subCategory"="AdjectivesModality", "superCategory"="Modality", "name"="ItBeAdjectiveForObjectToDo", "level"="B1")};
+
+//2.Can
+//EXAMPLE 1.NegativeQuestionsCan
+(Lemma{FEATURE("value", "can")} Not POS_PRON) {-> CREATE(GrammarProfile, "subCategory"="Can", "superCategory"="Modality", "name"="NegativeQuestionsCan", "level"="B1")};
+
+//EXAMPLE 2.WithAdverbsCan
+(Lemma{FEATURE("value", "can")} POS_ADV) {-> CREATE(GrammarProfile, "subCategory"="Can", "superCategory"="Modality", "name"="WithAdverbsCan", "level"="B1")};
+
+//EXAMPLE 3.GeneralTruthsAndTendenciesCanBe
+(Lemma{FEATURE("value", "can")} W{REGEXP("(?i)be")}) {-> CREATE(GrammarProfile, "subCategory"="Can", "superCategory"="Modality", "name"="GeneralTruthsAndTendenciesCanBe", "level"="B1")};
+
+//EXAMPLE 4.SuppriseCanYouBelieve
+(W{REGEXP("(?i)can")} W{REGEXP("(?i)you")} W{REGEXP("(?i)believe")}) {-> CREATE(GrammarProfile, "subCategory"="Can", "superCategory"="Modality", "name"="SuppriseCanYouBelieve", "level"="B1")};
+
+//3.ExpressionsWithBe
+//EXAMPLE 1.ModalWithBeAbleTo
+(ModalVerb W{REGEXP("(?i)be")} W{REGEXP("(?i)able")} ToDo) {-> CREATE(GrammarProfile, "subCategory"="ExpressionsWithBe", "superCategory"="Modality", "name"="ModalWithBeAbleTo", "level"="B1")};
+
+//EXAMPLE 2.BeExpressionToDo
+(Be W ToDo) {-> CREATE(GrammarProfile, "subCategory"="ExpressionsWithBe", "superCategory"="Modality", "name"="BeExpressionToDo", "level"="B1")};
+
+//EXAMPLE 3.BeAllowedToPermission
+(Be W{REGEXP("(?i)allowed")} ToDo) {-> CREATE(GrammarProfile, "subCategory"="ExpressionsWithBe", "superCategory"="Modality", "name"="BeAllowedToPermission", "level"="B1")};
+
+//EXAMPLE 4.BeSupposedToPastExpectation
+(Be W{REGEXP("(?i)supposed")} ToDo) {-> CREATE(GrammarProfile, "subCategory"="ExpressionsWithBe", "superCategory"="Modality", "name"="BeSupposedToPastExpectation", "level"="B1")};
+
+//EXAMPLE 5.BeAbleToPast
+(Was W{REGEXP("(?i)able")} ToDo) {-> CREATE(GrammarProfile, "subCategory"="ExpressionsWithBe", "superCategory"="Modality", "name"="BeAbleToPast", "level"="B1")};
+
+
+//4.HaveGotTo
+//EXAMPLE 1.IHaveToAdmit
+(W{REGEXP("(?i)i")} W{REGEXP("(?i)have")} W{REGEXP("(?i)to")} W{REGEXP("(?i)admit")}) {-> CREATE(GrammarProfile, "subCategory"="HaveGotTo", "superCategory"="Modality", "name"="IHaveToAdmit", "level"="B1")};
+
+//EXAMPLE 2.HaveToToDo
+(Have ToDo) {-> CREATE(GrammarProfile, "subCategory"="HaveGotTo", "superCategory"="Modality", "name"="HaveToToDo", "level"="B1")};
+
+ 
+ //5.May
+ //EXAMPLE 1.NegativeMay
+ (Lemma{FEATURE("value", "may")} Not) {-> CREATE(GrammarProfile, "subCategory"="May", "superCategory"="Modality", "name"="NegativeMay", "level"="B1")};
+ 
+ //EXAMPLE 2.WithAdverbsMay
+ (May POS_ADV POS_VERB) {-> CREATE(GrammarProfile, "subCategory"="May", "superCategory"="Modality", "name"="WithAdverbsMay", "level"="B1")};
+ 
+ //EXAMPLE 3.MayIPermission
+ (May W{REGEXP("(?i)I")}) {-> CREATE(GrammarProfile, "subCategory"="May", "superCategory"="Modality", "name"="MayIPermission", "level"="B1")};
+ 
+ //EXAMPLE 4.MayIQuestions
+ (May W{REGEXP("(?i)I")}) {-> CREATE(GrammarProfile, "subCategory"="May", "superCategory"="Modality", "name"="MayIQuestions", "level"="B1")};
+ 
+ //6.Might
+ //EXAMPLE 1.NegativeMight
+ (Lemma{FEATURE("value", "might")} Not) {-> CREATE(GrammarProfile, "subCategory"="Might", "superCategory"="Modality", "name"="NegativeMight", "level"="B1")};
+ 
+ //EXAMPLE 2.ReportedSpeechMight
+ (Might POS_VERB) {-> CREATE(GrammarProfile, "subCategory"="Might", "superCategory"="Modality", "name"="ReportedSpeechMight", "level"="B1")};
+ 
+ //EXAMPLE 3.SuggestionsMight
+ (Might POS_VERB) {-> CREATE(GrammarProfile, "subCategory"="Might", "superCategory"="Modality", "name"="SuggestionsMight", "level"="B1")};
+ 
+ //EXAMPLE 4.PastAffirmative
+ (Might Have Done) {-> CREATE(GrammarProfile, "subCategory"="Might", "superCategory"="Modality", "name"="PastAffirmative", "level"="B1")};
+ 
+ //EXAMPLE 5.PossibilityInThePast
+ (Might Have Done) {-> CREATE(GrammarProfile, "subCategory"="Might", "superCategory"="Modality", "name"="PossibilityInThePast", "level"="B1")};
+ 
+ //EXAMPLE 6.FocusMight
+ (W{REGEXP("(?i)as")}  W{REGEXP("(?i)you")} Might POS_VERB) {-> CREATE(GrammarProfile, "subCategory"="Might", "superCategory"="Modality", "name"="FocusMight", "level"="B1")};
+ 
+ //7.Must
+ //EXAMPLE 1.EllipsisWithSubjectMust
+ (POS_PRON Must) {-> CREATE(GrammarProfile, "subCategory"="Must", "superCategory"="Modality", "name"="EllipsisWithSubjectMust", "level"="B1")};
+ 
+ //EXAMPLE 2.EllipsisWithoutSubjectMust
+ (Must POS_VERB) {-> CREATE(GrammarProfile, "subCategory"="Must", "superCategory"="Modality", "name"="EllipsisWithoutSubjectMust", "level"="B1")};
+ 
+ //EXAMPLE 3.WithAdverbsMust
+ (Must POS_ADV)  {-> CREATE(GrammarProfile, "subCategory"="Must", "superCategory"="Modality", "name"="WithAdverbsMust", "level"="B1")};
+ 
+ //EXAMPLE 4.DeductionsAndClusionsMust
+ (W{REGEXP("(?i)it")} Must Be )  {-> CREATE(GrammarProfile, "subCategory"="Must", "superCategory"="Modality", "name"="DeductionsAndClusionsMust", "level"="B1")};
+  (W{REGEXP("(?i)you")} Must Be )  {-> CREATE(GrammarProfile, "subCategory"="Must", "superCategory"="Modality", "name"="DeductionsAndClusionsMust", "level"="B1")};
+
+ //EXAMPLE 5.InvitationsMust
+ (Must  POS_VERB W{REGEXP("(?i)and")}  POS_VERB)  {-> CREATE(GrammarProfile, "subCategory"="Must", "superCategory"="Modality", "name"="InvitationsMust", "level"="B1")};
+ 
+ //EXAMPLE 6.ObligationAndNecessityMust
+ (Must)  {-> CREATE(GrammarProfile, "subCategory"="Must", "superCategory"="Modality", "name"="ObligationAndNecessityMust", "level"="B1")};
+ 
+ //EXAMPLE 7.SuggestionsMust
+ (Must)  {-> CREATE(GrammarProfile, "subCategory"="Must", "superCategory"="Modality", "name"="SuggestionsMust", "level"="B1")};
+
+ 
+
+//8.Ought
+//EXAMPLE 1.AffirmativeOught
+(Ought ToDo)  {-> CREATE(GrammarProfile, "subCategory"="Ought", "superCategory"="Modality", "name"="AffirmativeOught", "level"="B1")};
+
+//EXAMPLE 2.AdviceOught
+( W{REGEXP("(?i)you")} Ought ToDo)  {-> CREATE(GrammarProfile, "subCategory"="Ought", "superCategory"="Modality", "name"="AdviceOught", "level"="B1")};
+
+
+//9.Shall
+//EXAMPLE 1.PlansAndIntentionsShall
+(Shall POS_VERB)  {-> CREATE(GrammarProfile, "subCategory"="Shall", "superCategory"="Modality", "name"="PlansAndIntentionsShall", "level"="B1")};
+
+//EXAMPLE 2.SeekingAdviceShall
+(WHWord Shall W{REGEXP("(?i)I")} POS_VERB)  {-> CREATE(GrammarProfile, "subCategory"="Shall", "superCategory"="Modality", "name"="SeekingAdviceShall", "level"="B1")};
+
+//10.Should
+//EXAMPLE 1.QuestionTagsShould
+(Lemma{FEATURE("value", "should")} Not POS_PRON QUESTION)  {-> CREATE(GrammarProfile, "subCategory"="Should", "superCategory"="Modality", "name"="QuestionTagsShould", "level"="B1")};
+
+//EXAMPLE 2.PastAffirmativeShould
+(Should Have Done)  {-> CREATE(GrammarProfile, "subCategory"="Should", "superCategory"="Modality", "name"="PastAffirmativeShould", "level"="B1")};
+
+//EXAMPLE 3.PastNegativeShould
+(Lemma{FEATURE("value", "should")} Not Have Done)  {-> CREATE(GrammarProfile, "subCategory"="Should", "superCategory"="Modality", "name"="PastNegativeShould", "level"="B1")};
+
+//EXAMPLE 4.IdealOrDesiredSituationsShould
+(Should POS_VERB)  {-> CREATE(GrammarProfile, "subCategory"="Should", "superCategory"="Modality", "name"="IdealOrDesiredSituationsShould", "level"="B1")};
+
+//EXAMPLE 5.LikelihoodShould
+(Should POS_VERB)  {-> CREATE(GrammarProfile, "subCategory"="Should", "superCategory"="Modality", "name"="LikelihoodShould", "level"="B1")};
+
+//EXAMPLE 6.NarrativeDeviceShould
+(W{REGEXP("(?i)you")} Should Have Done)  {-> CREATE(GrammarProfile, "subCategory"="Should", "superCategory"="Modality", "name"="NarrativeDeviceShould", "level"="B1")};
+
+//EXAMPLE 7.RegretShould
+(Should Have Done)  {-> CREATE(GrammarProfile, "subCategory"="Should", "superCategory"="Modality", "name"="RegretShould", "level"="B1")};
+
+//EXAMPLE 8.ThankingShould
+(Lemma{FEATURE("value", "should")} Not Have)  {-> CREATE(GrammarProfile, "subCategory"="Should", "superCategory"="Modality", "name"="ThankingShould", "level"="B1")};
+
+
+
+//11.UsedTo
+//EXAMPLE 1.AffirmativeUsedTo
+(W{REGEXP("(?i)used")} ToDo)  {-> CREATE(GrammarProfile, "subCategory"="UsedTo", "superCategory"="Modality", "name"="AffirmativeUsedTo", "level"="B1")};
+
+//EXAMPLE 2.NegativeUsedTo
+(Lemma{FEATURE("value", "do")} Not W{REGEXP("(?i)used")} ToDo)  {-> CREATE(GrammarProfile, "subCategory"="UsedTo", "superCategory"="Modality", "name"="NegativeUsedTo", "level"="B1")};
+
+//EXAMPLE 3.NoLongerTrueUsedTo
+(W{REGEXP("(?i)used")} ToDo)  {-> CREATE(GrammarProfile, "subCategory"="UsedTo", "superCategory"="Modality", "name"="NoLongerTrueUsedTo", "level"="B1")};
+
+//12.Will
+//EXAMPLE 1.FixedPlansWill
+(Will POS_VERB)  {-> CREATE(GrammarProfile, "subCategory"="Will", "superCategory"="Modality", "name"="FixedPlansWill", "level"="B1")};
+
+//EXAMPLE 2.PredictionsWill
+(Will POS_VERB)  {-> CREATE(GrammarProfile, "subCategory"="Will", "superCategory"="Modality", "name"="PredictionsWill", "level"="B1")};
+
+//13.Would
+//EXAMPLE 1.AfterIfClausesWould
+(W{REGEXP("(?i)if")} # POS_PRON Would)  {-> CREATE(GrammarProfile, "subCategory"="Would", "superCategory"="Modality", "name"="AfterIfClausesWould", "level"="B1")};
+
+//EXAMPLE 2.PastAffirmativeWould
+(Lemma{FEATURE("value", "would")} Have Done)  {-> CREATE(GrammarProfile, "subCategory"="Would", "superCategory"="Modality", "name"="PastAffirmativeWould", "level"="B1")};
+
+//EXAMPLE 3.PastNegativeWould
+(Lemma{FEATURE("value", "would")} Not Have Done)  {-> CREATE(GrammarProfile, "subCategory"="Would", "superCategory"="Modality", "name"="PastNegativeWould", "level"="B1")};
+
+//EXAMPLE 4.QuestionsWould
+(Would POS_PRON)  {-> CREATE(GrammarProfile, "subCategory"="Would", "superCategory"="Modality", "name"="QuestionsWould", "level"="B1")};
+
+//EXAMPLE 5.WithAdverbsWould
+( Would POS_ADV POS_VERB) {-> CREATE(GrammarProfile, "subCategory"="Would", "superCategory"="Modality", "name"="WithAdverbsWould", "level"="B1")};
+
+//EXAMPLE 6.FutureInThePastWould
+(Would POS_VERB)  {-> CREATE(GrammarProfile, "subCategory"="Would", "superCategory"="Modality", "name"="FutureInThePastWould", "level"="B1")};
+
+//EXAMPLE 7.ImaginedSituationsInThePastWould
+(Would  Have Done)  {-> CREATE(GrammarProfile, "subCategory"="Would", "superCategory"="Modality", "name"="ImaginedSituationsInThePastWould", "level"="B1")};
+
+//EXAMPLE 8.IndirectnessWould
+(Would W{REGEXP("(?i)advice|imagine|recommend|say")}) {-> CREATE(GrammarProfile, "subCategory"="Would", "superCategory"="Modality", "name"="IndirectnessWould", "level"="B1")};
+
+//EXAMPLE 9.PoliteRequestsWould
+(Would POS_PRON)  {-> CREATE(GrammarProfile, "subCategory"="Would", "superCategory"="Modality", "name"="PoliteRequestsWould", "level"="B1")};
+
+//EXAMPLE 10.ReportedSpeechWould
+(Would POS_VERB)  {-> CREATE(GrammarProfile, "subCategory"="Would", "superCategory"="Modality", "name"="ReportedSpeechWould", "level"="B1")};
+
+//EXAMPLE 11.WillingnessInThePastWould
+(Lemma{FEATURE("value", "would")} Not POS_VERB)  {-> CREATE(GrammarProfile, "subCategory"="Would", "superCategory"="Modality", "name"="WillingnessInThePastWould", "level"="B1")};
+
+//14.Adverbs
+//EXAMPLE 1.EmphasisModality
+(W{REGEXP("(?i)obviously|certainly|definitely")} POS_VERB) {-> CREATE(GrammarProfile, "subCategory"="Adverbs", "superCategory"="Modality", "name"="EmphasisModality", "level"="B1")};
+
+//EXAMPLE 2.ModalVerbModalAdvebHedgingOrEmphabasis
+(ModalVerb POS_ADV  POS_VERB) {-> CREATE(GrammarProfile, "subCategory"="Adverbs", "superCategory"="Modality", "name"="ModalVerbModalAdvebHedgingOrEmphabasis", "level"="B1")};
+
+//EXAMPLE 3.PossiblyPoliteness
+(Could POS_PRON W{REGEXP("(?i)possibly")} POS_VERB) {-> CREATE(GrammarProfile, "subCategory"="Adverbs", "superCategory"="Modality", "name"="PossiblyPoliteness", "level"="B1")};
+
+
+     
+//15.Could
+//EXAMPLE 1.AbilityCould
+(Could) {-> CREATE(GrammarProfile, "subCategory"="Could", "superCategory"="Modality", "name"="AbilityCould", "level"="B1")};
+
+//EXAMPLE 2.PermissionCould
+(Could W{REGEXP("(?i)I")}) {-> CREATE(GrammarProfile, "subCategory"="Could", "superCategory"="Modality", "name"="PermissionCould", "level"="B1")};
+
+//EXAMPLE 3.PossibilityCould
+(Could) {-> CREATE(GrammarProfile, "subCategory"="Could", "superCategory"="Modality", "name"="PossibilityCould", "level"="B1")};
+
+//EXAMPLE 4.SuggestionsCould
+(Could POS{FEATURE("PosValue", "VB")}) {-> CREATE(GrammarProfile, "subCategory"="Could", "superCategory"="Modality", "name"="SuggestionsCould", "level"="B1")};
+
+
+
+//SCRIPT B1_Level.B1_Prepositions;
+
+//1.Prepositions
+//EXAMPLE 1.SimplePrepositions
+(SimplePreposition) {-> CREATE(GrammarProfile, "subCategory"="Prepositions", "superCategory"="Preposition", "name"="SimplePrepositions", "level"="B1")};
+
+//EXAMPLE 2.ComplexPrepositions
+(ComplexPreposition) {-> CREATE(GrammarProfile, "subCategory"="Prepositions", "superCategory"="Preposition", "name"="ComplexPrepositions", "level"="B1")};
+
+//EXAMPLE 3.AdverbPrepositions
+(POS_ADV POS_ADP) {-> CREATE(GrammarProfile, "subCategory"="Prepositions", "superCategory"="Preposition", "name"="AdverbPrepositions", "level"="B1")};
+
+//EXAMPLE 4.StrandingPrepositions
+(POS_VERB POS_ADP PERIOD) {-> CREATE(GrammarProfile, "subCategory"="Prepositions", "superCategory"="Preposition", "name"="StrandingPrepositions", "level"="B1")};
+
+
+
+
+
+//SCRIPT B1_Level.B1_Present;
+
+//1.PresentContinuous
+//EXAMPLE 1.TemporaryRepeatedActions
+(Is Doing) {-> CREATE(GrammarProfile, "subCategory"="PresentContinuous", "superCategory"="Present", "name"="TemporaryRepeatedActions", "level"="B1")};
+
+//EXAMPLE 2.EventsInProgress
+(Is Doing) {-> CREATE(GrammarProfile, "subCategory"="PresentContinuous", "superCategory"="Present", "name"="EventsInProgress", "level"="B1")};
+
+//EXAMPLE 3.TemporarySituations
+(Is Doing) {-> CREATE(GrammarProfile, "subCategory"="PresentContinuous", "superCategory"="Present", "name"="TemporarySituations", "level"="B1")};
+
+//2.PresentSimple
+//EXAMPLE 1.NegativeTagQuestionsPresentSimple
+(Doesnt W{REGEXP("(?i)you")} W{REGEXP("(?i)think|agree")}) {-> CREATE(GrammarProfile, "subCategory"="PresentSimple", "superCategory"="Present", "name"="NegativeTagQuestionsPresentSimple", "level"="B1")};
+
+//EXAMPLE 2.QuestionsPresentSimple
+(Doesnt POS_PRON POS_VERB) {-> CREATE(GrammarProfile, "subCategory"="PresentSimple", "superCategory"="Present", "name"="QuestionsPresentSimple", "level"="B1")};
+(POS_PRON POS_VERB) {-> CREATE(GrammarProfile, "subCategory"="PresentSimple", "superCategory"="Present", "name"="QuestionsPresentSimple", "level"="B1")};
+
+//EXAMPLE 3.MentalProcessVerbs
+(Lemma{FEATURE("value", "remember")})  {-> CREATE(GrammarProfile, "subCategory"="PresentSimple", "superCategory"="Present", "name"="MentalProcessVerbs", "level"="B1")};
+(Lemma{FEATURE("value", "understand")})  {-> CREATE(GrammarProfile, "subCategory"="PresentSimple", "superCategory"="Present", "name"="MentalProcessVerbs", "level"="B1")};
+(Lemma{FEATURE("value", "believe")})  {-> CREATE(GrammarProfile, "subCategory"="PresentSimple", "superCategory"="Present", "name"="MentalProcessVerbs", "level"="B1")};
+
+//EXAMPLE 4.ReportingsVerbs
+(Lemma{FEATURE("value", "say")}) {-> CREATE(GrammarProfile, "subCategory"="PresentSimple", "superCategory"="Present", "name"="ReportingsVerbs", "level"="B1")};
+(Lemma{FEATURE("value", "show")}) {-> CREATE(GrammarProfile, "subCategory"="PresentSimple", "superCategory"="Present", "name"="ReportingsVerbs", "level"="B1")};
+
+//EXAMPLE 5.SpeechActVerbs
+(Lemma{FEATURE("value", "suggest")}) {-> CREATE(GrammarProfile, "subCategory"="PresentSimple", "superCategory"="Present", "name"="SpeechActVerbs", "level"="B1")};
+(Lemma{FEATURE("value", "apologize")}) {-> CREATE(GrammarProfile, "subCategory"="PresentSimple", "superCategory"="Present", "name"="SpeechActVerbs", "level"="B1")};
+(Lemma{FEATURE("value", "recommend")}) {-> CREATE(GrammarProfile, "subCategory"="PresentSimple", "superCategory"="Present", "name"="SpeechActVerbs", "level"="B1")};
+
+
+
+//SCRIPT B1_Level.B1_Past;
+
+//1.PastContinuous
+//EXAMPLE 1.NegativePastContinuous
+(W{REGEXP("(?i)was|were")} Not Doing) {-> CREATE(GrammarProfile, "subCategory"="PastContinuous", "superCategory"="Past", "name"="NegativePastContinuous", "level"="B1")};
+
+//EXAMPLE 2.QuestionsPastContinuous
+(Was NC Doing) {-> CREATE(GrammarProfile, "subCategory"="PastContinuous", "superCategory"="Past", "name"="QuestionsPastContinuous", "level"="B1")};
+
+//EXAMPLE 3.WithAdverbsPastContinuous
+(Was POS_ADV Doing) {-> CREATE(GrammarProfile, "subCategory"="PastContinuous", "superCategory"="Past", "name"="WithAdverbsPastContinuous", "level"="B1")};
+
+//EXAMPLE 4.ReasonPastContinuous
+(W{REGEXP("(?i)because")} POS_PRON Was Doing) {-> CREATE(GrammarProfile, "subCategory"="PastContinuous", "superCategory"="Past", "name"="ReasonPastContinuous", "level"="B1")};
+
+//EXAMPLE 5.RepeatedEventsPastContinuous
+(Was W{REGEXP("(?i)always")}  Doing) {-> CREATE(GrammarProfile, "subCategory"="PastContinuous", "superCategory"="Past", "name"="RepeatedEventsPastContinuous", "level"="B1")};
+
+//2.PastPerfectContinuous
+//EXAMPLE 1.AffirmativePastPerfectContinuous
+(W{REGEXP("(?i)had")} BeenDoing) {-> CREATE(GrammarProfile, "subCategory"="PastPerfectContinuous", "superCategory"="Past", "name"="AffirmativePastPerfectContinuous", "level"="B1")};
+
+//EXAMPLE 2.BackgroundEventsPastPerfectContinuous
+(Had BeenDoing) {-> CREATE(GrammarProfile, "subCategory"="PastPerfectContinuous", "superCategory"="Past", "name"="BackgroundEventsPastPerfectContinuous", "level"="B1")};
+
+//EXAMPLE 3.ContinuingEventsInThePast
+(Had BeenDoing) {-> CREATE(GrammarProfile, "subCategory"="PastPerfectContinuous", "superCategory"="Past", "name"="ContinuingEventsInThePast", "level"="B1")};
+
+
+
+//3.PastPerfectSimple
+//EXAMPLE 1.AfterIfClausesPastPerfectSimple
+(W{REGEXP("(?i)if")} NC Had Done) {-> CREATE(GrammarProfile, "subCategory"="PastPerfectSimple", "superCategory"="Past", "name"="AfterIfClausesPastPerfectSimple", "level"="B1")};
+
+//EXAMPLE 2.AffirmativePastPerfectSimple
+(W{REGEXP("(?i)had")}  Done) {-> CREATE(GrammarProfile, "subCategory"="PastPerfectSimple", "superCategory"="Past", "name"="AffirmativePastPerfectSimple", "level"="B1")};
+
+//EXAMPLE 3.NegativePastPerfectSimple
+(Hadnt  Done) {-> CREATE(GrammarProfile, "subCategory"="PastPerfectSimple", "superCategory"="Past", "name"="NegativePastPerfectSimple", "level"="B1")};
+
+//EXAMPLE 4.WithAdverbsPastPerfectSimple
+(Had POS_ADV  Done) {-> CREATE(GrammarProfile, "subCategory"="PastPerfectSimple", "superCategory"="Past", "name"="WithAdverbsPastPerfectSimple", "level"="B1")};
+
+//EXAMPLE 5.TimeUpToThenPastPerfectSimple
+(Had Done) {-> CREATE(GrammarProfile, "subCategory"="PastPerfectSimple", "superCategory"="Past", "name"="TimeUpToThenPastPerfectSimple", "level"="B1")};
+
+//4.PastSimple
+//EXAMPLE 1.AffirmativePastSimple
+(POS{FEATURE("PosValue", "VBD")}) {-> CREATE(GrammarProfile, "subCategory"="PastSimple", "superCategory"="Past", "name"="AffirmativePastSimple", "level"="B1")};
+
+//EXAMPLE 2.NegativePastSimple
+(Didnt POS{FEATURE("PosValue", "VB")}) {-> CREATE(GrammarProfile, "subCategory"="PastSimple", "superCategory"="Past", "name"="NegativePastSimple", "level"="B1")};
+
+//EXAMPLE 3.QuestionsPastSimple
+(Did POS_PRON POS_VERB) {-> CREATE(GrammarProfile, "subCategory"="PastSimple", "superCategory"="Past", "name"="QuestionsPastSimple", "level"="B1")};
+(Did POS_PRON ) {-> CREATE(GrammarProfile, "subCategory"="PastSimple", "superCategory"="Past", "name"="QuestionsPastSimple", "level"="B1")};
+
+//EXAMPLE 4.HabitualStatesOrActionsPastSimple
+(Past) {-> CREATE(GrammarProfile, "subCategory"="PastSimple", "superCategory"="Past", "name"="HabitualStatesOrActionsPastSimple", "level"="B1")};
+
+//EXAMPLE 5.ImagedSituationsAfterIf
+(W{REGEXP("(?i)if")} POS_PRON Past) {-> CREATE(GrammarProfile, "subCategory"="PastSimple", "superCategory"="Past", "name"="ImagedSituationsAfterIf", "level"="B1")};
+
+//EXAMPLE 6.OderingOfPastEvents
+(Past) {-> CREATE(GrammarProfile, "subCategory"="PastSimple", "superCategory"="Past", "name"="OderingOfPastEvents", "level"="B1")};
+
+//EXAMPLE 7.RegretPastSimple
+(W{REGEXP("(?i)wish")} W{REGEXP("(?i)that")} NC Past) {-> CREATE(GrammarProfile, "subCategory"="PastSimple", "superCategory"="Past", "name"="RegretPastSimple", "level"="B1")};
+(W{REGEXP("(?i)wish")} NC Past) {-> CREATE(GrammarProfile, "subCategory"="PastSimple", "superCategory"="Past", "name"="RegretPastSimple", "level"="B1")};
+
+
+
+//5.PresentPerfectContinuous
+//EXAMPLE 1.AffirmativePresentPerfectContinuous
+(W{REGEXP("(?i)has|have")} BeenDoing) {-> CREATE(GrammarProfile, "subCategory"="PresentPerfectContinuous", "superCategory"="Past", "name"="AffirmativePresentPerfectContinuous", "level"="B1")};
+
+//EXAMPLE 2.QuestionsPresentPerfectContinuous
+(Has POS_PRON BeenDoing) {-> CREATE(GrammarProfile, "subCategory"="PresentPerfectContinuous", "superCategory"="Past", "name"="QuestionsPresentPerfectContinuous", "level"="B1")};
+
+//EXAMPLE 3.RepeatedContinuingEvents
+(Has BeenDoing) {-> CREATE(GrammarProfile, "subCategory"="PresentPerfectContinuous", "superCategory"="Past", "name"="RepeatedContinuingEvents", "level"="B1")};
+
+//EXAMPLE 4.SingleContinuingEvent
+(Has BeenDoing) {-> CREATE(GrammarProfile, "subCategory"="PresentPerfectContinuous", "superCategory"="Past", "name"="SingleContinuingEvent", "level"="B1")};
+
+//6.PresentPerfectSimple
+//EXAMPLE 1.DurationWithSincePresentPerfectSimple
+(Has Done # W{REGEXP("(?i)since")}) {-> CREATE(GrammarProfile, "subCategory"="PresentPerfectSimple", "superCategory"="Past", "name"="DurationWithSincePresentPerfectSimple", "level"="B1")};
+
+//EXAMPLE 2.WithAlreadyPresentPerfectSimple
+(Has W{REGEXP("(?i)already")} Done) {-> CREATE(GrammarProfile, "subCategory"="PresentPerfectSimple", "superCategory"="Past", "name"="WithAlreadyPresentPerfectSimple", "level"="B1")};
+
+//EXAMPLE 3.AffirmativePresentPerfectSimple
+(W{REGEXP("(?i)has|have")} Done) {-> CREATE(GrammarProfile, "subCategory"="PresentPerfectSimple", "superCategory"="Past", "name"="AffirmativePresentPerfectSimple", "level"="B1")};
+
+//EXAMPLE 4.NegativePresentPerfectSimple
+(Hasnt Done) {-> CREATE(GrammarProfile, "subCategory"="PresentPerfectSimple", "superCategory"="Past", "name"="NegativePresentPerfectSimple", "level"="B1")};
+
+//EXAMPLE 5.NegativeQuestionsPresentPerfectSimple
+(Hasnt NC Done) {-> CREATE(GrammarProfile, "subCategory"="PresentPerfectSimple", "superCategory"="Past", "name"="NegativeQuestionsPresentPerfectSimple", "level"="B1")};
+
+//EXAMPLE 6.WithAdverbsPresentPerfectSimple
+(Has POS_ADV Done) {-> CREATE(GrammarProfile, "subCategory"="PresentPerfectSimple", "superCategory"="Past", "name"="WithAdverbsPresentPerfectSimple", "level"="B1")};
+
+//EXAMPLE 7.RecentPastPresentPerfectSimple
+(Has POS_ADV Done) {-> CREATE(GrammarProfile, "subCategory"="PresentPerfectSimple", "superCategory"="Past", "name"="RecentPastPresentPerfectSimple", "level"="B1")};
+(Has Done) {-> CREATE(GrammarProfile, "subCategory"="PresentPerfectSimple", "superCategory"="Past", "name"="RecentPastPresentPerfectSimple", "level"="B1")};
+
+//EXAMPLE 8.UnfinishedPresentPerfectSimple
+(Has Done) {-> CREATE(GrammarProfile, "subCategory"="PresentPerfectSimple", "superCategory"="Past", "name"="UnfinishedPresentPerfectSimple", "level"="B1")};
+
+//EXAMPLE 9.WithSuperlativePresentPerfectSimple
+(Superlative POS_NOUN POS_PRON Has Done) {-> CREATE(GrammarProfile, "subCategory"="PresentPerfectSimple", "superCategory"="Past", "name"="WithSuperlativePresentPerfectSimple", "level"="B1")};
+
+
+
+//SCRIPT B1_Level.B1_Future;
+
+//1.FutureContinuous
+//EXAMPLE 1.AffirmativeWillAndShall
+(WillShall  Be Doing) {-> CREATE(GrammarProfile, "subCategory"="FutureContinuous", "superCategory"="Future", "name"="AffirmativeWillAndShall", "level"="B1")};
+
+//EXAMPLE 2.NegativeWithWill
+(Lemma{FEATURE("value", "will")} Not Be Doing) {-> CREATE(GrammarProfile, "subCategory"="FutureContinuous", "superCategory"="Future", "name"="NegativeWithWill", "level"="B1")};
+
+//2.FutureInThePast
+//EXAMPLE 1.WasWereGoingTo
+(Was Going ToDo) {-> CREATE(GrammarProfile, "subCategory"="FutureInThePast", "superCategory"="Future", "name"="WasWereGoingTo", "level"="B1")};
+
+//EXAMPLE 2.FutureWould
+(Would  POS_VERB) {-> CREATE(GrammarProfile, "subCategory"="FutureInThePast", "superCategory"="Future", "name"="FutureWould", "level"="B1")};
+
+//3.FutureWithWillAndShall
+//EXAMPLE 1.FixedPlansWithWill
+(Will  POS_VERB) {-> CREATE(GrammarProfile, "subCategory"="FutureWithWillAndShall", "superCategory"="Future", "name"="FixedPlansWithWill", "level"="B1")};
+
+//EXAMPLE 2.PredictionsWithWill
+(Will POS_VERB) {-> CREATE(GrammarProfile, "subCategory"="FutureWithWillAndShall", "superCategory"="Future", "name"="PredictionsWithWill", "level"="B1")};
+
+//EXAMPLE 3.ImmediatePlansWithWill
+(Shall POS_VERB) {-> CREATE(GrammarProfile, "subCategory"="FutureWithWillAndShall", "superCategory"="Future", "name"="ImmediatePlansWithWill", "level"="B1")};
+
+
+
+//4.FutureWithBeGoingTo
+//EXAMPLE 1.NegativeBeGoingTo
+(W{REGEXP("(?i)am|is|are")} Not Going ToDo ) {-> CREATE(GrammarProfile, "subCategory"="FutureWithBeGoingTo", "superCategory"="Future", "name"="NegativeBeGoingTo", "level"="B1")};
+
+//EXAMPLE 2.PastBeGoingTo
+(Was Going ToDo ) {-> CREATE(GrammarProfile, "subCategory"="FutureWithBeGoingTo", "superCategory"="Future", "name"="PastBeGoingTo", "level"="B1")};
+
+//EXAMPLE 3.WithAdverbsBeGoingTo
+(Is POS_ADV Going ToDo) {-> CREATE(GrammarProfile, "subCategory"="FutureWithBeGoingTo", "superCategory"="Future", "name"="WithAdverbsBeGoingTo", "level"="B1")};
+
+//EXAMPLE 4.FutureInThePastBeGoingTo
+(Was Going ToDo) {-> CREATE(GrammarProfile, "subCategory"="FutureWithBeGoingTo", "superCategory"="Future", "name"="FutureInThePastBeGoingTo", "level"="B1")};
+
+//EXAMPLE 5.NegativeIntensionsBeGoingTo
+(W{REGEXP("(?i)am|is|are")} Not Going ToDo ) {-> CREATE(GrammarProfile, "subCategory"="FutureWithBeGoingTo", "superCategory"="Future", "name"="NegativeIntensionsBeGoingTo", "level"="B1")};
+
+//EXAMPLE 6.PlansInThePastBeGoingTo
+(Was Going ToDo) {-> CREATE(GrammarProfile, "subCategory"="FutureWithBeGoingTo", "superCategory"="Future", "name"="PlansInThePastBeGoingTo", "level"="B1")};
+
+//EXAMPLE 7.PredictionsBeGoingTo
+(Is  Going ToDo) {-> CREATE(GrammarProfile, "subCategory"="FutureWithBeGoingTo", "superCategory"="Future", "name"="PredictionsBeGoingTo", "level"="B1")};
+
+//EXAMPLE 8.ReportingBeGoingTo
+(Was Going ToDo) {-> CREATE(GrammarProfile, "subCategory"="FutureWithBeGoingTo", "superCategory"="Future", "name"="ReportingBeGoingTo", "level"="B1")};
+
+
+//5.PresentContinuousForFutureUse
+//EXAMPLE 1.FutureArrangements
+(Is Doing) {-> CREATE(GrammarProfile, "subCategory"="PresentContinuousForFutureUse", "superCategory"="Future", "name"="FutureArrangements", "level"="B1")};
+
+//EXAMPLE 2.QuestionsAboutTheFuture
+(Is NC Doing) {-> CREATE(GrammarProfile, "subCategory"="PresentContinuousForFutureUse", "superCategory"="Future", "name"="QuestionsAboutTheFuture", "level"="B1")};
+
+//EXAMPLE 3.FutureWithAsSoonAs
+(W{REGEXP("(?i)as")} W{REGEXP("(?i)soon")} W{REGEXP("(?i)as")} NC POS_VERB) {-> CREATE(GrammarProfile, "subCategory"="PresentContinuousForFutureUse", "superCategory"="Future", "name"="FutureWithAsSoonAs", "level"="B1")};
+
+
+//SCRIPT B1_Level.B1_Passives;
+
+//1.Passives: form
+//EXAMPLE 1.WithByInARelativeClause
+(RelativePronoun Be Done W{REGEXP("(?i)by")}) {-> CREATE(GrammarProfile, "subCategory"="Passives", "superCategory"="Passive", "name"="WithByInARelativeClause", "level"="B1")};
+
+//EXAMPLE 2.InfinitivePassives
+(ToBeDone) {-> CREATE(GrammarProfile, "subCategory"="Passives", "superCategory"="Passive", "name"="InfinitivePassives", "level"="B1")};
+
+//EXAMPLE 3.PastSimpleAffirmativePassives
+(W{REGEXP("(?i)was|were")} Done) {-> CREATE(GrammarProfile, "subCategory"="Passives", "superCategory"="Passive", "name"="PastSimpleAffirmativePassives", "level"="B1")};
+
+//EXAMPLE 4.PresentContiniousAffirmativePassives
+(W{REGEXP("(?i)am|is|are")} BeingDone) {-> CREATE(GrammarProfile, "subCategory"="Passives", "superCategory"="Passive", "name"="PresentContiniousAffirmativePassives", "level"="B1")};
+
+//EXAMPLE 5.PresentSimpleAffirmativePassives
+(W{REGEXP("(?i)am|is|are")}  Done) {-> CREATE(GrammarProfile, "subCategory"="Passives", "superCategory"="Passive", "name"="PresentSimpleAffirmativePassives", "level"="B1")};
+
+//EXAMPLE 6.PresentSimpleNegativePassives
+(W{REGEXP("(?i)am|is|are")} Lemma{FEATURE("value", "not")}  Done) {-> CREATE(GrammarProfile, "subCategory"="Passives", "superCategory"="Passive", "name"="PresentSimpleNegativePassives", "level"="B1")};
+
+//EXAMPLE 7.WithVerbsTakingTwoObjectsPassives
+(POS_PRON Be Done NC) {-> CREATE(GrammarProfile, "subCategory"="Passives", "superCategory"="Passive", "name"="WithVerbsTakingTwoObjectsPassives", "level"="B1")};
+
+//EXAMPLE 8.GivingFocusWithByPassives
+(Be Done W{REGEXP("(?i)by")}) {-> CREATE(GrammarProfile, "subCategory"="Passives", "superCategory"="Passive", "name"="GivingFocusWithByPassives", "level"="B1")};
+
+//EXAMPLE 9.PresentContiniousFutureReferencePassives
+(Be BeingDone) {-> CREATE(GrammarProfile, "subCategory"="Passives", "superCategory"="Passive", "name"="PresentContiniousFutureReferencePassives", "level"="B1")};
+
+
+//2.GetAndHave
+//EXAMPLE 1.GetEd
+(Lemma{FEATURE("value", "get")}  Done) {-> CREATE(GrammarProfile, "subCategory"="GetAndHave", "superCategory"="Passive", "name"="GetEd", "level"="B1")};
+
+
+
+//SCRIPT B1_Level.B1_ReportedSpeech;
+
+//1.ReportedSpeech
+//EXAMPLE 1.ReportedStatementsPronounAndTenseShift
+(Lemma{FEATURE("value", "say")}  W{REGEXP("(?i)that")} FiniteClause1) {-> CREATE(GrammarProfile, "subCategory"="ReportedSpeech", "superCategory"="ReportedSpeech", "name"="ReportedStatementsPronounAndTenseShift", "level"="B1")};
+(Lemma{FEATURE("value", "tell")}  W{REGEXP("(?i)that")} FiniteClause1) {-> CREATE(GrammarProfile, "subCategory"="ReportedSpeech", "superCategory"="ReportedSpeech", "name"="ReportedStatementsPronounAndTenseShift", "level"="B1")};
+
+//EXAMPLE 2.ReportedYesnoQuestions
+//(Lemma{FEATURE("value", "ask")} PC? NC? (W{REGEXP("(?i)if")}|W{REGEXP("(?i)whether")}) FiniteClause1) {-> CREATE(GrammarProfile, "subCategory"="ReportedSpeech", "superCategory"="ReportedSpeech", "name"="ReportedYesnoQuestions", "level"="B1")};
+
+//EXAMPLE 3.ReportedWHQuestions
+(ReportingVerbs WHWordCluase) {-> CREATE(GrammarProfile, "subCategory"="ReportedSpeech", "superCategory"="ReportedSpeech", "name"="ReportedWHQuestions", "level"="B1")};
+
+//EXAMPLE 4.WonderReportedThought
+(Lemma{FEATURE("value", "wonder")} WHWordCluase) {-> CREATE(GrammarProfile, "subCategory"="ReportedSpeech", "superCategory"="ReportedSpeech", "name"="WonderReportedThought", "level"="B1")};
+
+//EXAMPLE 5.DirectSpeechReportingClauseInitialPosition (??????)
+//(POS_VERB (PrepositionPhrase)? ReportingClause) {-> CREATE(GrammarProfile, "subCategory"="ReportedSpeech", "superCategory"="ReportedSpeech", "name"="DirectSpeechReportingClauseInitialPosition", "level"="B1")};
+
+//EXAMPLE 6.DirectSpeechReportingClauseEndPosition
+//( ReportingClause (COMMA)? POS_PRON POS_VERB (PrepositionPhrase)?) {-> CREATE(GrammarProfile, "subCategory"="ReportedSpeech", "superCategory"="ReportedSpeech", "name"="DirectSpeechReportingClauseEndPosition", "level"="B1")};
+
+//EXAMPLE 7.ReportedRequestsAndCommands
+(Lemma{FEATURE("value", "ask")} NC ToDo ) {-> CREATE(GrammarProfile, "subCategory"="ReportedSpeech", "superCategory"="ReportedSpeech", "name"="ReportedRequestsAndCommands", "level"="B1")};
+(Lemma{FEATURE("value", "tell")} NC ToDo ) {-> CREATE(GrammarProfile, "subCategory"="ReportedSpeech", "superCategory"="ReportedSpeech", "name"="ReportedRequestsAndCommands", "level"="B1")};
+
+//EXAMPLE 8.TemporalShiftsFuture(???)
+//( (Past|(Had Done)) PC? NC?(W{REGEXP("(?i)that")})? ) {-> CREATE(GrammarProfile, "subCategory"="ReportedSpeech", "superCategory"="ReportedSpeech", "name"="TemporalShiftsFuture", "level"="B2")};
+
+
+//SCRIPT B1_Level.B1_Clauses;
+
+//1.ComparativesClause
+//EXAMPLE 1.FiniteAfterThan
+(Comparative W{REGEXP("(?i)than")}  FiniteClause1) {-> CREATE(GrammarProfile, "subCategory"="ComparativesClause", "superCategory"="Clause", "name"="FiniteAfterThan", "level"="B1")};
+
+//EXAMPLE 2.IngNonFiniteAfterThan
+(Comparative W{REGEXP("(?i)than")}  Doing) {-> CREATE(GrammarProfile, "subCategory"="ComparativesClause", "superCategory"="Clause", "name"="IngNonFiniteAfterThan", "level"="B1")};
+
+//EXAMPLE 3.AsAdjAdvAs
+( Not?  W{REGEXP("(?i)as")}  POS_ADJ  W{REGEXP("(?i)as")} FiniteClause1 ) {-> CREATE(GrammarProfile, "subCategory"="ComparativesClause", "superCategory"="Clause", "name"="AsAdjAdvAs", "level"="B1")};
+( Not?  W{REGEXP("(?i)as")}  POS_ADV  W{REGEXP("(?i)as")} FiniteClause1 ) {-> CREATE(GrammarProfile, "subCategory"="ComparativesClause", "superCategory"="Clause", "name"="AsAdjAdvAs", "level"="B1")};
+
+//EXAMPLE 4.RatherThanPhrase
+( W{REGEXP("(?i)rather")} W{REGEXP("(?i)than")}  NC ) {-> CREATE(GrammarProfile, "subCategory"="ComparativesClause", "superCategory"="Clause", "name"="RatherThanPhrase", "level"="B1")};
+( W{REGEXP("(?i)rather")} W{REGEXP("(?i)than")}  PrepositionPhrase ) {-> CREATE(GrammarProfile, "subCategory"="ComparativesClause", "superCategory"="Clause", "name"="RatherThanPhrase", "level"="B1")};
+
+//EXAMPLE 5.TheBestThat
+(W{REGEXP("(?i)the")} W{REGEXP("(?i)best")} POS_NOUN W{REGEXP("(?i)that")} NC Has Done) {-> CREATE(GrammarProfile, "subCategory"="ComparativesClause", "superCategory"="Clause", "name"="TheBestThat", "level"="B1")}; 
+(W{REGEXP("(?i)the")} W{REGEXP("(?i)best")} POS_NOUN NC Has Done) {-> CREATE(GrammarProfile, "subCategory"="ComparativesClause", "superCategory"="Clause", "name"="TheBestThat", "level"="B1")}; 
+
+//EXAMPLE 6.TooToInfinitive
+(W{REGEXP("(?i)too")} POS_ADJ ToDo) {-> CREATE(GrammarProfile, "subCategory"="ComparativesClause", "superCategory"="Clause", "name"="TooToInfinitive", "level"="B1")}; 
+
+//EXAMPLE 7.TheSameNounAsPronounOrNoun
+(W{REGEXP("(?i)the")} W{REGEXP("(?i)same")} POS_NOUN W{REGEXP("(?i)as")} NC) {-> CREATE(GrammarProfile, "subCategory"="ComparativesClause", "superCategory"="Clause", "name"="TheSameNounAsPronounOrNoun", "level"="B1")}; 
+(W{REGEXP("(?i)the")} W{REGEXP("(?i)same")} POS_NOUN W{REGEXP("(?i)as")} POS_PRON) {-> CREATE(GrammarProfile, "subCategory"="ComparativesClause", "superCategory"="Clause", "name"="TheSameNounAsPronounOrNoun", "level"="B1")}; 
+
+//EXAMPLE 8.SoAdjectiveThatClause
+(W{REGEXP("(?i)so")} POS_ADJ W{REGEXP("(?i)that")}) {-> CREATE(GrammarProfile, "subCategory"="ComparativesClause", "superCategory"="Clause", "name"="SoAdjectiveThatClause", "level"="B1")}; 
+
+//EXAMPLE 9.SenseVerbAsIfOrAsThoughFiniteClause1
+(POS_VERB W{REGEXP("(?i)as")} W{REGEXP("(?i)if")} FiniteClause1) {-> CREATE(GrammarProfile, "subCategory"="ComparativesClause", "superCategory"="Clause", "name"="SenseVerbAsIfOrAsThoughFiniteClause1", "level"="B1")}; 
+(POS_VERB W{REGEXP("(?i)as")} W{REGEXP("(?i)though")} FiniteClause1) {-> CREATE(GrammarProfile, "subCategory"="ComparativesClause", "superCategory"="Clause", "name"="SenseVerbAsIfOrAsThoughFiniteClause1", "level"="B1")}; 
+
+//EXAMPLE 10.LinkingVerbLikeOrSimilarTo
+(POS_VERB W{REGEXP("(?i)like")} NC) {-> CREATE(GrammarProfile, "subCategory"="ComparativesClause", "superCategory"="Clause", "name"="LinkingVerbLikeOrSimilarTo", "level"="B1")}; 
+(POS_VERB W{REGEXP("(?i)similar")} W{REGEXP("(?i)to")} NC) {-> CREATE(GrammarProfile, "subCategory"="ComparativesClause", "superCategory"="Clause", "name"="LinkingVerbLikeOrSimilarTo", "level"="B1")}; 
+
+
+
+
+
+//2.CoordinatedClause: (hard)
+//EXAMPLE 1.MultipleMainClausesNarrative(hard!!!)
+(Conjunction FiniteClause1) {-> CREATE(GrammarProfile, "subCategory"="CoordinatedClause", "superCategory"="Clause", "name"="MultipleMainClausesNarrative", "level"="B1")}; 
+
+//EXAMPLE 2.EitherOr 
+(W{REGEXP("(?i)either")} # W{REGEXP("(?i)or")}) {-> CREATE(GrammarProfile, "subCategory"="CoordinatedClause", "superCategory"="Clause", "name"="EitherOr", "level"="B1")}; 
+
+//EXAMPLE 3.CombiningClausesOfTheSameType(hard!!!)
+//((Conjunction FiniteClause1)|(Conjunction NonFiniteClause1)) {-> CREATE(GrammarProfile, "subCategory"="CoordinatedClause", "superCategory"="Clause", "name"="CombiningClausesOfTheSameType", "level"="B1")}; 
+
+
+
+//3.DeclarativeClause:
+ //EXAMPLE 1.AuxiliaryDoForEmphasis
+(Lemma{FEATURE("value", "do")} POS{FEATURE("PosValue", "VB")}) {-> CREATE(GrammarProfile, "subCategory"="DeclarativeClause", "superCategory"="Clause", "name"="AuxiliaryDoForEmphasis", "level"="B1")}; 
+
+//EXAMPLE 2.Invitation
+(POS{FEATURE("PosValue", "VB")} W{REGEXP("(?i)and")} POS{FEATURE("PosValue", "VB")}) {-> CREATE(GrammarProfile, "subCategory"="DeclarativeClause", "superCategory"="Clause", "name"="Invitation", "level"="B1")}; 
+
+//EXAMPLE 3.LetMeFocus
+(W{REGEXP("(?i)let")} W{REGEXP("(?i)me")} POS{FEATURE("PosValue", "VB")}) {-> CREATE(GrammarProfile, "subCategory"="DeclarativeClause", "superCategory"="Clause", "name"="LetMeFocus", "level"="B1")}; 
+
+//EXAMPLE 4.WithInterrogativeSubject
+(WHWord VC) {-> CREATE(GrammarProfile, "subCategory"="DeclarativeClause", "superCategory"="Clause", "name"="WithInterrogativeSubject", "level"="B1")}; 
+
+//EXMPLE 5.InterrogativeAdverb
+(Have NC ADVC Done) {-> CREATE(GrammarProfile, "subCategory"="DeclarativeClause", "superCategory"="Clause", "name"="InterrogativeAdverb", "level"="B1")}; 
+(Do NC ADVC POS_VERB) {-> CREATE(GrammarProfile, "subCategory"="DeclarativeClause", "superCategory"="Clause", "name"="InterrogativeAdverb", "level"="B1")}; 
+
+//EXMPLE 6.WhichWhose
+(W{REGEXP("(?i)which")}) {-> CREATE(GrammarProfile, "subCategory"="DeclarativeClause", "superCategory"="Clause", "name"="WhichWhose", "level"="B1")}; 
+(W{REGEXP("(?i)whose")}) {-> CREATE(GrammarProfile, "subCategory"="DeclarativeClause", "superCategory"="Clause", "name"="WhichWhose", "level"="B1")}; 
+
+//EXMPLE 7.HowAdjective
+(W{REGEXP("(?i)how")} POS_ADJ) {-> CREATE(GrammarProfile, "subCategory"="DeclarativeClause", "superCategory"="Clause", "name"="HowAdjective", "level"="B1")}; 
+
+//EXMPLE 8.HowAdjectiveClause
+//(W{REGEXP("(?i)how")} POS_ADJ (FiniteClause1|NonFiniteClause1)) {-> CREATE(GrammarProfile, "subCategory"="DeclarativeClause", "superCategory"="Clause", "name"="HowAdjectiveClause", "level"="B1")}; 
+
+
+
+//4.RelativeClause:
+//EXMPLE 1.RelativeClauseObjectWithWhoOrThat
+(NC COMMA W{REGEXP("(?i)who|that")}) {-> CREATE(GrammarProfile, "subCategory"="RelativeClause", "superCategory"="Clause", "name"="RelativeClauseObjectWithWhoOrThat", "level"="B1")}; 
+(NC W{REGEXP("(?i)who|that")}) {-> CREATE(GrammarProfile, "subCategory"="RelativeClause", "superCategory"="Clause", "name"="RelativeClauseObjectWithWhoOrThat", "level"="B1")}; 
+
+//EXMPLE 2.WithWhoseName
+(NC COMMA W{REGEXP("(?i)whose")} W{REGEXP("(?i)name")}) {-> CREATE(GrammarProfile, "subCategory"="RelativeClause", "superCategory"="Clause", "name"="WithWhoseName", "level"="B1")}; 
+(NC W{REGEXP("(?i)whose")} W{REGEXP("(?i)name")}) {-> CREATE(GrammarProfile, "subCategory"="RelativeClause", "superCategory"="Clause", "name"="WithWhoseName", "level"="B1")}; 
+
+//EXMPLE 3.WithWherePlace
+(NC COMMA W{REGEXP("(?i)where")}) {-> CREATE(GrammarProfile, "subCategory"="RelativeClause", "superCategory"="Clause", "name"="WithWherePlace", "level"="B1")}; 
+(NC W{REGEXP("(?i)whose")} W{REGEXP("(?i)name")}) {-> CREATE(GrammarProfile, "subCategory"="RelativeClause", "superCategory"="Clause", "name"="WithWhoseName", "level"="B1")}; 
+
+//EXMPLE 4.TheReasonWhyFocus
+(W{REGEXP("(?i)the")} POS_ADJ W{REGEXP("(?i)reason")} W{REGEXP("(?i)why")}) {-> CREATE(GrammarProfile, "subCategory"="RelativeClause", "superCategory"="Clause", "name"="TheReasonWhyFocus", "level"="B1")}; 
+(W{REGEXP("(?i)the")} W{REGEXP("(?i)reason")} W{REGEXP("(?i)why")}) {-> CREATE(GrammarProfile, "subCategory"="RelativeClause", "superCategory"="Clause", "name"="TheReasonWhyFocus", "level"="B1")}; 
+
+//EXMPLE 5.WhenFocus
+(NC W{REGEXP("(?i)when")}) {-> CREATE(GrammarProfile, "subCategory"="RelativeClause", "superCategory"="Clause", "name"="WhenFocus", "level"="B1")}; 
+
+//EXMPLE 6.TheNounWhoThatFocus
+
+(W{REGEXP("(?i)the")} W{REGEXP("(?i)person")} W{REGEXP("(?i)who|that")}) {-> CREATE(GrammarProfile, "subCategory"="RelativeClause", "superCategory"="Clause", "name"="TheNounWhoThatFocus", "level"="B1")}; 
+(W{REGEXP("(?i)the")} W{REGEXP("(?i)thing")} W{REGEXP("(?i)who|that")}) {-> CREATE(GrammarProfile, "subCategory"="RelativeClause", "superCategory"="Clause", "name"="TheNounWhoThatFocus", "level"="B1")}; 
+(W{REGEXP("(?i)the")} W{REGEXP("(?i)only")} W{REGEXP("(?i)one")} W{REGEXP("(?i)who|that")}) {-> CREATE(GrammarProfile, "subCategory"="RelativeClause", "superCategory"="Clause", "name"="TheNounWhoThatFocus", "level"="B1")}; 
+(W{REGEXP("(?i)the")} W{REGEXP("(?i)one")} W{REGEXP("(?i)who|that")}) {-> CREATE(GrammarProfile, "subCategory"="RelativeClause", "superCategory"="Clause", "name"="TheNounWhoThatFocus", "level"="B1")}; 
+
+
+
+
+
+
+//5.SubordinatedClause
+//EXMPLE 1.SubordinatedReason
+(W{REGEXP("(?i)as|since")}  FiniteClause1) {-> CREATE(GrammarProfile, "subCategory"="SubordinatedClause", "superCategory"="Clause", "name"="SubordinatedReason", "level"="B1")}; 
+
+//EXMPLE 2.SubordinatedPurposeResult
+
+
+(W{REGEXP("(?i)so")} W{REGEXP("(?i)that")} FiniteClause1) {-> CREATE(GrammarProfile, "subCategory"="SubordinatedClause", "superCategory"="Clause", "name"="SubordinatedPurposeResult", "level"="B1")}; 
+(W{REGEXP("(?i)so")} FiniteClause1) {-> CREATE(GrammarProfile, "subCategory"="SubordinatedClause", "superCategory"="Clause", "name"="SubordinatedPurposeResult", "level"="B1")}; 
+
+(W{REGEXP("(?i)in")} W{REGEXP("(?i)order")} W{REGEXP("(?i)that")} FiniteClause1) {-> CREATE(GrammarProfile, "subCategory"="SubordinatedClause", "superCategory"="Clause", "name"="SubordinatedPurposeResult", "level"="B1")}; 
+
+//EXMPLE 3.SubordinatedContrast
+
+(W{REGEXP("(?i)even")} W{REGEXP("(?i)though")}  FiniteClause1) {-> CREATE(GrammarProfile, "subCategory"="SubordinatedClause", "superCategory"="Clause", "name"="SubordinatedContrast", "level"="B1")}; 
+(W{REGEXP("(?i)although")}  FiniteClause1) {-> CREATE(GrammarProfile, "subCategory"="SubordinatedClause", "superCategory"="Clause", "name"="SubordinatedContrast", "level"="B1")}; 
+(W{REGEXP("(?i)though")}  FiniteClause1) {-> CREATE(GrammarProfile, "subCategory"="SubordinatedClause", "superCategory"="Clause", "name"="SubordinatedContrast", "level"="B1")}; 
+(W{REGEXP("(?i)while")}  FiniteClause1) {-> CREATE(GrammarProfile, "subCategory"="SubordinatedClause", "superCategory"="Clause", "name"="SubordinatedContrast", "level"="B1")}; 
+
+//EXMPLE 4.SubordinatedNonFiniteWithIng
+(W{REGEXP("(?i)before|after")}  Doing) {-> CREATE(GrammarProfile, "subCategory"="SubordinatedClause", "superCategory"="Clause", "name"="SubordinatedNonFiniteWithIng", "level"="B1")}; 
+
+
+
+
+
+//6.ConditionalClause
+//EXMPLE 1.PresentSimpleIfClauseWill(FirstConditional)
+(W{REGEXP("(?i)if")} NC ADVC Present) {-> CREATE(GrammarProfile, "subCategory"="ConditionalClause", "superCategory"="Clause", "name"="PresentSimpleIfClauseWill", "level"="B1")}; 
+(NC ADVC Future) {-> CREATE(GrammarProfile, "subCategory"="ConditionalClause", "superCategory"="Clause", "name"="PresentSimpleIfClauseWill", "level"="B1")}; 
+(W{REGEXP("(?i)if")} NC Present) {-> CREATE(GrammarProfile, "subCategory"="ConditionalClause", "superCategory"="Clause", "name"="PresentSimpleIfClauseWill", "level"="B1")}; 
+(NC Future) {-> CREATE(GrammarProfile, "subCategory"="ConditionalClause", "superCategory"="Clause", "name"="PresentSimpleIfClauseWill", "level"="B1")}; 
+
+
+//EXMPLE 2.PresentSimpleIfClauseModalFuturePossibleOutcome
+(W{REGEXP("(?i)if")} NC ADVC Present) {-> CREATE(GrammarProfile, "subCategory"="ConditionalClause", "superCategory"="Clause", "name"="PresentSimpleIfClauseModalFuturePossibleOutcome", "level"="B1")}; 
+(NC ADVC ModalVerb) {-> CREATE(GrammarProfile, "subCategory"="ConditionalClause", "superCategory"="Clause", "name"="PresentSimpleIfClauseModalFuturePossibleOutcome", "level"="B1")}; 
+(W{REGEXP("(?i)if")} NC Present) {-> CREATE(GrammarProfile, "subCategory"="ConditionalClause", "superCategory"="Clause", "name"="PresentSimpleIfClauseModalFuturePossibleOutcome", "level"="B1")}; 
+(NC ModalVerb) {-> CREATE(GrammarProfile, "subCategory"="ConditionalClause", "superCategory"="Clause", "name"="PresentSimpleIfClauseModalFuturePossibleOutcome", "level"="B1")}; 
+
+
+//EXMPLE 3.PresentContinuousIfClausePlansAdvice
+(W{REGEXP("(?i)if")} NC ADVC Be Doing) {-> CREATE(GrammarProfile, "subCategory"="ConditionalClause", "superCategory"="Clause", "name"="PresentContinuousIfClausePlansAdvice", "level"="B1")}; 
+(W{REGEXP("(?i)if")} NC ADVC Be Going ToDo) {-> CREATE(GrammarProfile, "subCategory"="ConditionalClause", "superCategory"="Clause", "name"="PresentContinuousIfClausePlansAdvice", "level"="B1")}; 
+(NC ADVC ModalVerb) {-> CREATE(GrammarProfile, "subCategory"="ConditionalClause", "superCategory"="Clause", "name"="PresentContinuousIfClausePlansAdvice", "level"="B1")}; 
+
+(W{REGEXP("(?i)if")} NC  Be Doing) {-> CREATE(GrammarProfile, "subCategory"="ConditionalClause", "superCategory"="Clause", "name"="PresentContinuousIfClausePlansAdvice", "level"="B1")}; 
+(W{REGEXP("(?i)if")} NC  Be Going ToDo) {-> CREATE(GrammarProfile, "subCategory"="ConditionalClause", "superCategory"="Clause", "name"="PresentContinuousIfClausePlansAdvice", "level"="B1")}; 
+(NC  ModalVerb) {-> CREATE(GrammarProfile, "subCategory"="ConditionalClause", "superCategory"="Clause", "name"="PresentContinuousIfClausePlansAdvice", "level"="B1")}; 
+
+
+//EXMPLE 4.PastSimpleIfClauseWouldFuture(SecondConditional)
+(W{REGEXP("(?i)if")} NC ADVC Past) {-> CREATE(GrammarProfile, "subCategory"="ConditionalClause", "superCategory"="Clause", "name"="PastSimpleIfClauseWouldFuture", "level"="B1")}; 
+(NC ADVC Would) {-> CREATE(GrammarProfile, "subCategory"="ConditionalClause", "superCategory"="Clause", "name"="PastSimpleIfClauseWouldFuture", "level"="B1")}; 
+(W{REGEXP("(?i)if")} NC  Past) {-> CREATE(GrammarProfile, "subCategory"="ConditionalClause", "superCategory"="Clause", "name"="PastSimpleIfClauseWouldFuture", "level"="B1")}; 
+(NC  Would) {-> CREATE(GrammarProfile, "subCategory"="ConditionalClause", "superCategory"="Clause", "name"="PastSimpleIfClauseWouldFuture", "level"="B1")}; 
+
+//EXMPLE 5.IfIWereYouWouldFuture
+(W{REGEXP("(?i)if")} W{REGEXP("(?i)I")} W{REGEXP("(?i)were")} W{REGEXP("(?i)you")} COMMA NC ADVC Would) {-> CREATE(GrammarProfile, "subCategory"="ConditionalClause", "superCategory"="Clause", "name"="IfIWereYouWouldFuture", "level"="B1")}; 
+(W{REGEXP("(?i)if")} W{REGEXP("(?i)I")} W{REGEXP("(?i)were")} W{REGEXP("(?i)you")} COMMA NC Would) {-> CREATE(GrammarProfile, "subCategory"="ConditionalClause", "superCategory"="Clause", "name"="IfIWereYouWouldFuture", "level"="B1")}; 
+(W{REGEXP("(?i)if")} W{REGEXP("(?i)I")} W{REGEXP("(?i)were")} W{REGEXP("(?i)you")}  NC ADVC Would) {-> CREATE(GrammarProfile, "subCategory"="ConditionalClause", "superCategory"="Clause", "name"="IfIWereYouWouldFuture", "level"="B1")}; 
+(W{REGEXP("(?i)if")} W{REGEXP("(?i)I")} W{REGEXP("(?i)were")} W{REGEXP("(?i)you")}  NC  Would) {-> CREATE(GrammarProfile, "subCategory"="ConditionalClause", "superCategory"="Clause", "name"="IfIWereYouWouldFuture", "level"="B1")}; 
+
+//EXMPLE 6.UnlessExceptionsConditional
+(W{REGEXP("(?i)unless")} NC ADVC Present) {-> CREATE(GrammarProfile, "subCategory"="ConditionalClause", "superCategory"="Clause", "name"="UnlessExceptionsConditional", "level"="B1")}; 
+(W{REGEXP("(?i)unless")} NC  Present) {-> CREATE(GrammarProfile, "subCategory"="ConditionalClause", "superCategory"="Clause", "name"="UnlessExceptionsConditional", "level"="B1")}; 
+
+//EXMPLE 7.PastSimpleIfClauseCouldFuture
+(W{REGEXP("(?i)if")} NC ADVC Past) {-> CREATE(GrammarProfile, "subCategory"="ConditionalClause", "superCategory"="Clause", "name"="PastSimpleIfClauseCouldFuture", "level"="B1")}; 
+(NC ADVC Could) {-> CREATE(GrammarProfile, "subCategory"="ConditionalClause", "superCategory"="Clause", "name"="PastSimpleIfClauseCouldFuture", "level"="B1")}; 
+(W{REGEXP("(?i)if")} NC  Past) {-> CREATE(GrammarProfile, "subCategory"="ConditionalClause", "superCategory"="Clause", "name"="PastSimpleIfClauseCouldFuture", "level"="B1")}; 
+(NC  Could) {-> CREATE(GrammarProfile, "subCategory"="ConditionalClause", "superCategory"="Clause", "name"="PastSimpleIfClauseCouldFuture", "level"="B1")}; 
+
+//EXMPLE 8.PastPerfectIfWouldHaveDoneRegret(ThirdConditional)
+(W{REGEXP("(?i)if")} NC ADVC Had Done) {-> CREATE(GrammarProfile, "subCategory"="ConditionalClause", "superCategory"="Clause", "name"="PastPerfectIfWouldHaveDoneRegret", "level"="B1")}; 
+(NC ADVC Would Have Done) {-> CREATE(GrammarProfile, "subCategory"="ConditionalClause", "superCategory"="Clause", "name"="PastPerfectIfWouldHaveDoneRegret", "level"="B1")}; 
+(W{REGEXP("(?i)if")} NC  Had Done) {-> CREATE(GrammarProfile, "subCategory"="ConditionalClause", "superCategory"="Clause", "name"="PastPerfectIfWouldHaveDoneRegret", "level"="B1")}; 
+(NC Would Have Done) {-> CREATE(GrammarProfile, "subCategory"="ConditionalClause", "superCategory"="Clause", "name"="PastPerfectIfWouldHaveDoneRegret", "level"="B1")}; 
+
+//EXMPLE 9.ElliptedIfNotAlternative
+(W{REGEXP("(?i)if")} W{REGEXP("(?i)not")} COMMA) {-> CREATE(GrammarProfile, "subCategory"="ConditionalClause", "superCategory"="Clause", "name"="ElliptedIfNotAlternative", "level"="B1")}; 
+
+//EXMPLE 10.ElliptedIfSoConfirming
+(W{REGEXP("(?i)if")} W{REGEXP("(?i)so")} COMMA) {-> CREATE(GrammarProfile, "subCategory"="ConditionalClause", "superCategory"="Clause", "name"="ElliptedIfSoConfirming", "level"="B1")}; 

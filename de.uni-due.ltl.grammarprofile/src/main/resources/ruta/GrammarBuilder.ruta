@@ -1,0 +1,760 @@
+TYPESYSTEM ProjectTypeSystem;
+
+//1.Common words
+//Not
+DECLARE Not;
+(Lemma{FEATURE("value", "not")}){-> MARK(Not)};
+
+//Dont
+DECLARE Dont;
+(Lemma{FEATURE("value", "do")} Not) {-> MARK(Dont)};
+
+//Doesnt
+DECLARE Doesnt;
+(W{REGEXP("(?i)doesn|don")} SPECIAL{REGEXP("'")} W{REGEXP("t")}) {-> MARK(Doesnt)};
+(W{REGEXP("(?i)does|do")} Not) {-> MARK(Doesnt)};
+
+
+//Didnt
+DECLARE Didnt;
+(W{REGEXP("(?i)didn")} SPECIAL{REGEXP("'")} W{REGEXP("t")}) {-> MARK(Didnt)};
+(W{REGEXP("(?i)did")} Not) {-> MARK(Didnt)};
+
+//Havent
+DECLARE Havent;
+(Lemma{FEATURE("value", "have")} Not) {-> MARK(Havent)};
+
+//Hasnt
+DECLARE Hasnt;
+(W{REGEXP("(?i)hasn|haven")} SPECIAL{REGEXP("'")} W{REGEXP("t")}) {-> MARK(Hasnt)};
+(W{REGEXP("(?i)has|have")} Not) {-> MARK(Hasnt)};
+
+//Hadnt 
+DECLARE Hadnt;
+(W{REGEXP("(?i)hadn")} SPECIAL{REGEXP("'")} W{REGEXP("t")}) {-> MARK(Hadnt)};
+(W{REGEXP("(?i)had")} Not) {-> MARK(Hadnt)};
+
+
+
+//2.Articles, Nouns and Pronouns:
+//Article
+DECLARE Article;
+(W{REGEXP("(?i)a|an|the")}) {-> MARK(Article)};
+
+
+//WHWord
+DECLARE WHWord;
+(POS{FEATURE("PosValue", "WP")}) {-> MARK(WHWord)};
+(POS{FEATURE("PosValue", "WRB")}) {-> MARK(WHWord)};
+(POS{FEATURE("PosValue", "WP$")}) {-> MARK(WHWord)};
+
+//RelativePronoun
+DECLARE RelativePronoun;
+(W{REGEXP("(?i)that|which|who|whom|whose|where|when")}) {-> MARK(RelativePronoun)};
+(POS{FEATURE("PosValue", "WPT")}) {-> MARK(RelativePronoun)};
+
+
+//DemonstrativePronoun
+DECLARE DemonstrativePronoun;
+(W{REGEXP("(?i)this|that|these|those")}) {-> MARK(DemonstrativePronoun)};
+
+//ReflexivePronoun
+DECLARE ReflexivePronoun;
+(W{REGEXP("(?i)myself|yourself|himself|herself|itself|ourselves|yourselves|themselves")}) {-> MARK(ReflexivePronoun)};
+
+//IndefinitePronoun
+WORDLIST IndefinitePronounsList='wordlists/IndefinitePronouns.txt';
+
+DECLARE IndefinitePronoun;
+Document{-> MARKFAST(IndefinitePronoun, IndefinitePronounsList,true)};
+
+
+//*Different types of nouns
+WORDLIST IrregularPluralNounsList='wordlists/nouns/IrregularPluralNouns.txt';
+WORDLIST UncountableNounsList='wordlists/nouns/UncountableNouns.txt';
+WORDLIST CollectiveNounsList='wordlists/nouns/CollectiveNouns.txt';
+
+DECLARE IrregularPluralNoun, UncountableNoun, CollectiveNoun;
+
+Document{-> MARKFAST(IrregularPluralNoun, IrregularPluralNounsList,true)};
+Document{-> MARKFAST(UncountableNoun, UncountableNounsList,true)};
+Document{-> MARKFAST(CollectiveNoun, CollectiveNounsList,true)};
+
+
+//*AdjectiveNoun
+//DECLARE AdjectiveNoun;
+//((POS_ADV? POS_ADJ COMMA?)+ W{REGEXP("(?i)and")} POS_ADV? POS_ADJ POS_NOUN) {-> MARK(AdjectiveNoun)};
+//((POS_ADV? POS_ADJ COMMA?)+ POS_NOUN) {-> MARK(AdjectiveNoun)};
+//(POS_NOUN) {-> MARK(AdjectiveNoun)};
+
+DECLARE AdjectiveNoun;
+(POS_ADJ POS_NOUN) {-> MARK(AdjectiveNoun)};
+(POS_ADJ COMMA POS_ADJ POS_NOUN) {-> MARK(AdjectiveNoun)};
+(POS_ADJ COMMA POS_ADJ W{REGEXP("(?i)and")}  POS_ADJ POS_NOUN) {-> MARK(AdjectiveNoun)};
+
+
+//3.Adjectives, Adverbs and Determiners:
+
+//AsAdjAs
+DECLARE AsAdjAs;
+(W{REGEXP("(?i)as")} POS_ADJ  W{REGEXP("(?i)as")}) {-> MARK(AsAdjAs)};
+
+//Comparative
+DECLARE Comparative;
+(POS{FEATURE("PosValue", "JJR")}) {-> MARK(Comparative)};
+(W{REGEXP("(?i)more")}  POS_ADJ) {-> MARK(Comparative)};
+(W{REGEXP("(?i)less")}  POS_ADJ) {-> MARK(Comparative)};
+
+//Superlative
+DECLARE Superlative;
+(W{REGEXP("(?i)the")} POS{FEATURE("PosValue", "JJS")})  {-> MARK(Superlative)};
+(W{REGEXP("(?i)the")} W{REGEXP("(?i)most")}  POS_ADJ)  {-> MARK(Superlative)};
+(W{REGEXP("(?i)the")} W{REGEXP("(?i)least")} POS_ADJ)  {-> MARK(Superlative)};
+
+
+//ComparativeAdv
+DECLARE ComparativeAdv;
+(POS{FEATURE("PosValue", "RBR")}) {-> MARK(ComparativeAdv)};
+(W{REGEXP("(?i)more")}  POS_ADV) {-> MARK(ComparativeAdv)};
+(W{REGEXP("(?i)less")}  POS_ADV) {-> MARK(ComparativeAdv)};
+
+//SuperlativeAdv
+DECLARE SuperlativeAdv;
+(W{REGEXP("(?i)the")} POS{FEATURE("PosValue", "RBS")}) {-> MARK(SuperlativeAdv)};
+(W{REGEXP("(?i)the")} W{REGEXP("(?i)most")} POS_ADV) {-> MARK(SuperlativeAdv)};
+(W{REGEXP("(?i)the")} W{REGEXP("(?i)least")} POS_ADV) {-> MARK(SuperlativeAdv)};
+
+
+//Adjectives:
+WORDLIST DegreeAdjList='wordlists/adjectives/Degree.txt';
+WORDLIST TimeAdjList='wordlists/adjectives/Time.txt';
+WORDLIST IrregularComparativesList='wordlists/adjectives/IrregularComparatives.txt';
+
+DECLARE DegreeAdj, TimeAdj, IrregularComparatives;
+
+Document{-> MARKFAST(DegreeAdj, DegreeAdjList,true)};
+Document{-> MARKFAST(TimeAdj, TimeAdjList,true)};
+Document{-> MARKFAST(IrregularComparatives, IrregularComparativesList,true)};
+
+//Adverbs
+WORDLIST TimeList='wordlists/adverbs/Time.txt';
+WORDLIST PlaceList='wordlists/adverbs/Place.txt';
+WORDLIST DegreeList='wordlists/adverbs/Degree.txt';
+WORDLIST MannerList='wordlists/adverbs/Manner.txt';
+WORDLIST LinkingList='wordlists/adverbs/Linking.txt';
+WORDLIST FocusList='wordlists/adverbs/Focus.txt';
+WORDLIST OrganisingList='wordlists/adverbs/Organising.txt';
+WORDLIST CertaintyList='wordlists/adverbs/Certainty.txt';
+WORDLIST StanceList='wordlists/adverbs/Stance.txt';
+WORDLIST AdverbModifyingAdverbList='wordlists/adverbs/AdverbModifyingAdverb.txt';
+WORDLIST IndefiniteFrequencyList='wordlists/adverbs/IndefiniteFrequency.txt';
+WORDLIST DistancingList='wordlists/adverbs/Distancing.txt';
+WORDLIST FrequencyList='wordlists/adverbs/Frequency.txt';
+WORDLIST SequencingList='wordlists/adverbs/Sequencing.txt';
+WORDLIST OtherAdverbsList='wordlists/adverbs/OtherAdverbs.txt';
+
+
+DECLARE TimeAdv, Place, Degree, Manner, Linking, Focus, Organising, Certainty, Stance, AdverbModifyingAdverb,
+IndefiniteFrequency, Distancing, Frequency, Sequencing,
+OtherAdverbs,Adverb;
+
+Document{-> MARKFAST(TimeAdv, TimeList,true)};
+Document{-> MARKFAST(Place, PlaceList,true)};
+Document{-> MARKFAST(Degree, DegreeList,true)};
+Document{-> MARKFAST(Manner, MannerList,true)};
+Document{-> MARKFAST(Linking, LinkingList,true)};
+Document{-> MARKFAST(Focus, FocusList,true)};
+Document{-> MARKFAST(Organising, OrganisingList,true)};
+Document{-> MARKFAST(Certainty, CertaintyList,true)};
+Document{-> MARKFAST(Stance, StanceList,true)};
+Document{-> MARKFAST(AdverbModifyingAdverb, AdverbModifyingAdverbList,true)};
+Document{-> MARKFAST(IndefiniteFrequency, IndefiniteFrequencyList,true)};
+Document{-> MARKFAST(Distancing, DistancingList,true)};
+Document{-> MARKFAST(Frequency, FrequencyList,true)};
+Document{-> MARKFAST(Sequencing, SequencingList,true)};
+Document{-> MARKFAST(OtherAdverbs, OtherAdverbsList,true)}
+
+(TimeAdv|Place|Degree|Manner|Linking|Focus|Organising|Certainty|Stance|AdverbModifyingAdverb|IndefiniteFrequency|Distancing|Frequency|Sequencing) {-> MARK(Adverb)};
+(POS_ADV) {-> MARK(Adverb)};
+(ADVC) {-> MARK(Adverb)};
+(OtherAdverbs) {-> MARK(Adverb)};
+
+
+//QuantifyingDeterminer
+WORDLIST DeterminersWithSingularNounsList='wordlists/quantifyingDeterminers/DeterminersWithSingularNouns.txt';
+WORDLIST DeterminersWithPluralNounsList='wordlists/quantifyingDeterminers/DeterminersWithPluralNouns.txt';
+WORDLIST DeterminersWithUncountableNounsList='wordlists/quantifyingDeterminers/DeterminersWithUncountableNouns.txt';
+WORDLIST DeterminersWithCountableNounsList='wordlists/quantifyingDeterminers/DeterminersWithCountableNouns.txt';
+WORDLIST DeterminersWithPluralAndUncountableNounsList='wordlists/quantifyingDeterminers/DeterminersWithPluralAndUncountableNouns.txt';
+WORDLIST DeterminersOfList='wordlists/quantifyingDeterminers/DeterminersOf.txt';
+
+DECLARE DeterminerWithSingularNouns, DeterminerWithPluralNouns, DeterminerWithUncountableNouns, DeterminersWithCountableNouns, DeterminerWithPluralAndUncountableNouns, DeterminerOf, 
+Determiner;
+
+Document{-> MARKFAST(DeterminerWithSingularNouns, DeterminersWithSingularNounsList,true)};
+Document{-> MARKFAST(DeterminerWithPluralNouns, DeterminersWithPluralNounsList,true)};
+Document{-> MARKFAST(DeterminerWithUncountableNouns, DeterminersWithUncountableNounsList,true)};
+Document{-> MARKFAST(DeterminersWithCountableNouns, DeterminersWithCountableNounsList,true)};
+Document{-> MARKFAST(DeterminerWithPluralAndUncountableNouns, DeterminersWithPluralAndUncountableNounsList,true)};
+Document{-> MARKFAST(DeterminerOf, DeterminersOfList,true)};
+(DeterminerWithSingularNouns|DeterminerWithPluralNouns|DeterminerWithUncountableNouns|DeterminersWithCountableNouns|
+DeterminerWithPluralAndUncountableNouns|DeterminerOf) {-> MARK(Determiner)};
+(POS_DET) {-> MARK(Determiner)};
+(POS_NUM) {-> MARK(Determiner)};
+(POS{FEATURE("PosValue", "PRP$")}) {-> MARK(Determiner)};
+
+
+
+//*AdjectivePhrase
+//DECLARE AdjectivePhrase;
+//((POS_ADV? POS_ADJ COMMA?)+ W{REGEXP("(?i)and")} POS_ADV? POS_ADJ) {-> MARK(AdjectivePhrase)};
+
+DECLARE AdjectivePhrase;
+(POS_ADJ) {-> MARK(AdjectivePhrase)};
+(POS_ADJ COMMA POS_ADJ) {-> MARK(AdjectivePhrase)};
+(POS_ADJ COMMA POS_ADJ W{REGEXP("(?i)and")}  POS_ADJ) {-> MARK(AdjectivePhrase)};
+
+//*AdverbAdjective
+//DECLARE AdverbAdjective;
+//(Not? POS_ADV?  POS_ADJ){-> MARK(AdverbAdjective)};
+
+DECLARE AdverbAdjective;
+(POS_ADV  POS_ADJ){-> MARK(AdverbAdjective)};
+(POS_ADJ){-> MARK(AdverbAdjective)};
+
+
+//4. Adpositions and Conjunctions
+//Prepositions
+WORDLIST ComplexPrepositionList='wordlists/prepositions/ComplexPreposition.txt';
+WORDLIST SimplePrepositionList='wordlists/prepositions/SimplePreposition.txt';
+
+DECLARE ComplexPreposition,SimplePreposition,
+Preposition;
+
+Document{-> MARKFAST(ComplexPreposition, ComplexPrepositionList,true)};
+Document{-> MARKFAST(SimplePreposition, SimplePrepositionList,true)};
+(SimplePreposition|ComplexPreposition) {-> MARK(Preposition)};
+(POS_ADP) {-> MARK(Preposition)};
+(PC) {-> MARK(Preposition)};
+
+
+//SubordinatingConjunctions
+WORDLIST SimpleSubordinatingConjunctionsList='wordlists/subordinatingConjunctions/SimpleSubordinatingConjunctions.txt';
+WORDLIST ComplexSubordinatingConjunctionsList='wordlists/subordinatingConjunctions/ComplexSubordinatingConjunctions.txt';
+
+DECLARE SimpleSubordinatingConjunction, ComplexSubordinatingConjunction, Conjunction;
+
+(POS_CONJ) {-> MARK(SimpleSubordinatingConjunction)};
+Document{-> MARKFAST(SimpleSubordinatingConjunction, SimpleSubordinatingConjunctionsList,true)};
+Document{-> MARKFAST(ComplexSubordinatingConjunction, ComplexSubordinatingConjunctionsList,true)};
+
+(SimpleSubordinatingConjunction|ComplexSubordinatingConjunction) {-> MARK(Conjunction)};
+
+//*PrepositionPhrase
+DECLARE PrepositionPhrase;
+(Preposition NC) {-> MARK(PrepositionPhrase)};
+
+
+//*TimeAdjuncts
+WORDLIST TimeAdjunctsList='wordlists/TimeAdjuncts.txt';
+
+DECLARE TimeAdjunct;
+
+Document{-> MARKFAST(TimeAdjunct, TimeAdjunctsList,true)};
+
+
+//*DiscourseMarkers
+WORDLIST ContrastingList='wordlists/discourseMarkers/Contrasting.txt';
+WORDLIST AddingList='wordlists/discourseMarkers/Adding.txt';
+WORDLIST MakingNewKnowledgeInformalList='wordlists/discourseMarkers/MakingNewKnowledgeInformal.txt';
+WORDLIST ComparingList='wordlists/discourseMarkers/Comparing.txt';
+WORDLIST SummarisingList='wordlists/discourseMarkers/Summarising.txt';
+WORDLIST ReferenceList='wordlists/discourseMarkers/Reference.txt';
+
+DECLARE Contrasting, Adding, MakingNewKnowledgeInformal, Comparing, Summarising, Reference;
+
+Document{-> MARKFAST(Contrasting, ContrastingList,true)};
+Document{-> MARKFAST(Adding, AddingList,true)};
+Document{-> MARKFAST(MakingNewKnowledgeInformal, MakingNewKnowledgeInformalList,true)};
+Document{-> MARKFAST(Comparing, ComparingList,true)};
+Document{-> MARKFAST(Summarising, SummarisingList,true)};
+Document{-> MARKFAST(Reference, ReferenceList,true)};
+
+//*Focus
+WORDLIST FrontingExpressionList='wordlists/focus/FrontingExpression.txt';
+
+DECLARE FrontingExpression;
+
+Document{-> MARKFAST(FrontingExpression, FrontingExpressionList,true)};
+
+
+
+//5.Verbs:
+    
+//Particle
+WORDLIST ParticlesList='wordlists/Particles.txt';
+
+DECLARE Particle;
+(Particle) {-> MARK(Particle)};
+Document{-> MARKFAST(Particle, ParticlesList,true)};
+
+
+
+//Be
+DECLARE Be;
+(Lemma{FEATURE("value", "be")} Not) {-> MARK(Be)};
+(Lemma{FEATURE("value", "be")} ) {-> MARK(Be)};
+
+//Is
+DECLARE Is;
+((W{REGEXP("(?i)am|is|are")}) Not) {-> MARK(Is)};
+((W{REGEXP("(?i)am|is|are")}) ) {-> MARK(Is)};
+
+(SPECIAL{REGEXP("'")} W{REGEXP("m")} Not) {-> MARK(Is)}; 
+(SPECIAL{REGEXP("'")} W{REGEXP("m")} ) {-> MARK(Is)}; 
+
+(SPECIAL{REGEXP("'")} W{REGEXP("s")} Not) {-> MARK(Is)};
+(SPECIAL{REGEXP("'")} W{REGEXP("s")} ) {-> MARK(Is)};
+
+(W{REGEXP("(?i)isn")} SPECIAL{REGEXP("'")} W{REGEXP("t")}) {-> MARK(Is)};
+
+(SPECIAL{REGEXP("'")} W{REGEXP("re")} Not) {-> MARK(Is)};
+(SPECIAL{REGEXP("'")} W{REGEXP("re")} ) {-> MARK(Is)};
+
+(W{REGEXP("(?i)aren")} SPECIAL{REGEXP("'")} W{REGEXP("t")}) {-> MARK(Is)};
+
+//Was
+DECLARE Was;
+((W{REGEXP("(?i)was|were")}) Not)  {-> MARK(Was)};
+((W{REGEXP("(?i)was|were")}) )  {-> MARK(Was)};
+
+(W{REGEXP("(?i)wasn")} SPECIAL{REGEXP("'")} W{REGEXP("t")}) {-> MARK(Was)};
+
+(W{REGEXP("(?i)weren")} SPECIAL{REGEXP("'")} W{REGEXP("t")}) {-> MARK(Was)};
+
+
+//Do
+DECLARE Do;
+(Lemma{FEATURE("value", "do")} Not) {-> MARK(Do)};
+(Lemma{FEATURE("value", "do")} ) {-> MARK(Do)};
+
+//Does
+DECLARE Does;
+((W{REGEXP("(?i)does|do")}) Not) {-> MARK(Does)};
+((W{REGEXP("(?i)does|do")}) ) {-> MARK(Does)};
+
+(Doesnt) {-> MARK(Does)};
+
+
+//Did
+DECLARE Did;
+(W{REGEXP("(?i)did")} Not) {-> MARK(Did)};
+(W{REGEXP("(?i)did")} ) {-> MARK(Did)};
+
+(Didnt) {-> MARK(Did)};
+
+
+
+//Have
+DECLARE Have;
+(Lemma{FEATURE("value", "have")} Not) {-> MARK(Have)};
+(Lemma{FEATURE("value", "have")} ) {-> MARK(Have)};
+
+//Has
+DECLARE Has;
+((W{REGEXP("(?i)has|have")}) Not) {-> MARK(Has)};
+((W{REGEXP("(?i)has|have")}) ) {-> MARK(Has)};
+
+(Hasnt) {-> MARK(Has)};
+
+
+//Had
+DECLARE Had;
+(W{REGEXP("(?i)had")} Not) {-> MARK(Had)};
+(W{REGEXP("(?i)had")} ) {-> MARK(Had)};
+
+(Hadnt) {-> MARK(Had)};
+
+
+
+//Will
+DECLARE Will;
+(Lemma{FEATURE("value", "will")} Not) {-> MARK(Will)};
+(Lemma{FEATURE("value", "will")} ) {-> MARK(Will)};
+
+(SPECIAL{REGEXP("'")} W{REGEXP("ll")} Not) {-> MARK(Will)};
+(SPECIAL{REGEXP("'")} W{REGEXP("ll")} ) {-> MARK(Will)};
+
+(W{REGEXP("(?i)won")} SPECIAL{REGEXP("'")} W{REGEXP("t")}) {-> MARK(Will)};
+
+
+
+//Would
+DECLARE Would;
+(Lemma{FEATURE("value", "would")} Not) {-> MARK(Would)};
+(Lemma{FEATURE("value", "would")} ) {-> MARK(Would)};
+
+(SPECIAL{REGEXP("'")} W{REGEXP("d")}) {-> MARK(Would)};
+
+(W{REGEXP("(?i)wouldn")} SPECIAL{REGEXP("'")} W{REGEXP("t")}) {-> MARK(Would)};
+
+
+//Can
+DECLARE Can;
+(Lemma{FEATURE("value", "can")} Not) {-> MARK(Can)};
+(Lemma{FEATURE("value", "can")} ) {-> MARK(Can)};
+
+(W{REGEXP("(?i)can")} SPECIAL{REGEXP("'")} W{REGEXP("t")}) {-> MARK(Can)};
+
+
+//Could
+DECLARE Could;
+(Lemma{FEATURE("value", "could")} Not) {-> MARK(Could)};
+(Lemma{FEATURE("value", "could")} ) {-> MARK(Could)};
+
+(W{REGEXP("(?i)couldn")} SPECIAL{REGEXP("'")} W{REGEXP("t")}) {-> MARK(Could)};
+
+
+//May
+DECLARE May;
+(Lemma{FEATURE("value", "may")} Not) {-> MARK(May)};
+(Lemma{FEATURE("value", "may")} ) {-> MARK(May)};
+
+//Might
+DECLARE Might;
+(Lemma{FEATURE("value", "might")} Not) {-> MARK(Might)};
+(Lemma{FEATURE("value", "might")} ) {-> MARK(Might)};
+
+(W{REGEXP("(?i)mightn")} SPECIAL{REGEXP("'")} W{REGEXP("t")}) {-> MARK(Might)};
+
+
+//Must
+DECLARE Must;
+(Lemma{FEATURE("value", "must")} Not) {-> MARK(Must)};
+(Lemma{FEATURE("value", "must")} ) {-> MARK(Must)};
+
+(W{REGEXP("(?i)mustn")} SPECIAL{REGEXP("'")} W{REGEXP("t")}) {-> MARK(Must)};
+
+
+//Need
+DECLARE Need;
+(Lemma{FEATURE("value", "need")} Not) {-> MARK(Need)};
+(Lemma{FEATURE("value", "need")} ) {-> MARK(Need)};
+
+(W{REGEXP("(?i)needn")} SPECIAL{REGEXP("'")} W{REGEXP("t")}) {-> MARK(Need)};
+
+
+
+//Ought
+DECLARE Ought;
+(Lemma{FEATURE("value", "ought")} Not) {-> MARK(Ought)};
+(Lemma{FEATURE("value", "ought")} ) {-> MARK(Ought)};
+
+(W{REGEXP("(?i)oughtn")} SPECIAL{REGEXP("'")} W{REGEXP("t")}) {-> MARK(Ought)};
+
+
+//Shall
+DECLARE Shall;
+(Lemma{FEATURE("value", "shall")} Not) {-> MARK(Shall)};
+(Lemma{FEATURE("value", "shall")} ) {-> MARK(Shall)};
+
+(W{REGEXP("(?i)shan")} SPECIAL{REGEXP("'")} W{REGEXP("t")}) {-> MARK(Shall)};
+
+
+//Should
+DECLARE Should;
+(Lemma{FEATURE("value", "should")} Not) {-> MARK(Should)};
+(Lemma{FEATURE("value", "should")} ) {-> MARK(Should)};
+
+(W{REGEXP("(?i)shouldn")} SPECIAL{REGEXP("'")} W{REGEXP("t")}) {-> MARK(Should)};
+
+
+//ModalVerb
+DECLARE ModalVerb;
+(POS{FEATURE("PosValue", "MD")} Not) {-> MARK(ModalVerb)};
+(POS{FEATURE("PosValue", "MD")} ) {-> MARK(ModalVerb)};
+
+
+
+
+
+//NonFinitive:
+//Infinitive, ToNonFiniteClause1
+DECLARE ToDo;
+(W{REGEXP("(?i)to")} POS{FEATURE("PosValue", "VB")})  {-> MARK(ToDo)};
+
+//Doing, Gerund, PresentParticiple
+DECLARE Doing;
+(POS{FEATURE("PosValue", "VBG")})  {-> MARK(Doing)};
+
+//Done, Passive, HaveDone(PresentPerfect)
+DECLARE Done;
+(POS{FEATURE("PosValue", "VBN")})  {-> MARK(Done)};
+(W{REGEXP("ever")} POS{FEATURE("PosValue", "VBN")})  {-> MARK(Done)};
+
+
+
+//Passive:
+
+
+
+//BeenDone
+DECLARE BeenDone;
+(W{REGEXP("(?i)been")} Done)  {-> MARK(BeenDone)};
+
+//BeingDone
+DECLARE BeingDone;
+(W{REGEXP("(?i)being")}  Done)  {-> MARK(BeingDone)};
+
+//ToBeDone
+DECLARE ToBeDone;
+(W{REGEXP("(?i)to")} W{REGEXP("be")}  Done)  {-> MARK(ToBeDone)};
+
+//Passive
+DECLARE Passive;
+(Be Done) {-> MARK(Passive)};
+(Be BeingDone) {-> MARK(Passive)};
+(Have BeenDone) {-> MARK(Passive)};
+(Will Be Done) {-> MARK(Passive)};
+
+
+//Present:
+//SimplePresent3rd
+DECLARE Present3rd;
+(POS{FEATURE("PosValue", "VBZ")}) {-> MARK(Present3rd)};
+(Doesnt POS{FEATURE("PosValue", "VB")}) {-> MARK(Present3rd)};
+
+//SimplePresentNon3rd
+DECLARE PresentNon3rd;
+(POS{FEATURE("PosValue", "VBP")}) {-> MARK(PresentNon3rd)};
+( Dont POS{FEATURE("PosValue", "VB")} ) {-> MARK(PresentNon3rd)};
+
+//SimplePresent
+DECLARE Present;
+(Present3rd)  {-> MARK(Present)};
+(PresentNon3rd)  {-> MARK(Present)};
+
+
+//Past:
+//SimplePast
+DECLARE Past;
+(POS{FEATURE("PosValue", "VBD")}) {-> MARK(Past)};
+(Didnt POS{FEATURE("PosValue", "VB")}) {-> MARK(Past)};
+
+//Used
+DECLARE Used;
+(W{REGEXP("(?i)used")} Not?)  {-> MARK(Used)};
+(W{REGEXP("(?i)used")} )  {-> MARK(Used)};
+
+
+//PresentPerfect:
+//BeenDoing, PresentPerfectProgressive
+DECLARE BeenDoing;
+(W{REGEXP("(?i)been")} Doing)  {-> MARK(BeenDoing)};
+
+
+//Future:
+//WillShall
+DECLARE WillShall;
+(Will)  {-> MARK(WillShall)};
+(Shall)  {-> MARK(WillShall)};
+
+//Going
+DECLARE Going;
+(W{REGEXP("(?i)going")})  {-> MARK(Going)};
+
+//SimpleFuture
+DECLARE Future;
+(WillShall POS_VERB)  {-> MARK(Future)};
+
+
+
+
+//Subject
+DECLARE Subject;
+//(NC POS_ADV? VC) {-> MARK(Subject)};
+
+(NC){-> MARK(Subject)} (POS_ADV VC);
+(NC){-> MARK(Subject)} (VC);
+
+
+//Object
+DECLARE Object;
+
+
+//1.S-V-O
+//(POS_ADV? VC Particle? POS_ADV? PC? POS_PRON? NC PrepositionPhrase?) {-> MARK(Object)};
+
+//he gives an apple to me. 
+(POS_ADV VC Particle?) (NC){-> MARK(Object)} (PC POS_PRON PrepositionPhrase?);
+(VC Particle? POS_ADV) (NC){-> MARK(Object)} (PC POS_PRON PrepositionPhrase?);
+
+//he gives me an apple. 
+(POS_ADV VC Particle? POS_PRON)  (NC){-> MARK(Object)} (PrepositionPhrase?);
+(VC Particle? POS_ADV POS_PRON)  (NC){-> MARK(Object)} (PrepositionPhrase?);
+
+//he eats an apple.
+(POS_ADV VC Particle?)  (NC){-> MARK(Object)} (PrepositionPhrase?);
+(VC Particle? POS_ADV)  (NC){-> MARK(Object)} (PrepositionPhrase?);
+
+
+//2.S-V-C
+//(POS_ADV? VC Particle? POS_ADV? POS_ADJ? PrepositionPhrase?) {-> MARK(Object)};
+
+//she is beautiful
+(POS_ADV VC)  (POS_ADJ){-> MARK(Object)} (PrepositionPhrase?);
+(VC POS_ADV) (POS_ADJ){-> MARK(Object)} (PrepositionPhrase?);
+
+
+
+
+//FiniteClause, MainClause, DeclarativeClause
+DECLARE FiniteClause1, FiniteClause2;
+
+//1.S-V-O
+//(NC POS_ADV? VC Particle? POS_ADV?  NC? PC? POS_PRON? PrepositionPhrase?) {-> MARK(FiniteClause2)};
+
+//he gives an apple to me.
+(NC POS_ADV VC Particle?  NC PC POS_PRON PrepositionPhrase?) {-> MARK(FiniteClause2)};
+(NC VC Particle? POS_ADV  NC PC POS_PRON PrepositionPhrase?) {-> MARK(FiniteClause2)};
+
+//he gives me an apple. 
+(NC POS_ADV VC Particle?  POS_PRON NC PrepositionPhrase?) {-> MARK(FiniteClause2)};
+(NC VC Particle? POS_ADV  POS_PRON NC PrepositionPhrase?) {-> MARK(FiniteClause2)};
+
+//he eats an apple.
+(NC POS_ADV VC Particle?  NC PrepositionPhrase?) {-> MARK(FiniteClause2)};
+(NC VC Particle? POS_ADV  NC PrepositionPhrase?) {-> MARK(FiniteClause2)};
+
+//he goes to school
+(NC POS_ADV VC Particle?   PrepositionPhrase?) {-> MARK(FiniteClause2)};
+(NC VC Particle? POS_ADV   PrepositionPhrase?) {-> MARK(FiniteClause2)};
+
+//2.S-V-C
+//(NC POS_ADV? VC POS_ADV? POS_ADJ? PrepositionPhrase?) {-> MARK(FiniteClause2)};
+
+//she is beautiful
+(NC POS_ADV VC  POS_ADJ PrepositionPhrase?) {-> MARK(FiniteClause2)};
+(NC  VC POS_ADV POS_ADJ PrepositionPhrase?) {-> MARK(FiniteClause2)};
+
+//she is in school
+(NC POS_ADV VC   PrepositionPhrase?) {-> MARK(FiniteClause2)};
+(NC VC POS_ADV  PrepositionPhrase?) {-> MARK(FiniteClause2)};
+
+
+
+//3.simple version
+//(NC POS_ADV? VC) {-> MARK(FiniteClause1)};
+
+(NC POS_ADV VC) {-> MARK(FiniteClause1)};
+(NC VC) {-> MARK(FiniteClause1)};
+
+//DoingNonFiniteClause
+DECLARE DoingNonFiniteClause;
+(Doing Particle? POS_ADV  NC PC POS_PRON PrepositionPhrase?) {-> MARK(DoingNonFiniteClause)};
+(Doing Particle? NC PC POS_PRON PrepositionPhrase?) {-> MARK(DoingNonFiniteClause)};
+
+(Doing Particle? POS_ADV NC NC PrepositionPhrase?) {-> MARK(DoingNonFiniteClause)};
+(Doing Particle? NC NC PrepositionPhrase?) {-> MARK(DoingNonFiniteClause)};
+
+(Doing Particle? POS_ADV NC PrepositionPhrase?) {-> MARK(DoingNonFiniteClause)};
+(Doing Particle? NC PrepositionPhrase?) {-> MARK(DoingNonFiniteClause)};
+
+(Doing Particle? POS_ADV PrepositionPhrase?) {-> MARK(DoingNonFiniteClause)};
+(Doing Particle? PrepositionPhrase?) {-> MARK(DoingNonFiniteClause)};
+
+//she is beautiful
+(Doing POS_ADJ PrepositionPhrase?) {-> MARK(DoingNonFiniteClause)};
+(Doing POS_ADV POS_ADJ PrepositionPhrase?) {-> MARK(DoingNonFiniteClause)};
+//she is in school
+(Doing POS_ADV PrepositionPhrase?) {-> MARK(DoingNonFiniteClause)};
+(Doing PrepositionPhrase?) {-> MARK(DoingNonFiniteClause)};
+
+
+//ToDoNonFiniteClause
+DECLARE ToDoNonFiniteClause;
+(ToDo Particle? POS_ADV  NC PC POS_PRON PrepositionPhrase?) {-> MARK(ToDoNonFiniteClause)};
+(ToDo Particle? NC PC POS_PRON PrepositionPhrase?) {-> MARK(ToDoNonFiniteClause)};
+
+(ToDo Particle? POS_ADV NC NC PrepositionPhrase?) {-> MARK(ToDoNonFiniteClause)};
+(ToDo Particle? NC NC PrepositionPhrase?) {-> MARK(ToDoNonFiniteClause)};
+
+(ToDo Particle? POS_ADV NC PrepositionPhrase?) {-> MARK(ToDoNonFiniteClause)};
+(ToDo Particle? NC PrepositionPhrase?) {-> MARK(ToDoNonFiniteClause)};
+
+(ToDo Particle? POS_ADV PrepositionPhrase?) {-> MARK(ToDoNonFiniteClause)};
+(ToDo Particle? PrepositionPhrase?) {-> MARK(ToDoNonFiniteClause)};
+
+//she is beautiful
+(ToDo POS_ADJ PrepositionPhrase?) {-> MARK(ToDoNonFiniteClause)};
+(ToDo POS_ADV POS_ADJ PrepositionPhrase?) {-> MARK(ToDoNonFiniteClause)};
+//she is in school
+(ToDo POS_ADV PrepositionPhrase?) {-> MARK(ToDoNonFiniteClause)};
+(ToDo PrepositionPhrase?) {-> MARK(ToDoNonFiniteClause)};
+
+
+
+//DoneNonFiniteClause, ReducedClause
+DECLARE DoneNonFiniteClause;
+(Done Particle? POS_ADV  NC PC POS_PRON PrepositionPhrase?) {-> MARK(DoneNonFiniteClause)};
+(Done Particle? NC PC POS_PRON PrepositionPhrase?) {-> MARK(DoneNonFiniteClause)};
+
+(Done Particle? POS_ADV NC NC PrepositionPhrase?) {-> MARK(DoneNonFiniteClause)};
+(Done Particle? NC NC PrepositionPhrase?) {-> MARK(DoneNonFiniteClause)};
+
+(Done Particle? POS_ADV NC PrepositionPhrase?) {-> MARK(DoneNonFiniteClause)};
+(Done Particle? NC PrepositionPhrase?) {-> MARK(DoneNonFiniteClause)};
+
+(Done Particle? POS_ADV PrepositionPhrase?) {-> MARK(DoneNonFiniteClause)};
+(Done Particle? PrepositionPhrase?) {-> MARK(DoneNonFiniteClause)};
+
+//she is beautiful
+(Done POS_ADJ PrepositionPhrase?) {-> MARK(DoneNonFiniteClause)};
+(Done POS_ADV POS_ADJ PrepositionPhrase?) {-> MARK(DoneNonFiniteClause)};
+//she is in school
+(Done POS_ADV PrepositionPhrase?) {-> MARK(DoneNonFiniteClause)};
+(Done PrepositionPhrase?) {-> MARK(DoneNonFiniteClause)};
+
+
+
+//NonFiniteClause
+DECLARE NonFiniteClause;
+//(DoneNonFiniteClause1|ToDoNonFiniteClause1|DoingNonFiniteClause1) {-> MARK(NonFiniteClause)};
+(Done) {-> MARK(NonFiniteClause)};
+(ToDo) {-> MARK(NonFiniteClause)};
+(Doing) {-> MARK(NonFiniteClause)};
+
+//ImperativeClause
+DECLARE ImperativeClause;
+(Dont POS{FEATURE("PosValue", "VB")}) {-> MARK(ImperativeClause)};
+(POS{FEATURE("PosValue", "VB")}) {-> MARK(ImperativeClause)};
+
+//ReportingVerbs
+DECLARE ReportingVerbs;
+(Dont Lemma{FEATURE("value", "ask")}) {-> MARK(ReportingVerbs)} ;
+(Dont Lemma{FEATURE("value", "say")}) {-> MARK(ReportingVerbs)} ;
+(Dont Lemma{FEATURE("value", "shout")}) {-> MARK(ReportingVerbs)} ;
+(Dont Lemma{FEATURE("value", "tell")}) {-> MARK(ReportingVerbs)} ;
+(Lemma{FEATURE("value", "ask")}) {-> MARK(ReportingVerbs)} ;
+(Lemma{FEATURE("value", "say")}) {-> MARK(ReportingVerbs)} ;
+(Lemma{FEATURE("value", "shout")}) {-> MARK(ReportingVerbs)} ;
+(Lemma{FEATURE("value", "tell")}) {-> MARK(ReportingVerbs)} ;
+
+//ReportingClause
+//DECLARE ReportingClause;
+//((COLON)? POS{FEATURE("PosValue", """)} # POS{FEATURE("PosValue", """)}) {-> MARK(ReportingClause)};
+
+//ComparativeClause
+DECLARE ComparativeClause;
+(Comparative W{REGEXP("(?i)than")}) {-> MARK(ComparativeClause)};
+(AsAdjAs){-> MARK(ComparativeClause)};
+
+
+//IfClause
+DECLARE IfClause;
+(W{REGEXP("(?i)if")} FiniteClause1) {-> MARK(IfClause)};
+
+//WHWordCluase
+DECLARE WHWordCluase;
+(WHWord POS_NOUN FiniteClause1) {-> MARK(WHWordCluase)};
+(WHWord FiniteClause1) {-> MARK(WHWordCluase)};

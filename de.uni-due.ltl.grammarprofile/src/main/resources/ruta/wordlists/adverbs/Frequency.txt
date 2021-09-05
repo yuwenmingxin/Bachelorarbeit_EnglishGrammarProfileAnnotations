@@ -1,0 +1,6 @@
+always
+sometimes
+usually
+often
+never
+weekly

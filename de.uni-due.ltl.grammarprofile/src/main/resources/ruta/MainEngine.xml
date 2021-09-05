@@ -697,29 +697,52 @@
                             
             </nameValuePair>
                         
-            <nameValuePair>                    
-                <name>scriptPaths</name>                              
-                <value>                   
-                    <array>                     
-                        <string>E:/2.IT/AI/Sprachtechnologie/Bachelorarbeit/de.uni-due.ltl.grammarprofile/src/main/resources/ruta</string>                
-                    </array>                
-                </value>             
-            </nameValuePair>        
-            <nameValuePair>           
-                <name>descriptorPaths</name>               
-                <value>                                     
-                    <array>                                          
-                        <string>E:/2.IT/AI/Sprachtechnologie/Bachelorarbeit/de.uni-due.ltl.grammarprofile/src/main/resources/ruta</string>              
-                    </array>                
-                </value>     
-            </nameValuePair>        
-            <nameValuePair>              
-                <name>resourcePaths</name>          
-                <value>                
-                    <array>                      
-                        <string>E:/2.IT/AI/Sprachtechnologie/Bachelorarbeit/de.uni-due.ltl.grammarprofile/src/main/resources/ruta</string>                    
-                    </array>                 
-                </value>            
+            <nameValuePair>
+                                
+                <name>scriptPaths</name>
+                                
+                <value>
+                                        
+                    <array>
+                                                
+                        <string>E:/2.IT/Tools/Java/Eclipse/eclipse-workspace/RutaEnglishGrammarProfile/script</string>
+                                            
+                    </array>
+                                    
+                </value>
+                            
+            </nameValuePair>
+                        
+            <nameValuePair>
+                                
+                <name>descriptorPaths</name>
+                                
+                <value>
+                                        
+                    <array>
+                                                
+                        <string>E:/2.IT/Tools/Java/Eclipse/eclipse-workspace/RutaEnglishGrammarProfile/descriptor</string>
+                                            
+                    </array>
+                                    
+                </value>
+                            
+            </nameValuePair>
+                        
+            <nameValuePair>
+                                
+                <name>resourcePaths</name>
+                                
+                <value>
+                                        
+                    <array>
+                                                
+                        <string>E:/2.IT/Tools/Java/Eclipse/eclipse-workspace/RutaEnglishGrammarProfile/resources</string>
+                                            
+                    </array>
+                                    
+                </value>
+                            
             </nameValuePair>
                         
             <nameValuePair>

@@ -1,5 +1,10 @@
 TYPESYSTEM ProjectTypeSystem;
 
+//SCRIPT EnglishGrammarProfileAnnotations;
+
+//Document{-> CALL(EnglishGrammarProfileAnnotations)};
+
+
 SCRIPT EnglishGrammarProfile;
 
 Document{-> CALL(EnglishGrammarProfile)};

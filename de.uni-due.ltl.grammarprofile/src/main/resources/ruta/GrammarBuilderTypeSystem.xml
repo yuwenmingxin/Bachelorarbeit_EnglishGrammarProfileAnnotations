@@ -1,0 +1,1178 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<typeSystemDescription xmlns="http://uima.apache.org/resourceSpecifier">
+        
+    <name>GrammarBuilderTypeSystem</name>
+        
+    <imports>
+                
+        <import location="BasicTypeSystem.xml"/>
+                
+        <import location="ProjectTypeSystem.xml"/>
+            
+    </imports>
+        
+    <types>
+                
+        <typeDescription>
+                        
+            <name>GrammarBuilder.WillShall</name>
+                        
+            <description>Type defined in GrammarBuilder</description>
+                        
+            <supertypeName>uima.tcas.Annotation</supertypeName>
+                    
+        </typeDescription>
+                
+        <typeDescription>
+                        
+            <name>GrammarBuilder.Adverb</name>
+                        
+            <description>Type defined in GrammarBuilder</description>
+                        
+            <supertypeName>uima.tcas.Annotation</supertypeName>
+                    
+        </typeDescription>
+                
+        <typeDescription>
+                        
+            <name>GrammarBuilder.Manner</name>
+                        
+            <description>Type defined in GrammarBuilder</description>
+                        
+            <supertypeName>uima.tcas.Annotation</supertypeName>
+                    
+        </typeDescription>
+                
+        <typeDescription>
+                        
+            <name>GrammarBuilder.Particle</name>
+                        
+            <description>Type defined in GrammarBuilder</description>
+                        
+            <supertypeName>uima.tcas.Annotation</supertypeName>
+                    
+        </typeDescription>
+                
+        <typeDescription>
+                        
+            <name>GrammarBuilder.Present</name>
+                        
+            <description>Type defined in GrammarBuilder</description>
+                        
+            <supertypeName>uima.tcas.Annotation</supertypeName>
+                    
+        </typeDescription>
+                
+        <typeDescription>
+                        
+            <name>GrammarBuilder.BeenDoing</name>
+                        
+            <description>Type defined in GrammarBuilder</description>
+                        
+            <supertypeName>uima.tcas.Annotation</supertypeName>
+                    
+        </typeDescription>
+                
+        <typeDescription>
+                        
+            <name>GrammarBuilder.Contrasting</name>
+                        
+            <description>Type defined in GrammarBuilder</description>
+                        
+            <supertypeName>uima.tcas.Annotation</supertypeName>
+                    
+        </typeDescription>
+                
+        <typeDescription>
+                        
+            <name>GrammarBuilder.AdverbModifyingAdverb</name>
+                        
+            <description>Type defined in GrammarBuilder</description>
+                        
+            <supertypeName>uima.tcas.Annotation</supertypeName>
+                    
+        </typeDescription>
+                
+        <typeDescription>
+                        
+            <name>GrammarBuilder.May</name>
+                        
+            <description>Type defined in GrammarBuilder</description>
+                        
+            <supertypeName>uima.tcas.Annotation</supertypeName>
+                    
+        </typeDescription>
+                
+        <typeDescription>
+                        
+            <name>GrammarBuilder.DeterminersWithCountableNouns</name>
+                        
+            <description>Type defined in GrammarBuilder</description>
+                        
+            <supertypeName>uima.tcas.Annotation</supertypeName>
+                    
+        </typeDescription>
+                
+        <typeDescription>
+                        
+            <name>GrammarBuilder.OtherAdverbs</name>
+                        
+            <description>Type defined in GrammarBuilder</description>
+                        
+            <supertypeName>uima.tcas.Annotation</supertypeName>
+                    
+        </typeDescription>
+                
+        <typeDescription>
+                        
+            <name>GrammarBuilder.Do</name>
+                        
+            <description>Type defined in GrammarBuilder</description>
+                        
+            <supertypeName>uima.tcas.Annotation</supertypeName>
+                    
+        </typeDescription>
+                
+        <typeDescription>
+                        
+            <name>GrammarBuilder.ToBeDone</name>
+                        
+            <description>Type defined in GrammarBuilder</description>
+                        
+            <supertypeName>uima.tcas.Annotation</supertypeName>
+                    
+        </typeDescription>
+                
+        <typeDescription>
+                        
+            <name>GrammarBuilder.IrregularComparatives</name>
+                        
+            <description>Type defined in GrammarBuilder</description>
+                        
+            <supertypeName>uima.tcas.Annotation</supertypeName>
+                    
+        </typeDescription>
+                
+        <typeDescription>
+                        
+            <name>GrammarBuilder.Should</name>
+                        
+            <description>Type defined in GrammarBuilder</description>
+                        
+            <supertypeName>uima.tcas.Annotation</supertypeName>
+                    
+        </typeDescription>
+                
+        <typeDescription>
+                        
+            <name>GrammarBuilder.ComparativeClause</name>
+                        
+            <description>Type defined in GrammarBuilder</description>
+                        
+            <supertypeName>uima.tcas.Annotation</supertypeName>
+                    
+        </typeDescription>
+                
+        <typeDescription>
+                        
+            <name>GrammarBuilder.PrepositionPhrase</name>
+                        
+            <description>Type defined in GrammarBuilder</description>
+                        
+            <supertypeName>uima.tcas.Annotation</supertypeName>
+                    
+        </typeDescription>
+                
+        <typeDescription>
+                        
+            <name>GrammarBuilder.Adding</name>
+                        
+            <description>Type defined in GrammarBuilder</description>
+                        
+            <supertypeName>uima.tcas.Annotation</supertypeName>
+                    
+        </typeDescription>
+                
+        <typeDescription>
+                        
+            <name>GrammarBuilder.NonFiniteClause</name>
+                        
+            <description>Type defined in GrammarBuilder</description>
+                        
+            <supertypeName>uima.tcas.Annotation</supertypeName>
+                    
+        </typeDescription>
+                
+        <typeDescription>
+                        
+            <name>GrammarBuilder.Article</name>
+                        
+            <description>Type defined in GrammarBuilder</description>
+                        
+            <supertypeName>uima.tcas.Annotation</supertypeName>
+                    
+        </typeDescription>
+                
+        <typeDescription>
+                        
+            <name>GrammarBuilder.Shall</name>
+                        
+            <description>Type defined in GrammarBuilder</description>
+                        
+            <supertypeName>uima.tcas.Annotation</supertypeName>
+                    
+        </typeDescription>
+                
+        <typeDescription>
+                        
+            <name>GrammarBuilder.Hadnt</name>
+                        
+            <description>Type defined in GrammarBuilder</description>
+                        
+            <supertypeName>uima.tcas.Annotation</supertypeName>
+                    
+        </typeDescription>
+                
+        <typeDescription>
+                        
+            <name>GrammarBuilder.DemonstrativePronoun</name>
+                        
+            <description>Type defined in GrammarBuilder</description>
+                        
+            <supertypeName>uima.tcas.Annotation</supertypeName>
+                    
+        </typeDescription>
+                
+        <typeDescription>
+                        
+            <name>GrammarBuilder.DeterminerWithUncountableNouns</name>
+                        
+            <description>Type defined in GrammarBuilder</description>
+                        
+            <supertypeName>uima.tcas.Annotation</supertypeName>
+                    
+        </typeDescription>
+                
+        <typeDescription>
+                        
+            <name>GrammarBuilder.Past</name>
+                        
+            <description>Type defined in GrammarBuilder</description>
+                        
+            <supertypeName>uima.tcas.Annotation</supertypeName>
+                    
+        </typeDescription>
+                
+        <typeDescription>
+                        
+            <name>GrammarBuilder.Conjunction</name>
+                        
+            <description>Type defined in GrammarBuilder</description>
+                        
+            <supertypeName>uima.tcas.Annotation</supertypeName>
+                    
+        </typeDescription>
+                
+        <typeDescription>
+                        
+            <name>GrammarBuilder.FrontingExpression</name>
+                        
+            <description>Type defined in GrammarBuilder</description>
+                        
+            <supertypeName>uima.tcas.Annotation</supertypeName>
+                    
+        </typeDescription>
+                
+        <typeDescription>
+                        
+            <name>GrammarBuilder.ComparativeAdv</name>
+                        
+            <description>Type defined in GrammarBuilder</description>
+                        
+            <supertypeName>uima.tcas.Annotation</supertypeName>
+                    
+        </typeDescription>
+                
+        <typeDescription>
+                        
+            <name>GrammarBuilder.Must</name>
+                        
+            <description>Type defined in GrammarBuilder</description>
+                        
+            <supertypeName>uima.tcas.Annotation</supertypeName>
+                    
+        </typeDescription>
+                
+        <typeDescription>
+                        
+            <name>GrammarBuilder.Degree</name>
+                        
+            <description>Type defined in GrammarBuilder</description>
+                        
+            <supertypeName>uima.tcas.Annotation</supertypeName>
+                    
+        </typeDescription>
+                
+        <typeDescription>
+                        
+            <name>GrammarBuilder.DoingNonFiniteClause</name>
+                        
+            <description>Type defined in GrammarBuilder</description>
+                        
+            <supertypeName>uima.tcas.Annotation</supertypeName>
+                    
+        </typeDescription>
+                
+        <typeDescription>
+                        
+            <name>GrammarBuilder.Object</name>
+                        
+            <description>Type defined in GrammarBuilder</description>
+                        
+            <supertypeName>uima.tcas.Annotation</supertypeName>
+                    
+        </typeDescription>
+                
+        <typeDescription>
+                        
+            <name>GrammarBuilder.IfClause</name>
+                        
+            <description>Type defined in GrammarBuilder</description>
+                        
+            <supertypeName>uima.tcas.Annotation</supertypeName>
+                    
+        </typeDescription>
+                
+        <typeDescription>
+                        
+            <name>GrammarBuilder.TimeAdjunct</name>
+                        
+            <description>Type defined in GrammarBuilder</description>
+                        
+            <supertypeName>uima.tcas.Annotation</supertypeName>
+                    
+        </typeDescription>
+                
+        <typeDescription>
+                        
+            <name>GrammarBuilder.Determiner</name>
+                        
+            <description>Type defined in GrammarBuilder</description>
+                        
+            <supertypeName>uima.tcas.Annotation</supertypeName>
+                    
+        </typeDescription>
+                
+        <typeDescription>
+                        
+            <name>GrammarBuilder.Summarising</name>
+                        
+            <description>Type defined in GrammarBuilder</description>
+                        
+            <supertypeName>uima.tcas.Annotation</supertypeName>
+                    
+        </typeDescription>
+                
+        <typeDescription>
+                        
+            <name>GrammarBuilder.Reference</name>
+                        
+            <description>Type defined in GrammarBuilder</description>
+                        
+            <supertypeName>uima.tcas.Annotation</supertypeName>
+                    
+        </typeDescription>
+                
+        <typeDescription>
+                        
+            <name>GrammarBuilder.Subject</name>
+                        
+            <description>Type defined in GrammarBuilder</description>
+                        
+            <supertypeName>uima.tcas.Annotation</supertypeName>
+                    
+        </typeDescription>
+                
+        <typeDescription>
+                        
+            <name>GrammarBuilder.DeterminerWithSingularNouns</name>
+                        
+            <description>Type defined in GrammarBuilder</description>
+                        
+            <supertypeName>uima.tcas.Annotation</supertypeName>
+                    
+        </typeDescription>
+                
+        <typeDescription>
+                        
+            <name>GrammarBuilder.AdjectivePhrase</name>
+                        
+            <description>Type defined in GrammarBuilder</description>
+                        
+            <supertypeName>uima.tcas.Annotation</supertypeName>
+                    
+        </typeDescription>
+                
+        <typeDescription>
+                        
+            <name>GrammarBuilder.Be</name>
+                        
+            <description>Type defined in GrammarBuilder</description>
+                        
+            <supertypeName>uima.tcas.Annotation</supertypeName>
+                    
+        </typeDescription>
+                
+        <typeDescription>
+                        
+            <name>GrammarBuilder.AdverbAdjective</name>
+                        
+            <description>Type defined in GrammarBuilder</description>
+                        
+            <supertypeName>uima.tcas.Annotation</supertypeName>
+                    
+        </typeDescription>
+                
+        <typeDescription>
+                        
+            <name>GrammarBuilder.Might</name>
+                        
+            <description>Type defined in GrammarBuilder</description>
+                        
+            <supertypeName>uima.tcas.Annotation</supertypeName>
+                    
+        </typeDescription>
+                
+        <typeDescription>
+                        
+            <name>GrammarBuilder.BeenDone</name>
+                        
+            <description>Type defined in GrammarBuilder</description>
+                        
+            <supertypeName>uima.tcas.Annotation</supertypeName>
+                    
+        </typeDescription>
+                
+        <typeDescription>
+                        
+            <name>GrammarBuilder.Will</name>
+                        
+            <description>Type defined in GrammarBuilder</description>
+                        
+            <supertypeName>uima.tcas.Annotation</supertypeName>
+                    
+        </typeDescription>
+                
+        <typeDescription>
+                        
+            <name>GrammarBuilder.WHWord</name>
+                        
+            <description>Type defined in GrammarBuilder</description>
+                        
+            <supertypeName>uima.tcas.Annotation</supertypeName>
+                    
+        </typeDescription>
+                
+        <typeDescription>
+                        
+            <name>GrammarBuilder.Frequency</name>
+                        
+            <description>Type defined in GrammarBuilder</description>
+                        
+            <supertypeName>uima.tcas.Annotation</supertypeName>
+                    
+        </typeDescription>
+                
+        <typeDescription>
+                        
+            <name>GrammarBuilder.Organising</name>
+                        
+            <description>Type defined in GrammarBuilder</description>
+                        
+            <supertypeName>uima.tcas.Annotation</supertypeName>
+                    
+        </typeDescription>
+                
+        <typeDescription>
+                        
+            <name>GrammarBuilder.Hasnt</name>
+                        
+            <description>Type defined in GrammarBuilder</description>
+                        
+            <supertypeName>uima.tcas.Annotation</supertypeName>
+                    
+        </typeDescription>
+                
+        <typeDescription>
+                        
+            <name>GrammarBuilder.Going</name>
+                        
+            <description>Type defined in GrammarBuilder</description>
+                        
+            <supertypeName>uima.tcas.Annotation</supertypeName>
+                    
+        </typeDescription>
+                
+        <typeDescription>
+                        
+            <name>GrammarBuilder.Preposition</name>
+                        
+            <description>Type defined in GrammarBuilder</description>
+                        
+            <supertypeName>uima.tcas.Annotation</supertypeName>
+                    
+        </typeDescription>
+                
+        <typeDescription>
+                        
+            <name>GrammarBuilder.SimplePreposition</name>
+                        
+            <description>Type defined in GrammarBuilder</description>
+                        
+            <supertypeName>uima.tcas.Annotation</supertypeName>
+                    
+        </typeDescription>
+                
+        <typeDescription>
+                        
+            <name>GrammarBuilder.MakingNewKnowledgeInformal</name>
+                        
+            <description>Type defined in GrammarBuilder</description>
+                        
+            <supertypeName>uima.tcas.Annotation</supertypeName>
+                    
+        </typeDescription>
+                
+        <typeDescription>
+                        
+            <name>GrammarBuilder.Used</name>
+                        
+            <description>Type defined in GrammarBuilder</description>
+                        
+            <supertypeName>uima.tcas.Annotation</supertypeName>
+                    
+        </typeDescription>
+                
+        <typeDescription>
+                        
+            <name>GrammarBuilder.Future</name>
+                        
+            <description>Type defined in GrammarBuilder</description>
+                        
+            <supertypeName>uima.tcas.Annotation</supertypeName>
+                    
+        </typeDescription>
+                
+        <typeDescription>
+                        
+            <name>GrammarBuilder.Can</name>
+                        
+            <description>Type defined in GrammarBuilder</description>
+                        
+            <supertypeName>uima.tcas.Annotation</supertypeName>
+                    
+        </typeDescription>
+                
+        <typeDescription>
+                        
+            <name>GrammarBuilder.Not</name>
+                        
+            <description>Type defined in GrammarBuilder</description>
+                        
+            <supertypeName>uima.tcas.Annotation</supertypeName>
+                    
+        </typeDescription>
+                
+        <typeDescription>
+                        
+            <name>GrammarBuilder.IrregularPluralNoun</name>
+                        
+            <description>Type defined in GrammarBuilder</description>
+                        
+            <supertypeName>uima.tcas.Annotation</supertypeName>
+                    
+        </typeDescription>
+                
+        <typeDescription>
+                        
+            <name>GrammarBuilder.Focus</name>
+                        
+            <description>Type defined in GrammarBuilder</description>
+                        
+            <supertypeName>uima.tcas.Annotation</supertypeName>
+                    
+        </typeDescription>
+                
+        <typeDescription>
+                        
+            <name>GrammarBuilder.WHWordCluase</name>
+                        
+            <description>Type defined in GrammarBuilder</description>
+                        
+            <supertypeName>uima.tcas.Annotation</supertypeName>
+                    
+        </typeDescription>
+                
+        <typeDescription>
+                        
+            <name>GrammarBuilder.Comparing</name>
+                        
+            <description>Type defined in GrammarBuilder</description>
+                        
+            <supertypeName>uima.tcas.Annotation</supertypeName>
+                    
+        </typeDescription>
+                
+        <typeDescription>
+                        
+            <name>GrammarBuilder.Present3rd</name>
+                        
+            <description>Type defined in GrammarBuilder</description>
+                        
+            <supertypeName>uima.tcas.Annotation</supertypeName>
+                    
+        </typeDescription>
+                
+        <typeDescription>
+                        
+            <name>GrammarBuilder.Could</name>
+                        
+            <description>Type defined in GrammarBuilder</description>
+                        
+            <supertypeName>uima.tcas.Annotation</supertypeName>
+                    
+        </typeDescription>
+                
+        <typeDescription>
+                        
+            <name>GrammarBuilder.Was</name>
+                        
+            <description>Type defined in GrammarBuilder</description>
+                        
+            <supertypeName>uima.tcas.Annotation</supertypeName>
+                    
+        </typeDescription>
+                
+        <typeDescription>
+                        
+            <name>GrammarBuilder.ReflexivePronoun</name>
+                        
+            <description>Type defined in GrammarBuilder</description>
+                        
+            <supertypeName>uima.tcas.Annotation</supertypeName>
+                    
+        </typeDescription>
+                
+        <typeDescription>
+                        
+            <name>GrammarBuilder.UncountableNoun</name>
+                        
+            <description>Type defined in GrammarBuilder</description>
+                        
+            <supertypeName>uima.tcas.Annotation</supertypeName>
+                    
+        </typeDescription>
+                
+        <typeDescription>
+                        
+            <name>GrammarBuilder.DoneNonFiniteClause</name>
+                        
+            <description>Type defined in GrammarBuilder</description>
+                        
+            <supertypeName>uima.tcas.Annotation</supertypeName>
+                    
+        </typeDescription>
+                
+        <typeDescription>
+                        
+            <name>GrammarBuilder.Dont</name>
+                        
+            <description>Type defined in GrammarBuilder</description>
+                        
+            <supertypeName>uima.tcas.Annotation</supertypeName>
+                    
+        </typeDescription>
+                
+        <typeDescription>
+                        
+            <name>GrammarBuilder.Need</name>
+                        
+            <description>Type defined in GrammarBuilder</description>
+                        
+            <supertypeName>uima.tcas.Annotation</supertypeName>
+                    
+        </typeDescription>
+                
+        <typeDescription>
+                        
+            <name>GrammarBuilder.ComplexSubordinatingConjunction</name>
+                        
+            <description>Type defined in GrammarBuilder</description>
+                        
+            <supertypeName>uima.tcas.Annotation</supertypeName>
+                    
+        </typeDescription>
+                
+        <typeDescription>
+                        
+            <name>GrammarBuilder.IndefinitePronoun</name>
+                        
+            <description>Type defined in GrammarBuilder</description>
+                        
+            <supertypeName>uima.tcas.Annotation</supertypeName>
+                    
+        </typeDescription>
+                
+        <typeDescription>
+                        
+            <name>GrammarBuilder.SimpleSubordinatingConjunction</name>
+                        
+            <description>Type defined in GrammarBuilder</description>
+                        
+            <supertypeName>uima.tcas.Annotation</supertypeName>
+                    
+        </typeDescription>
+                
+        <typeDescription>
+                        
+            <name>GrammarBuilder.ImperativeClause</name>
+                        
+            <description>Type defined in GrammarBuilder</description>
+                        
+            <supertypeName>uima.tcas.Annotation</supertypeName>
+                    
+        </typeDescription>
+                
+        <typeDescription>
+                        
+            <name>GrammarBuilder.DeterminerWithPluralAndUncountableNouns</name>
+                        
+            <description>Type defined in GrammarBuilder</description>
+                        
+            <supertypeName>uima.tcas.Annotation</supertypeName>
+                    
+        </typeDescription>
+                
+        <typeDescription>
+                        
+            <name>GrammarBuilder.Done</name>
+                        
+            <description>Type defined in GrammarBuilder</description>
+                        
+            <supertypeName>uima.tcas.Annotation</supertypeName>
+                    
+        </typeDescription>
+                
+        <typeDescription>
+                        
+            <name>GrammarBuilder.ToDoNonFiniteClause</name>
+                        
+            <description>Type defined in GrammarBuilder</description>
+                        
+            <supertypeName>uima.tcas.Annotation</supertypeName>
+                    
+        </typeDescription>
+                
+        <typeDescription>
+                        
+            <name>GrammarBuilder.Is</name>
+                        
+            <description>Type defined in GrammarBuilder</description>
+                        
+            <supertypeName>uima.tcas.Annotation</supertypeName>
+                    
+        </typeDescription>
+                
+        <typeDescription>
+                        
+            <name>GrammarBuilder.IndefiniteFrequency</name>
+                        
+            <description>Type defined in GrammarBuilder</description>
+                        
+            <supertypeName>uima.tcas.Annotation</supertypeName>
+                    
+        </typeDescription>
+                
+        <typeDescription>
+                        
+            <name>GrammarBuilder.Havent</name>
+                        
+            <description>Type defined in GrammarBuilder</description>
+                        
+            <supertypeName>uima.tcas.Annotation</supertypeName>
+                    
+        </typeDescription>
+                
+        <typeDescription>
+                        
+            <name>GrammarBuilder.Would</name>
+                        
+            <description>Type defined in GrammarBuilder</description>
+                        
+            <supertypeName>uima.tcas.Annotation</supertypeName>
+                    
+        </typeDescription>
+                
+        <typeDescription>
+                        
+            <name>GrammarBuilder.Passive</name>
+                        
+            <description>Type defined in GrammarBuilder</description>
+                        
+            <supertypeName>uima.tcas.Annotation</supertypeName>
+                    
+        </typeDescription>
+                
+        <typeDescription>
+                        
+            <name>GrammarBuilder.CollectiveNoun</name>
+                        
+            <description>Type defined in GrammarBuilder</description>
+                        
+            <supertypeName>uima.tcas.Annotation</supertypeName>
+                    
+        </typeDescription>
+                
+        <typeDescription>
+                        
+            <name>GrammarBuilder.TimeAdj</name>
+                        
+            <description>Type defined in GrammarBuilder</description>
+                        
+            <supertypeName>uima.tcas.Annotation</supertypeName>
+                    
+        </typeDescription>
+                
+        <typeDescription>
+                        
+            <name>GrammarBuilder.Didnt</name>
+                        
+            <description>Type defined in GrammarBuilder</description>
+                        
+            <supertypeName>uima.tcas.Annotation</supertypeName>
+                    
+        </typeDescription>
+                
+        <typeDescription>
+                        
+            <name>GrammarBuilder.Comparative</name>
+                        
+            <description>Type defined in GrammarBuilder</description>
+                        
+            <supertypeName>uima.tcas.Annotation</supertypeName>
+                    
+        </typeDescription>
+                
+        <typeDescription>
+                        
+            <name>GrammarBuilder.Does</name>
+                        
+            <description>Type defined in GrammarBuilder</description>
+                        
+            <supertypeName>uima.tcas.Annotation</supertypeName>
+                    
+        </typeDescription>
+                
+        <typeDescription>
+                        
+            <name>GrammarBuilder.AsAdjAs</name>
+                        
+            <description>Type defined in GrammarBuilder</description>
+                        
+            <supertypeName>uima.tcas.Annotation</supertypeName>
+                    
+        </typeDescription>
+                
+        <typeDescription>
+                        
+            <name>GrammarBuilder.Certainty</name>
+                        
+            <description>Type defined in GrammarBuilder</description>
+                        
+            <supertypeName>uima.tcas.Annotation</supertypeName>
+                    
+        </typeDescription>
+                
+        <typeDescription>
+                        
+            <name>GrammarBuilder.Has</name>
+                        
+            <description>Type defined in GrammarBuilder</description>
+                        
+            <supertypeName>uima.tcas.Annotation</supertypeName>
+                    
+        </typeDescription>
+                
+        <typeDescription>
+                        
+            <name>GrammarBuilder.ReportingVerbs</name>
+                        
+            <description>Type defined in GrammarBuilder</description>
+                        
+            <supertypeName>uima.tcas.Annotation</supertypeName>
+                    
+        </typeDescription>
+                
+        <typeDescription>
+                        
+            <name>GrammarBuilder.Doing</name>
+                        
+            <description>Type defined in GrammarBuilder</description>
+                        
+            <supertypeName>uima.tcas.Annotation</supertypeName>
+                    
+        </typeDescription>
+                
+        <typeDescription>
+                        
+            <name>GrammarBuilder.ToDo</name>
+                        
+            <description>Type defined in GrammarBuilder</description>
+                        
+            <supertypeName>uima.tcas.Annotation</supertypeName>
+                    
+        </typeDescription>
+                
+        <typeDescription>
+                        
+            <name>GrammarBuilder.BeingDone</name>
+                        
+            <description>Type defined in GrammarBuilder</description>
+                        
+            <supertypeName>uima.tcas.Annotation</supertypeName>
+                    
+        </typeDescription>
+                
+        <typeDescription>
+                        
+            <name>GrammarBuilder.PresentNon3rd</name>
+                        
+            <description>Type defined in GrammarBuilder</description>
+                        
+            <supertypeName>uima.tcas.Annotation</supertypeName>
+                    
+        </typeDescription>
+                
+        <typeDescription>
+                        
+            <name>GrammarBuilder.TimeAdv</name>
+                        
+            <description>Type defined in GrammarBuilder</description>
+                        
+            <supertypeName>uima.tcas.Annotation</supertypeName>
+                    
+        </typeDescription>
+                
+        <typeDescription>
+                        
+            <name>GrammarBuilder.Have</name>
+                        
+            <description>Type defined in GrammarBuilder</description>
+                        
+            <supertypeName>uima.tcas.Annotation</supertypeName>
+                    
+        </typeDescription>
+                
+        <typeDescription>
+                        
+            <name>GrammarBuilder.DeterminerOf</name>
+                        
+            <description>Type defined in GrammarBuilder</description>
+                        
+            <supertypeName>uima.tcas.Annotation</supertypeName>
+                    
+        </typeDescription>
+                
+        <typeDescription>
+                        
+            <name>GrammarBuilder.Superlative</name>
+                        
+            <description>Type defined in GrammarBuilder</description>
+                        
+            <supertypeName>uima.tcas.Annotation</supertypeName>
+                    
+        </typeDescription>
+                
+        <typeDescription>
+                        
+            <name>GrammarBuilder.DeterminerWithPluralNouns</name>
+                        
+            <description>Type defined in GrammarBuilder</description>
+                        
+            <supertypeName>uima.tcas.Annotation</supertypeName>
+                    
+        </typeDescription>
+                
+        <typeDescription>
+                        
+            <name>GrammarBuilder.DegreeAdj</name>
+                        
+            <description>Type defined in GrammarBuilder</description>
+                        
+            <supertypeName>uima.tcas.Annotation</supertypeName>
+                    
+        </typeDescription>
+                
+        <typeDescription>
+                        
+            <name>GrammarBuilder.Stance</name>
+                        
+            <description>Type defined in GrammarBuilder</description>
+                        
+            <supertypeName>uima.tcas.Annotation</supertypeName>
+                    
+        </typeDescription>
+                
+        <typeDescription>
+                        
+            <name>GrammarBuilder.RelativePronoun</name>
+                        
+            <description>Type defined in GrammarBuilder</description>
+                        
+            <supertypeName>uima.tcas.Annotation</supertypeName>
+                    
+        </typeDescription>
+                
+        <typeDescription>
+                        
+            <name>GrammarBuilder.ComplexPreposition</name>
+                        
+            <description>Type defined in GrammarBuilder</description>
+                        
+            <supertypeName>uima.tcas.Annotation</supertypeName>
+                    
+        </typeDescription>
+                
+        <typeDescription>
+                        
+            <name>GrammarBuilder.Place</name>
+                        
+            <description>Type defined in GrammarBuilder</description>
+                        
+            <supertypeName>uima.tcas.Annotation</supertypeName>
+                    
+        </typeDescription>
+                
+        <typeDescription>
+                        
+            <name>GrammarBuilder.Ought</name>
+                        
+            <description>Type defined in GrammarBuilder</description>
+                        
+            <supertypeName>uima.tcas.Annotation</supertypeName>
+                    
+        </typeDescription>
+                
+        <typeDescription>
+                        
+            <name>GrammarBuilder.Did</name>
+                        
+            <description>Type defined in GrammarBuilder</description>
+                        
+            <supertypeName>uima.tcas.Annotation</supertypeName>
+                    
+        </typeDescription>
+                
+        <typeDescription>
+                        
+            <name>GrammarBuilder.Doesnt</name>
+                        
+            <description>Type defined in GrammarBuilder</description>
+                        
+            <supertypeName>uima.tcas.Annotation</supertypeName>
+                    
+        </typeDescription>
+                
+        <typeDescription>
+                        
+            <name>GrammarBuilder.Linking</name>
+                        
+            <description>Type defined in GrammarBuilder</description>
+                        
+            <supertypeName>uima.tcas.Annotation</supertypeName>
+                    
+        </typeDescription>
+                
+        <typeDescription>
+                        
+            <name>GrammarBuilder.AdjectiveNoun</name>
+                        
+            <description>Type defined in GrammarBuilder</description>
+                        
+            <supertypeName>uima.tcas.Annotation</supertypeName>
+                    
+        </typeDescription>
+                
+        <typeDescription>
+                        
+            <name>GrammarBuilder.SuperlativeAdv</name>
+                        
+            <description>Type defined in GrammarBuilder</description>
+                        
+            <supertypeName>uima.tcas.Annotation</supertypeName>
+                    
+        </typeDescription>
+                
+        <typeDescription>
+                        
+            <name>GrammarBuilder.FiniteClause1</name>
+                        
+            <description>Type defined in GrammarBuilder</description>
+                        
+            <supertypeName>uima.tcas.Annotation</supertypeName>
+                    
+        </typeDescription>
+                
+        <typeDescription>
+                        
+            <name>GrammarBuilder.Had</name>
+                        
+            <description>Type defined in GrammarBuilder</description>
+                        
+            <supertypeName>uima.tcas.Annotation</supertypeName>
+                    
+        </typeDescription>
+                
+        <typeDescription>
+                        
+            <name>GrammarBuilder.Distancing</name>
+                        
+            <description>Type defined in GrammarBuilder</description>
+                        
+            <supertypeName>uima.tcas.Annotation</supertypeName>
+                    
+        </typeDescription>
+                
+        <typeDescription>
+                        
+            <name>GrammarBuilder.FiniteClause2</name>
+                        
+            <description>Type defined in GrammarBuilder</description>
+                        
+            <supertypeName>uima.tcas.Annotation</supertypeName>
+                    
+        </typeDescription>
+                
+        <typeDescription>
+                        
+            <name>GrammarBuilder.Sequencing</name>
+                        
+            <description>Type defined in GrammarBuilder</description>
+                        
+            <supertypeName>uima.tcas.Annotation</supertypeName>
+                    
+        </typeDescription>
+                
+        <typeDescription>
+                        
+            <name>GrammarBuilder.ModalVerb</name>
+                        
+            <description>Type defined in GrammarBuilder</description>
+                        
+            <supertypeName>uima.tcas.Annotation</supertypeName>
+                    
+        </typeDescription>
+            
+    </types>
+    
+</typeSystemDescription>

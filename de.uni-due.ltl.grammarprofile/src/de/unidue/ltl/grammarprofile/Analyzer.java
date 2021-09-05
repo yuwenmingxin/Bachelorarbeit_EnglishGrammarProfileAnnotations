@@ -60,7 +60,9 @@ public class Analyzer extends JCasAnnotator_ImplBase {
 //
 		Collection<GrammarProfile> gps = JCasUtil.select(aJCas, GrammarProfile.class);
 		for (GrammarProfile gp : gps){
-			System.out.println("Found: " + gp.getCoveredText() + " - " +gp.getName() + " ("+gp.getLevel()+")");
+			System.out.println("Found: " + gp.getCoveredText() + " - " +gp.getSubCategory() + " - " +gp.getSuperCategory() + " - " +gp.getName() + " ("+gp.getLevel()+")");
+			//System.out.println("Found: " + gp.getCoveredText() + " - " +gp.getName() + " ("+gp.getLevel()+")");
+
 		}
 
 		//for (Annotation found : JCasUtil.select(aJCas, Amplifier.class)){

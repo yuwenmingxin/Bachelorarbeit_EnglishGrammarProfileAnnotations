@@ -73,7 +73,51 @@ public class GrammarProfile extends Annotation {
    * @generated modifiable 
    */
   private void readObject() {/*default - does nothing empty block */}
-     
+ 
+
+  //*--------------*
+  //* Feature: subCategory
+
+  /** getter for subCategory - gets 
+   * @generated
+   * @return value of the feature 
+   */
+  public String getSubCategory() {
+    if (GrammarProfile_Type.featOkTst && ((GrammarProfile_Type)jcasType).casFeat_subCategory == null)
+      jcasType.jcas.throwFeatMissing("subCategory", "de.unidue.ltl.escrito.core.types.GrammarProfile");
+    return jcasType.ll_cas.ll_getStringValue(addr, ((GrammarProfile_Type)jcasType).casFeatCode_subCategory);}
+    
+  /** setter for subCategory - sets  
+   * @generated
+   * @param v value to set into the feature 
+   */
+  public void setSubCategory(String v) {
+    if (GrammarProfile_Type.featOkTst && ((GrammarProfile_Type)jcasType).casFeat_subCategory == null)
+      jcasType.jcas.throwFeatMissing("subCategory", "de.unidue.ltl.escrito.core.types.GrammarProfile");
+    jcasType.ll_cas.ll_setStringValue(addr, ((GrammarProfile_Type)jcasType).casFeatCode_subCategory, v);}     
+ 
+  
+  
+  //*--------------*
+  //* Feature: superCategory
+
+  /** getter for superCategory - gets 
+   * @generated
+   * @return value of the feature 
+   */
+  public String getSuperCategory() {
+    if (GrammarProfile_Type.featOkTst && ((GrammarProfile_Type)jcasType).casFeat_superCategory == null)
+      jcasType.jcas.throwFeatMissing("superCategory", "de.unidue.ltl.escrito.core.types.GrammarProfile");
+    return jcasType.ll_cas.ll_getStringValue(addr, ((GrammarProfile_Type)jcasType).casFeatCode_superCategory);}
+    
+  /** setter for superCategory - sets  
+   * @generated
+   * @param v value to set into the feature 
+   */
+  public void setSuperCategory(String v) {
+    if (GrammarProfile_Type.featOkTst && ((GrammarProfile_Type)jcasType).casFeat_superCategory == null)
+      jcasType.jcas.throwFeatMissing("superCategory", "de.unidue.ltl.escrito.core.types.GrammarProfile");
+    jcasType.ll_cas.ll_setStringValue(addr, ((GrammarProfile_Type)jcasType).casFeatCode_superCategory, v);}     
  
     
   //*--------------*

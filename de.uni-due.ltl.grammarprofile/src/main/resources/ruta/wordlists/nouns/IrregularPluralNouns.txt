@@ -1,0 +1,6 @@
+people	
+children
+fish
+seafood
+teeth
+mice

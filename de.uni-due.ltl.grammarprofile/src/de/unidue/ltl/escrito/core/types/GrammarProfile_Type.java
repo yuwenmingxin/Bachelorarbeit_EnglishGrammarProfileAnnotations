@@ -22,6 +22,53 @@ public class GrammarProfile_Type extends Annotation_Type {
   @SuppressWarnings ("hiding")
   public final static boolean featOkTst = JCasRegistry.getFeatOkTst("de.unidue.ltl.escrito.core.types.GrammarProfile");
  
+
+  /** @generated */
+  final Feature casFeat_subCategory;
+  /** @generated */
+  final int     casFeatCode_subCategory;
+  /** @generated
+   * @param addr low level Feature Structure reference
+   * @return the feature value 
+   */ 
+  public String getSubCategory(int addr) {
+        if (featOkTst && casFeat_subCategory == null)
+      jcas.throwFeatMissing("subCategory", "de.unidue.ltl.escrito.core.types.GrammarProfile");
+    return ll_cas.ll_getStringValue(addr, casFeatCode_subCategory);
+  }
+  /** @generated
+   * @param addr low level Feature Structure reference
+   * @param v value to set 
+   */    
+  public void setSubCategory(int addr, String v) {
+        if (featOkTst && casFeat_subCategory == null)
+      jcas.throwFeatMissing("subCategory", "de.unidue.ltl.escrito.core.types.GrammarProfile");
+    ll_cas.ll_setStringValue(addr, casFeatCode_subCategory, v);}
+  
+  
+  /** @generated */
+  final Feature casFeat_superCategory;
+  /** @generated */
+  final int     casFeatCode_superCategory;
+  /** @generated
+   * @param addr low level Feature Structure reference
+   * @return the feature value 
+   */ 
+  public String getSuperCategory(int addr) {
+        if (featOkTst && casFeat_superCategory == null)
+      jcas.throwFeatMissing("superCategory", "de.unidue.ltl.escrito.core.types.GrammarProfile");
+    return ll_cas.ll_getStringValue(addr, casFeatCode_superCategory);
+  }
+  /** @generated
+   * @param addr low level Feature Structure reference
+   * @param v value to set 
+   */    
+  public void setSuperCategory(int addr, String v) {
+        if (featOkTst && casFeat_superCategory == null)
+      jcas.throwFeatMissing("superCategory", "de.unidue.ltl.escrito.core.types.GrammarProfile");
+    ll_cas.ll_setStringValue(addr, casFeatCode_superCategory, v);}
+  
+  
   /** @generated */
   final Feature casFeat_name;
   /** @generated */
@@ -70,6 +117,8 @@ public class GrammarProfile_Type extends Annotation_Type {
     
   
 
+    
+  
 
 
   /** initialize variables to correspond with Cas Type and Features
@@ -81,7 +130,12 @@ public class GrammarProfile_Type extends Annotation_Type {
     super(jcas, casType);
     casImpl.getFSClassRegistry().addGeneratorForType((TypeImpl)this.casType, getFSGenerator());
 
- 
+    casFeat_subCategory = jcas.getRequiredFeatureDE(casType, "subCategory", "uima.cas.String", featOkTst);
+    casFeatCode_subCategory  = (null == casFeat_subCategory) ? JCas.INVALID_FEATURE_CODE : ((FeatureImpl)casFeat_subCategory).getCode();
+
+    casFeat_superCategory = jcas.getRequiredFeatureDE(casType, "superCategory", "uima.cas.String", featOkTst);
+    casFeatCode_superCategory  = (null == casFeat_superCategory) ? JCas.INVALID_FEATURE_CODE : ((FeatureImpl)casFeat_superCategory).getCode();
+
     casFeat_name = jcas.getRequiredFeatureDE(casType, "name", "uima.cas.String", featOkTst);
     casFeatCode_name  = (null == casFeat_name) ? JCas.INVALID_FEATURE_CODE : ((FeatureImpl)casFeat_name).getCode();
 

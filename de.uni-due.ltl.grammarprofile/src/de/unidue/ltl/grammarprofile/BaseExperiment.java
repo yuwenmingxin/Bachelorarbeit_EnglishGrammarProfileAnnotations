@@ -18,7 +18,6 @@ import de.tudarmstadt.ukp.dkpro.core.corenlp.CoreNlpPosTagger;
 import de.tudarmstadt.ukp.dkpro.core.corenlp.CoreNlpSegmenter;
 import de.tudarmstadt.ukp.dkpro.core.io.bincas.BinaryCasWriter;
 import de.tudarmstadt.ukp.dkpro.core.io.xmi.XmiWriter;
-import de.tudarmstadt.ukp.dkpro.core.languagetool.LanguageToolChecker;
 import de.tudarmstadt.ukp.dkpro.core.opennlp.OpenNlpChunker;
 
 public class BaseExperiment {
@@ -36,8 +35,6 @@ public class BaseExperiment {
 				Toefl11Reader.PARAM_SCORE_FILE, scoreFile);
 
 		AnalysisEngineDescription seg = createEngineDescription(CoreNlpSegmenter.class,
-				CoreNlpSegmenter.PARAM_LANGUAGE, "en");
-		AnalysisEngineDescription checker = createEngineDescription(LanguageToolChecker.class,
 				CoreNlpSegmenter.PARAM_LANGUAGE, "en");
 		AnalysisEngineDescription posTagger = createEngineDescription(CoreNlpPosTagger.class,
 				CoreNlpPosTagger.PARAM_LANGUAGE, "en");
@@ -68,13 +65,12 @@ public class BaseExperiment {
 		AnalysisEngineDescription xmiWriter = createEngineDescription(
 				XmiWriter.class, 
 				XmiWriter.PARAM_OVERWRITE, true,
-				XmiWriter.PARAM_TARGET_LOCATION, "target/cas/test"
+				XmiWriter.PARAM_TARGET_LOCATION, "target/cas"
 				);
 
 
 		SimplePipeline.runPipeline(reader, 
 				seg, 
-				checker,
 				posTagger, 
 				lemmatizer,
 				chunker,

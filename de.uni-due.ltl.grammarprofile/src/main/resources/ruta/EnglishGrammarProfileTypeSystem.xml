@@ -8,6 +8,18 @@
         <import location="BasicTypeSystem.xml"/>
                 
         <import location="ProjectTypeSystem.xml"/>
+                
+        <import location="A1TypeSystem.xml"/>
+                
+        <import location="B2TypeSystem.xml"/>
+                
+        <import location="A2TypeSystem.xml"/>
+                
+        <import location="C1TypeSystem.xml"/>
+                
+        <import location="B1TypeSystem.xml"/>
+                
+        <import location="C2TypeSystem.xml"/>
             
     </imports>
     

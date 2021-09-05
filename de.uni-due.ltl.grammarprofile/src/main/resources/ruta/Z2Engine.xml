@@ -1,0 +1,1348 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<analysisEngineDescription xmlns="http://uima.apache.org/resourceSpecifier">
+        
+    <frameworkImplementation>org.apache.uima.java</frameworkImplementation>
+        
+    <primitive>true</primitive>
+        
+    <annotatorImplementationName>org.apache.uima.ruta.engine.RutaEngine</annotatorImplementationName>
+        
+    <analysisEngineMetaData>
+                
+        <name>org.apache.uima.ruta.engine.BasicEngine</name>
+                
+        <description/>
+                
+        <version>1.0</version>
+                
+        <vendor/>
+                
+        <configurationParameters searchStrategy="language_fallback">
+                        
+            <configurationParameter>
+                                
+                <name>seeders</name>
+                                
+                <type>String</type>
+                                
+                <multiValued>true</multiValued>
+                                
+                <mandatory>false</mandatory>
+                            
+            </configurationParameter>
+                        
+            <configurationParameter>
+                                
+                <name>debug</name>
+                                
+                <type>Boolean</type>
+                                
+                <multiValued>false</multiValued>
+                                
+                <mandatory>false</mandatory>
+                            
+            </configurationParameter>
+                        
+            <configurationParameter>
+                                
+                <name>additionalScripts</name>
+                                
+                <type>String</type>
+                                
+                <multiValued>true</multiValued>
+                                
+                <mandatory>false</mandatory>
+                            
+            </configurationParameter>
+                        
+            <configurationParameter>
+                                
+                <name>profile</name>
+                                
+                <type>Boolean</type>
+                                
+                <multiValued>false</multiValued>
+                                
+                <mandatory>false</mandatory>
+                            
+            </configurationParameter>
+                        
+            <configurationParameter>
+                                
+                <name>debugWithMatches</name>
+                                
+                <type>Boolean</type>
+                                
+                <multiValued>false</multiValued>
+                                
+                <mandatory>false</mandatory>
+                            
+            </configurationParameter>
+                        
+            <configurationParameter>
+                                
+                <name>statistics</name>
+                                
+                <type>Boolean</type>
+                                
+                <multiValued>false</multiValued>
+                                
+                <mandatory>false</mandatory>
+                            
+            </configurationParameter>
+                        
+            <configurationParameter>
+                                
+                <name>additionalEngines</name>
+                                
+                <type>String</type>
+                                
+                <multiValued>true</multiValued>
+                                
+                <mandatory>false</mandatory>
+                            
+            </configurationParameter>
+                        
+            <configurationParameter>
+                                
+                <name>additionalExtensions</name>
+                                
+                <type>String</type>
+                                
+                <multiValued>true</multiValued>
+                                
+                <mandatory>false</mandatory>
+                            
+            </configurationParameter>
+                        
+            <configurationParameter>
+                                
+                <name>debugOnlyFor</name>
+                                
+                <type>String</type>
+                                
+                <multiValued>true</multiValued>
+                                
+                <mandatory>false</mandatory>
+                            
+            </configurationParameter>
+                        
+            <configurationParameter>
+                                
+                <name>scriptEncoding</name>
+                                
+                <type>String</type>
+                                
+                <multiValued>false</multiValued>
+                                
+                <mandatory>false</mandatory>
+                            
+            </configurationParameter>
+                        
+            <configurationParameter>
+                                
+                <name>additionalEngineLoaders</name>
+                                
+                <type>String</type>
+                                
+                <multiValued>true</multiValued>
+                                
+                <mandatory>false</mandatory>
+                            
+            </configurationParameter>
+                        
+            <configurationParameter>
+                                
+                <name>resourcePaths</name>
+                                
+                <type>String</type>
+                                
+                <multiValued>true</multiValued>
+                                
+                <mandatory>false</mandatory>
+                            
+            </configurationParameter>
+                        
+            <configurationParameter>
+                                
+                <name>defaultFilteredTypes</name>
+                                
+                <type>String</type>
+                                
+                <multiValued>true</multiValued>
+                                
+                <mandatory>false</mandatory>
+                            
+            </configurationParameter>
+                        
+            <configurationParameter>
+                                
+                <name>mainScript</name>
+                                
+                <type>String</type>
+                                
+                <multiValued>false</multiValued>
+                                
+                <mandatory>false</mandatory>
+                            
+            </configurationParameter>
+                        
+            <configurationParameter>
+                                
+                <name>scriptPaths</name>
+                                
+                <type>String</type>
+                                
+                <multiValued>true</multiValued>
+                                
+                <mandatory>false</mandatory>
+                            
+            </configurationParameter>
+                        
+            <configurationParameter>
+                                
+                <name>descriptorPaths</name>
+                                
+                <type>String</type>
+                                
+                <multiValued>true</multiValued>
+                                
+                <mandatory>false</mandatory>
+                            
+            </configurationParameter>
+                        
+            <configurationParameter>
+                                
+                <name>removeBasics</name>
+                                
+                <type>Boolean</type>
+                                
+                <multiValued>false</multiValued>
+                                
+                <mandatory>false</mandatory>
+                            
+            </configurationParameter>
+                        
+            <configurationParameter>
+                                
+                <name>dynamicAnchoring</name>
+                                
+                <description>Activates dynamic anchoring (possible speed up).</description>
+                                
+                <type>Boolean</type>
+                                
+                <multiValued>false</multiValued>
+                                
+                <mandatory>false</mandatory>
+                            
+            </configurationParameter>
+                        
+            <configurationParameter>
+                                
+                <name>greedyRuleElement</name>
+                                
+                <description>Activates greedy anchoring for rule elements.</description>
+                                
+                <type>Boolean</type>
+                                
+                <multiValued>false</multiValued>
+                                
+                <mandatory>false</mandatory>
+                            
+            </configurationParameter>
+                        
+            <configurationParameter>
+                                
+                <name>greedyRule</name>
+                                
+                <description>Activates greedy anchoring for complete rules.</description>
+                                
+                <type>Boolean</type>
+                                
+                <multiValued>false</multiValued>
+                                
+                <mandatory>false</mandatory>
+                            
+            </configurationParameter>
+                        
+            <configurationParameter>
+                                
+                <name>lowMemoryProfile</name>
+                                
+                <type>Boolean</type>
+                                
+                <multiValued>false</multiValued>
+                                
+                <mandatory>false</mandatory>
+                            
+            </configurationParameter>
+                        
+            <configurationParameter>
+                                
+                <name>createdBy</name>
+                                
+                <type>Boolean</type>
+                                
+                <multiValued>false</multiValued>
+                                
+                <mandatory>false</mandatory>
+                            
+            </configurationParameter>
+                        
+            <configurationParameter>
+                                
+                <name>simpleGreedyForComposed</name>
+                                
+                <type>Boolean</type>
+                                
+                <multiValued>false</multiValued>
+                                
+                <mandatory>false</mandatory>
+                            
+            </configurationParameter>
+                        
+            <configurationParameter>
+                                
+                <name>additionalUimafitEngines</name>
+                                
+                <type>String</type>
+                                
+                <multiValued>true</multiValued>
+                                
+                <mandatory>false</mandatory>
+                            
+            </configurationParameter>
+                        
+            <configurationParameter>
+                                
+                <name>strictImports</name>
+                                
+                <type>Boolean</type>
+                                
+                <multiValued>false</multiValued>
+                                
+                <mandatory>false</mandatory>
+                            
+            </configurationParameter>
+                        
+            <configurationParameter>
+                                
+                <name>varNames</name>
+                                
+                <type>String</type>
+                                
+                <multiValued>true</multiValued>
+                                
+                <mandatory>false</mandatory>
+                            
+            </configurationParameter>
+                        
+            <configurationParameter>
+                                
+                <name>varValues</name>
+                                
+                <type>String</type>
+                                
+                <multiValued>true</multiValued>
+                                
+                <mandatory>false</mandatory>
+                            
+            </configurationParameter>
+                        
+            <configurationParameter>
+                                
+                <name>rules</name>
+                                
+                <type>String</type>
+                                
+                <multiValued>false</multiValued>
+                                
+                <mandatory>false</mandatory>
+                            
+            </configurationParameter>
+                        
+            <configurationParameter>
+                                
+                <name>rulesScriptName</name>
+                                
+                <description/>
+                                
+                <type>String</type>
+                                
+                <multiValued>false</multiValued>
+                                
+                <mandatory>true</mandatory>
+                            
+            </configurationParameter>
+                        
+            <configurationParameter>
+                                
+                <name>dictRemoveWS</name>
+                                
+                <type>Boolean</type>
+                                
+                <multiValued>false</multiValued>
+                                
+                <mandatory>false</mandatory>
+                            
+            </configurationParameter>
+                        
+            <configurationParameter>
+                                
+                <name>reindexOnly</name>
+                                
+                <type>String</type>
+                                
+                <multiValued>true</multiValued>
+                                
+                <mandatory>false</mandatory>
+                            
+            </configurationParameter>
+                        
+            <configurationParameter>
+                                
+                <name>reindexOnlyMentionedTypes</name>
+                                
+                <type>Boolean</type>
+                                
+                <multiValued>false</multiValued>
+                                
+                <mandatory>false</mandatory>
+                            
+            </configurationParameter>
+                        
+            <configurationParameter>
+                                
+                <name>indexOnlyMentionedTypes</name>
+                                
+                <type>Boolean</type>
+                                
+                <multiValued>false</multiValued>
+                                
+                <mandatory>false</mandatory>
+                            
+            </configurationParameter>
+                        
+            <configurationParameter>
+                                
+                <name>indexAdditionally</name>
+                                
+                <type>String</type>
+                                
+                <multiValued>true</multiValued>
+                                
+                <mandatory>false</mandatory>
+                            
+            </configurationParameter>
+                        
+            <configurationParameter>
+                                
+                <name>emptyIsInvisible</name>
+                                
+                <type>Boolean</type>
+                                
+                <multiValued>false</multiValued>
+                                
+                <mandatory>false</mandatory>
+                            
+            </configurationParameter>
+                        
+            <configurationParameter>
+                                
+                <name>modifyDataPath</name>
+                                
+                <type>Boolean</type>
+                                
+                <multiValued>false</multiValued>
+                                
+                <mandatory>false</mandatory>
+                            
+            </configurationParameter>
+                        
+            <configurationParameter>
+                                
+                <name>csvSeparator</name>
+                                
+                <type>String</type>
+                                
+                <multiValued>false</multiValued>
+                                
+                <mandatory>false</mandatory>
+                            
+            </configurationParameter>
+                        
+            <configurationParameter>
+                                
+                <name>inferenceVisitors</name>
+                                
+                <description/>
+                                
+                <type>String</type>
+                                
+                <multiValued>true</multiValued>
+                                
+                <mandatory>false</mandatory>
+                            
+            </configurationParameter>
+                        
+            <configurationParameter>
+                                
+                <name>maxRuleMatches</name>
+                                
+                <description/>
+                                
+                <type>Integer</type>
+                                
+                <multiValued>false</multiValued>
+                                
+                <mandatory>false</mandatory>
+                            
+            </configurationParameter>
+                        
+            <configurationParameter>
+                                
+                <name>maxRuleElementMatches</name>
+                                
+                <description/>
+                                
+                <type>Integer</type>
+                                
+                <multiValued>false</multiValued>
+                                
+                <mandatory>false</mandatory>
+                            
+            </configurationParameter>
+                    
+        </configurationParameters>
+                
+        <configurationParameterSettings>
+                        
+            <nameValuePair>
+                                
+                <name>rulesScriptName</name>
+                                
+                <value>
+                                        
+                    <string>Anonymous</string>
+                                    
+                </value>
+                            
+            </nameValuePair>
+                        
+            <nameValuePair>
+                                
+                <name>debug</name>
+                                
+                <value>
+                                        
+                    <boolean>false</boolean>
+                                    
+                </value>
+                            
+            </nameValuePair>
+                        
+            <nameValuePair>
+                                
+                <name>profile</name>
+                                
+                <value>
+                                        
+                    <boolean>false</boolean>
+                                    
+                </value>
+                            
+            </nameValuePair>
+                        
+            <nameValuePair>
+                                
+                <name>debugWithMatches</name>
+                                
+                <value>
+                                        
+                    <boolean>true</boolean>
+                                    
+                </value>
+                            
+            </nameValuePair>
+                        
+            <nameValuePair>
+                                
+                <name>defaultFilteredTypes</name>
+                                
+                <value>
+                                        
+                    <array>
+                                                
+                        <string>org.apache.uima.ruta.type.SPACE</string>
+                                                
+                        <string>org.apache.uima.ruta.type.BREAK</string>
+                                                
+                        <string>org.apache.uima.ruta.type.MARKUP</string>
+                                            
+                    </array>
+                                    
+                </value>
+                            
+            </nameValuePair>
+                        
+            <nameValuePair>
+                                
+                <name>removeBasics</name>
+                                
+                <value>
+                                        
+                    <boolean>false</boolean>
+                                    
+                </value>
+                            
+            </nameValuePair>
+                        
+            <nameValuePair>
+                                
+                <name>seeders</name>
+                                
+                <value>
+                                        
+                    <array>
+                                                
+                        <string>org.apache.uima.ruta.seed.DefaultSeeder</string>
+                                            
+                    </array>
+                                    
+                </value>
+                            
+            </nameValuePair>
+                        
+            <nameValuePair>
+                                
+                <name>createdBy</name>
+                                
+                <value>
+                                        
+                    <boolean>false</boolean>
+                                    
+                </value>
+                            
+            </nameValuePair>
+                        
+            <nameValuePair>
+                                
+                <name>emptyIsInvisible</name>
+                                
+                <value>
+                                        
+                    <boolean>true</boolean>
+                                    
+                </value>
+                            
+            </nameValuePair>
+                        
+            <nameValuePair>
+                                
+                <name>dictRemoveWS</name>
+                                
+                <value>
+                                        
+                    <boolean>true</boolean>
+                                    
+                </value>
+                            
+            </nameValuePair>
+                        
+            <nameValuePair>
+                                
+                <name>inferenceVisitors</name>
+                                
+                <value>
+                                        
+                    <array/>
+                                    
+                </value>
+                            
+            </nameValuePair>
+                        
+            <nameValuePair>
+                                
+                <name>maxRuleMatches</name>
+                                
+                <value>
+                                        
+                    <integer>2147483647</integer>
+                                    
+                </value>
+                            
+            </nameValuePair>
+                        
+            <nameValuePair>
+                                
+                <name>maxRuleElementMatches</name>
+                                
+                <value>
+                                        
+                    <integer>2147483647</integer>
+                                    
+                </value>
+                            
+            </nameValuePair>
+                        
+            <nameValuePair>
+                                
+                <name>mainScript</name>
+                                
+                <value>
+                                        
+                    <string>Z2</string>
+                                    
+                </value>
+                            
+            </nameValuePair>
+                        
+            <nameValuePair>
+                                
+                <name>scriptPaths</name>
+                                
+                <value>
+                                        
+                    <array>
+                                                
+                        <string>E:/2.IT/Tools/Java/Eclipse/eclipse-workspace/RutaEnglishGrammarProfile/script</string>
+                                            
+                    </array>
+                                    
+                </value>
+                            
+            </nameValuePair>
+                        
+            <nameValuePair>
+                                
+                <name>descriptorPaths</name>
+                                
+                <value>
+                                        
+                    <array>
+                                                
+                        <string>E:/2.IT/Tools/Java/Eclipse/eclipse-workspace/RutaEnglishGrammarProfile/descriptor</string>
+                                            
+                    </array>
+                                    
+                </value>
+                            
+            </nameValuePair>
+                        
+            <nameValuePair>
+                                
+                <name>resourcePaths</name>
+                                
+                <value>
+                                        
+                    <array>
+                                                
+                        <string>E:/2.IT/Tools/Java/Eclipse/eclipse-workspace/RutaEnglishGrammarProfile/resources</string>
+                                            
+                    </array>
+                                    
+                </value>
+                            
+            </nameValuePair>
+                        
+            <nameValuePair>
+                                
+                <name>additionalScripts</name>
+                                
+                <value>
+                                        
+                    <array/>
+                                    
+                </value>
+                            
+            </nameValuePair>
+                        
+            <nameValuePair>
+                                
+                <name>additionalEngines</name>
+                                
+                <value>
+                                        
+                    <array/>
+                                    
+                </value>
+                            
+            </nameValuePair>
+                        
+            <nameValuePair>
+                                
+                <name>additionalUimafitEngines</name>
+                                
+                <value>
+                                        
+                    <array/>
+                                    
+                </value>
+                            
+            </nameValuePair>
+                        
+            <nameValuePair>
+                                
+                <name>additionalExtensions</name>
+                                
+                <value>
+                                        
+                    <array>
+                                                
+                        <string>org.apache.uima.ruta.action.MarkReloadExtension</string>
+                                                
+                        <string>org.apache.uima.ruta.string.bool.BooleanOperationsExtension</string>
+                                                
+                        <string>org.apache.uima.ruta.string.StringOperationsExtension</string>
+                                                
+                        <string>org.apache.uima.ruta.type.TypeFromStringFunctionExtension</string>
+                                                
+                        <string>org.apache.uima.ruta.block.DocumentBlockExtension</string>
+                                                
+                        <string>org.apache.uima.ruta.block.OnlyFirstBlockExtension</string>
+                                                
+                        <string>org.apache.uima.ruta.block.OnlyOnceBlockExtension</string>
+                                                
+                        <string>org.apache.uima.ruta.block.fst.FSTBlockExtension</string>
+                                            
+                    </array>
+                                    
+                </value>
+                            
+            </nameValuePair>
+                    
+        </configurationParameterSettings>
+                
+        <typeSystemDescription>
+                        
+            <imports>
+                                
+                <import location="Z2TypeSystem.xml"/>
+                            
+            </imports>
+                    
+        </typeSystemDescription>
+                
+        <typePriorities>
+                        
+            <priorityList>
+                                
+                <type>org.apache.uima.ruta.type.RutaFrame</type>
+                                
+                <type>uima.tcas.Annotation</type>
+                                
+                <type>org.apache.uima.ruta.type.RutaBasic</type>
+                            
+            </priorityList>
+                    
+        </typePriorities>
+                
+        <fsIndexCollection/>
+                
+        <capabilities>
+                        
+            <capability>
+                                
+                <inputs/>
+                                
+                <outputs/>
+                                
+                <languagesSupported/>
+                            
+            </capability>
+                        
+            <capability>
+                                
+                <inputs>
+                                        
+                    <type>Z2.Not</type>
+                                        
+                    <type>Z2.Dont</type>
+                                        
+                    <type>Z2.Doesnt</type>
+                                        
+                    <type>Z2.Didnt</type>
+                                        
+                    <type>Z2.Havent</type>
+                                        
+                    <type>Z2.Hasnt</type>
+                                        
+                    <type>Z2.Hadnt</type>
+                                        
+                    <type>Z2.Article</type>
+                                        
+                    <type>Z2.IrregularPluralNoun</type>
+                                        
+                    <type>Z2.UncountableNoun</type>
+                                        
+                    <type>Z2.CollectiveNoun</type>
+                                        
+                    <type>Z2.AdjectiveNoun</type>
+                                        
+                    <type>Z2.WHWord</type>
+                                        
+                    <type>Z2.DemonstrativePronoun</type>
+                                        
+                    <type>Z2.ReflexivePronoun</type>
+                                        
+                    <type>Z2.RelativePronoun</type>
+                                        
+                    <type>Z2.IndefinitePronoun</type>
+                                        
+                    <type>Z2.AdjectivePhrase</type>
+                                        
+                    <type>Z2.AdverbAdjective</type>
+                                        
+                    <type>Z2.AsAdjAs</type>
+                                        
+                    <type>Z2.Comparative</type>
+                                        
+                    <type>Z2.Superlative</type>
+                                        
+                    <type>Z2.DegreeAdj</type>
+                                        
+                    <type>Z2.TimeAdj</type>
+                                        
+                    <type>Z2.IrregularComparatives</type>
+                                        
+                    <type>Z2.ComparativeAdv</type>
+                                        
+                    <type>Z2.SuperlativeAdv</type>
+                                        
+                    <type>Z2.DeterminerWithSingularNouns</type>
+                                        
+                    <type>Z2.DeterminerWithPluralNouns</type>
+                                        
+                    <type>Z2.DeterminerWithUncountableNouns</type>
+                                        
+                    <type>Z2.DeterminersWithCountableNouns</type>
+                                        
+                    <type>Z2.DeterminerWithPluralAndUncountableNouns</type>
+                                        
+                    <type>Z2.DeterminerOf</type>
+                                        
+                    <type>Z2.Determiner</type>
+                                        
+                    <type>Z2.ComplexPreposition</type>
+                                        
+                    <type>Z2.SimplePreposition</type>
+                                        
+                    <type>Z2.Preposition</type>
+                                        
+                    <type>Z2.PrepositionPhrase</type>
+                                        
+                    <type>Z2.TimeAdv</type>
+                                        
+                    <type>Z2.Place</type>
+                                        
+                    <type>Z2.Degree</type>
+                                        
+                    <type>Z2.Manner</type>
+                                        
+                    <type>Z2.Linking</type>
+                                        
+                    <type>Z2.Focus</type>
+                                        
+                    <type>Z2.Organising</type>
+                                        
+                    <type>Z2.Certainty</type>
+                                        
+                    <type>Z2.Stance</type>
+                                        
+                    <type>Z2.AdverbModifyingAdverb</type>
+                                        
+                    <type>Z2.IndefiniteFrequency</type>
+                                        
+                    <type>Z2.Distancing</type>
+                                        
+                    <type>Z2.Frequency</type>
+                                        
+                    <type>Z2.Sequencing</type>
+                                        
+                    <type>Z2.OtherAdverbs</type>
+                                        
+                    <type>Z2.Adverb</type>
+                                        
+                    <type>Z2.TimeAdjunct</type>
+                                        
+                    <type>Z2.Contrasting</type>
+                                        
+                    <type>Z2.Adding</type>
+                                        
+                    <type>Z2.MakingNewKnowledgeInformal</type>
+                                        
+                    <type>Z2.Comparing</type>
+                                        
+                    <type>Z2.Summarising</type>
+                                        
+                    <type>Z2.Reference</type>
+                                        
+                    <type>Z2.FrontingExpression</type>
+                                        
+                    <type>Z2.SimpleSubordinatingConjunction</type>
+                                        
+                    <type>Z2.ComplexSubordinatingConjunction</type>
+                                        
+                    <type>Z2.Conjunction</type>
+                                        
+                    <type>Z2.Particle</type>
+                                        
+                    <type>Z2.Be</type>
+                                        
+                    <type>Z2.Is</type>
+                                        
+                    <type>Z2.Was</type>
+                                        
+                    <type>Z2.Do</type>
+                                        
+                    <type>Z2.Does</type>
+                                        
+                    <type>Z2.Did</type>
+                                        
+                    <type>Z2.Have</type>
+                                        
+                    <type>Z2.Has</type>
+                                        
+                    <type>Z2.Had</type>
+                                        
+                    <type>Z2.Will</type>
+                                        
+                    <type>Z2.Would</type>
+                                        
+                    <type>Z2.Can</type>
+                                        
+                    <type>Z2.Could</type>
+                                        
+                    <type>Z2.May</type>
+                                        
+                    <type>Z2.Might</type>
+                                        
+                    <type>Z2.Must</type>
+                                        
+                    <type>Z2.Need</type>
+                                        
+                    <type>Z2.Ought</type>
+                                        
+                    <type>Z2.Shall</type>
+                                        
+                    <type>Z2.Should</type>
+                                        
+                    <type>Z2.ModalVerb</type>
+                                        
+                    <type>Z2.Doing</type>
+                                        
+                    <type>Z2.ToDo</type>
+                                        
+                    <type>Z2.Done</type>
+                                        
+                    <type>Z2.BeenDone</type>
+                                        
+                    <type>Z2.BeingDone</type>
+                                        
+                    <type>Z2.ToBeDone</type>
+                                        
+                    <type>Z2.Passive</type>
+                                        
+                    <type>Z2.Present3rd</type>
+                                        
+                    <type>Z2.PresentNon3rd</type>
+                                        
+                    <type>Z2.Present</type>
+                                        
+                    <type>Z2.Past</type>
+                                        
+                    <type>Z2.Used</type>
+                                        
+                    <type>Z2.BeenDoing</type>
+                                        
+                    <type>Z2.WillShall</type>
+                                        
+                    <type>Z2.Going</type>
+                                        
+                    <type>Z2.Future</type>
+                                        
+                    <type>Z2.Subject</type>
+                                        
+                    <type>Z2.Object</type>
+                                        
+                    <type>Z2.FiniteClause1</type>
+                                        
+                    <type>Z2.FiniteClause2</type>
+                                        
+                    <type>Z2.DoingNonFiniteClause</type>
+                                        
+                    <type>Z2.ToDoNonFiniteClause</type>
+                                        
+                    <type>Z2.DoneNonFiniteClause</type>
+                                        
+                    <type>Z2.NonFiniteClause</type>
+                                        
+                    <type>Z2.ImperativeClause</type>
+                                        
+                    <type>Z2.ReportingVerbs</type>
+                                        
+                    <type>Z2.ComparativeClause</type>
+                                        
+                    <type>Z2.IfClause</type>
+                                        
+                    <type>Z2.WHWordCluase</type>
+                                    
+                </inputs>
+                                
+                <outputs>
+                                        
+                    <type>Z2.Not</type>
+                                        
+                    <type>Z2.Dont</type>
+                                        
+                    <type>Z2.Doesnt</type>
+                                        
+                    <type>Z2.Didnt</type>
+                                        
+                    <type>Z2.Havent</type>
+                                        
+                    <type>Z2.Hasnt</type>
+                                        
+                    <type>Z2.Hadnt</type>
+                                        
+                    <type>Z2.Article</type>
+                                        
+                    <type>Z2.IrregularPluralNoun</type>
+                                        
+                    <type>Z2.UncountableNoun</type>
+                                        
+                    <type>Z2.CollectiveNoun</type>
+                                        
+                    <type>Z2.AdjectiveNoun</type>
+                                        
+                    <type>Z2.WHWord</type>
+                                        
+                    <type>Z2.DemonstrativePronoun</type>
+                                        
+                    <type>Z2.ReflexivePronoun</type>
+                                        
+                    <type>Z2.RelativePronoun</type>
+                                        
+                    <type>Z2.IndefinitePronoun</type>
+                                        
+                    <type>Z2.AdjectivePhrase</type>
+                                        
+                    <type>Z2.AdverbAdjective</type>
+                                        
+                    <type>Z2.AsAdjAs</type>
+                                        
+                    <type>Z2.Comparative</type>
+                                        
+                    <type>Z2.Superlative</type>
+                                        
+                    <type>Z2.DegreeAdj</type>
+                                        
+                    <type>Z2.TimeAdj</type>
+                                        
+                    <type>Z2.IrregularComparatives</type>
+                                        
+                    <type>Z2.ComparativeAdv</type>
+                                        
+                    <type>Z2.SuperlativeAdv</type>
+                                        
+                    <type>Z2.DeterminerWithSingularNouns</type>
+                                        
+                    <type>Z2.DeterminerWithPluralNouns</type>
+                                        
+                    <type>Z2.DeterminerWithUncountableNouns</type>
+                                        
+                    <type>Z2.DeterminersWithCountableNouns</type>
+                                        
+                    <type>Z2.DeterminerWithPluralAndUncountableNouns</type>
+                                        
+                    <type>Z2.DeterminerOf</type>
+                                        
+                    <type>Z2.Determiner</type>
+                                        
+                    <type>Z2.ComplexPreposition</type>
+                                        
+                    <type>Z2.SimplePreposition</type>
+                                        
+                    <type>Z2.Preposition</type>
+                                        
+                    <type>Z2.PrepositionPhrase</type>
+                                        
+                    <type>Z2.TimeAdv</type>
+                                        
+                    <type>Z2.Place</type>
+                                        
+                    <type>Z2.Degree</type>
+                                        
+                    <type>Z2.Manner</type>
+                                        
+                    <type>Z2.Linking</type>
+                                        
+                    <type>Z2.Focus</type>
+                                        
+                    <type>Z2.Organising</type>
+                                        
+                    <type>Z2.Certainty</type>
+                                        
+                    <type>Z2.Stance</type>
+                                        
+                    <type>Z2.AdverbModifyingAdverb</type>
+                                        
+                    <type>Z2.IndefiniteFrequency</type>
+                                        
+                    <type>Z2.Distancing</type>
+                                        
+                    <type>Z2.Frequency</type>
+                                        
+                    <type>Z2.Sequencing</type>
+                                        
+                    <type>Z2.OtherAdverbs</type>
+                                        
+                    <type>Z2.Adverb</type>
+                                        
+                    <type>Z2.TimeAdjunct</type>
+                                        
+                    <type>Z2.Contrasting</type>
+                                        
+                    <type>Z2.Adding</type>
+                                        
+                    <type>Z2.MakingNewKnowledgeInformal</type>
+                                        
+                    <type>Z2.Comparing</type>
+                                        
+                    <type>Z2.Summarising</type>
+                                        
+                    <type>Z2.Reference</type>
+                                        
+                    <type>Z2.FrontingExpression</type>
+                                        
+                    <type>Z2.SimpleSubordinatingConjunction</type>
+                                        
+                    <type>Z2.ComplexSubordinatingConjunction</type>
+                                        
+                    <type>Z2.Conjunction</type>
+                                        
+                    <type>Z2.Particle</type>
+                                        
+                    <type>Z2.Be</type>
+                                        
+                    <type>Z2.Is</type>
+                                        
+                    <type>Z2.Was</type>
+                                        
+                    <type>Z2.Do</type>
+                                        
+                    <type>Z2.Does</type>
+                                        
+                    <type>Z2.Did</type>
+                                        
+                    <type>Z2.Have</type>
+                                        
+                    <type>Z2.Has</type>
+                                        
+                    <type>Z2.Had</type>
+                                        
+                    <type>Z2.Will</type>
+                                        
+                    <type>Z2.Would</type>
+                                        
+                    <type>Z2.Can</type>
+                                        
+                    <type>Z2.Could</type>
+                                        
+                    <type>Z2.May</type>
+                                        
+                    <type>Z2.Might</type>
+                                        
+                    <type>Z2.Must</type>
+                                        
+                    <type>Z2.Need</type>
+                                        
+                    <type>Z2.Ought</type>
+                                        
+                    <type>Z2.Shall</type>
+                                        
+                    <type>Z2.Should</type>
+                                        
+                    <type>Z2.ModalVerb</type>
+                                        
+                    <type>Z2.Doing</type>
+                                        
+                    <type>Z2.ToDo</type>
+                                        
+                    <type>Z2.Done</type>
+                                        
+                    <type>Z2.BeenDone</type>
+                                        
+                    <type>Z2.BeingDone</type>
+                                        
+                    <type>Z2.ToBeDone</type>
+                                        
+                    <type>Z2.Passive</type>
+                                        
+                    <type>Z2.Present3rd</type>
+                                        
+                    <type>Z2.PresentNon3rd</type>
+                                        
+                    <type>Z2.Present</type>
+                                        
+                    <type>Z2.Past</type>
+                                        
+                    <type>Z2.Used</type>
+                                        
+                    <type>Z2.BeenDoing</type>
+                                        
+                    <type>Z2.WillShall</type>
+                                        
+                    <type>Z2.Going</type>
+                                        
+                    <type>Z2.Future</type>
+                                        
+                    <type>Z2.Subject</type>
+                                        
+                    <type>Z2.Object</type>
+                                        
+                    <type>Z2.FiniteClause1</type>
+                                        
+                    <type>Z2.FiniteClause2</type>
+                                        
+                    <type>Z2.DoingNonFiniteClause</type>
+                                        
+                    <type>Z2.ToDoNonFiniteClause</type>
+                                        
+                    <type>Z2.DoneNonFiniteClause</type>
+                                        
+                    <type>Z2.NonFiniteClause</type>
+                                        
+                    <type>Z2.ImperativeClause</type>
+                                        
+                    <type>Z2.ReportingVerbs</type>
+                                        
+                    <type>Z2.ComparativeClause</type>
+                                        
+                    <type>Z2.IfClause</type>
+                                        
+                    <type>Z2.WHWordCluase</type>
+                                    
+                </outputs>
+                                
+                <languagesSupported/>
+                            
+            </capability>
+                    
+        </capabilities>
+                
+        <operationalProperties>
+                        
+            <modifiesCas>true</modifiesCas>
+                        
+            <multipleDeploymentAllowed>true</multipleDeploymentAllowed>
+                        
+            <outputsNewCASes>true</outputsNewCASes>
+                    
+        </operationalProperties>
+            
+    </analysisEngineMetaData>
+        
+    <resourceManagerConfiguration/>
+    
+</analysisEngineDescription>
